@@ -1,0 +1,11 @@
+
+Onboarding notes:
+
+1. Run 'rails s' on Polar Eats Backend to launch the sign up page for restaurants
+2. Restaurants should select "managed" when creating their page and then enter all relevant bank information.
+
+
+
+Need to test:
+    - live payments
+

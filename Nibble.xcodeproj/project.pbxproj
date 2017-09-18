@@ -1,0 +1,688 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC2D19E11F60ABA000B8844C /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AC2D19E01F60ABA000B8844C /* data.json */; };
+		ACA449521F6DD9E7000091C8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA449511F6DD9E7000091C8 /* Item.swift */; };
+		DD2520DB1F448424008049E3 /* MyAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2520DA1F448424008049E3 /* MyAPIClient.swift */; };
+		DD2520DD1F4484E1008049E3 /* CheckoutRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2520DC1F4484E1008049E3 /* CheckoutRowView.swift */; };
+		DD2520DF1F4485FC008049E3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2520DE1F4485FC008049E3 /* SettingsViewController.swift */; };
+		DD2520E11F44866B008049E3 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2520E01F44866B008049E3 /* Buttons.swift */; };
+		DD9A27DA1F44E4EC000BFEB1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD9A27D91F44E4EC000BFEB1 /* GoogleService-Info.plist */; };
+		DD9A27DE1F45E7D9000BFEB1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9A27DD1F45E7D9000BFEB1 /* User.swift */; };
+		DD9A27E01F45E7E8000BFEB1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9A27DF1F45E7E8000BFEB1 /* LoginViewController.swift */; };
+		DD9A27E21F45F5CA000BFEB1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9A27E11F45F5CA000BFEB1 /* ProfileViewController.swift */; };
+		DD9D38791F4345C000BC09A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D38781F4345C000BC09A7 /* AppDelegate.swift */; };
+		DD9D387B1F4345C000BC09A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D387A1F4345C000BC09A7 /* ViewController.swift */; };
+		DD9D387E1F4345C000BC09A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9D387C1F4345C000BC09A7 /* Main.storyboard */; };
+		DD9D38801F4345C000BC09A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD9D387F1F4345C000BC09A7 /* Assets.xcassets */; };
+		DD9D38831F4345C000BC09A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9D38811F4345C000BC09A7 /* LaunchScreen.storyboard */; };
+		DD9D38A71F43466A00BC09A7 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = DD9D38A61F43466A00BC09A7 /* Podfile */; };
+		DD9D38A91F43492B00BC09A7 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D38A81F43492B00BC09A7 /* RestaurantViewController.swift */; };
+		DD9D38AB1F43578300BC09A7 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D38AA1F43578300BC09A7 /* RestaurantCell.swift */; };
+		DD9D38AD1F4387D600BC09A7 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D38AC1F4387D600BC09A7 /* MenuItemCell.swift */; };
+		DD9D38AF1F43984A00BC09A7 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D38AE1F43984A00BC09A7 /* CheckoutViewController.swift */; };
+		DDC6609C1F4CA284003C1933 /* RestaurantOrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC6609B1F4CA284003C1933 /* RestaurantOrdersTableViewController.swift */; };
+		DDC6609E1F4CA4B1003C1933 /* RestaurantOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC6609D1F4CA4B1003C1933 /* RestaurantOrderCell.swift */; };
+		DDFCB92C1F4B705C00EAD70E /* OrderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFCB92B1F4B705C00EAD70E /* OrderViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD9D388A1F4345C000BC09A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD9D386D1F4345C000BC09A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD9D38741F4345C000BC09A7;
+			remoteInfo = UEats;
+		};
+		DD9D38951F4345C000BC09A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD9D386D1F4345C000BC09A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD9D38741F4345C000BC09A7;
+			remoteInfo = UEats;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		29238E06EDBC7BDABEC79DC5 /* Pods-Nibble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nibble.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nibble/Pods-Nibble.release.xcconfig"; sourceTree = "<group>"; };
+		4018628B195BF2BAF3F366B6 /* Pods_Nibble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nibble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43C0AA10EAF0E25F515421EC /* Pods-Nibble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nibble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nibble/Pods-Nibble.debug.xcconfig"; sourceTree = "<group>"; };
+		6477E3B2D3272B09425F2BB6 /* Pods-UEats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UEats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UEats/Pods-UEats.debug.xcconfig"; sourceTree = "<group>"; };
+		AA5020175A614410FEACE75D /* Pods_UEats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UEats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC2D19E01F60ABA000B8844C /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		ACA449511F6DD9E7000091C8 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		DD2520DA1F448424008049E3 /* MyAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIClient.swift; sourceTree = "<group>"; };
+		DD2520DC1F4484E1008049E3 /* CheckoutRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutRowView.swift; sourceTree = "<group>"; };
+		DD2520DE1F4485FC008049E3 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		DD2520E01F44866B008049E3 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		DD9A27D91F44E4EC000BFEB1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DD9A27DB1F45DA81000BFEB1 /* Hockey_Distribution_Profile.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hockey_Distribution_Profile.mobileprovision; sourceTree = "<group>"; };
+		DD9A27DD1F45E7D9000BFEB1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DD9A27DF1F45E7E8000BFEB1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DD9A27E11F45F5CA000BFEB1 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DD9D38751F4345C000BC09A7 /* Nibble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nibble.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD9D38781F4345C000BC09A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD9D387A1F4345C000BC09A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DD9D387D1F4345C000BC09A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD9D387F1F4345C000BC09A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD9D38821F4345C000BC09A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DD9D38841F4345C000BC09A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD9D38891F4345C000BC09A7 /* NibbleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NibbleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD9D38941F4345C000BC09A7 /* NibbleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NibbleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD9D38A61F43466A00BC09A7 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		DD9D38A81F43492B00BC09A7 /* RestaurantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
+		DD9D38AA1F43578300BC09A7 /* RestaurantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
+		DD9D38AC1F4387D600BC09A7 /* MenuItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemCell.swift; sourceTree = "<group>"; };
+		DD9D38AE1F43984A00BC09A7 /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		DDC6609B1F4CA284003C1933 /* RestaurantOrdersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantOrdersTableViewController.swift; sourceTree = "<group>"; };
+		DDC6609D1F4CA4B1003C1933 /* RestaurantOrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantOrderCell.swift; sourceTree = "<group>"; };
+		DDFCB92B1F4B705C00EAD70E /* OrderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewCell.swift; sourceTree = "<group>"; tabWidth = 3; };
+		EE46509EE9092FC70530E972 /* Pods-UEats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UEats.release.xcconfig"; path = "Pods/Target Support Files/Pods-UEats/Pods-UEats.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD9D38721F4345C000BC09A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD9D38861F4345C000BC09A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD9D38911F4345C000BC09A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C4388EB4EE0B662BC0BCC8C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA5020175A614410FEACE75D /* Pods_UEats.framework */,
+				4018628B195BF2BAF3F366B6 /* Pods_Nibble.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D1778E6A975FA4CCBC3D7118 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6477E3B2D3272B09425F2BB6 /* Pods-UEats.debug.xcconfig */,
+				EE46509EE9092FC70530E972 /* Pods-UEats.release.xcconfig */,
+				43C0AA10EAF0E25F515421EC /* Pods-Nibble.debug.xcconfig */,
+				29238E06EDBC7BDABEC79DC5 /* Pods-Nibble.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DD2520E21F448671008049E3 /* Stripe Checkout Elements */ = {
+			isa = PBXGroup;
+			children = (
+				DD2520DA1F448424008049E3 /* MyAPIClient.swift */,
+				DD2520E01F44866B008049E3 /* Buttons.swift */,
+				DD2520DE1F4485FC008049E3 /* SettingsViewController.swift */,
+				DD2520DC1F4484E1008049E3 /* CheckoutRowView.swift */,
+			);
+			name = "Stripe Checkout Elements";
+			sourceTree = "<group>";
+		};
+		DD9D386C1F4345C000BC09A7 = {
+			isa = PBXGroup;
+			children = (
+				DD9D38771F4345C000BC09A7 /* Nibble */,
+				DD9D38761F4345C000BC09A7 /* Products */,
+				D1778E6A975FA4CCBC3D7118 /* Pods */,
+				DD9D38A61F43466A00BC09A7 /* Podfile */,
+				C4388EB4EE0B662BC0BCC8C0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DD9D38761F4345C000BC09A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD9D38751F4345C000BC09A7 /* Nibble.app */,
+				DD9D38891F4345C000BC09A7 /* NibbleTests.xctest */,
+				DD9D38941F4345C000BC09A7 /* NibbleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD9D38771F4345C000BC09A7 /* Nibble */ = {
+			isa = PBXGroup;
+			children = (
+				AC2D19E01F60ABA000B8844C /* data.json */,
+				ACA449511F6DD9E7000091C8 /* Item.swift */,
+				DD9A27DD1F45E7D9000BFEB1 /* User.swift */,
+				DD9A27DF1F45E7E8000BFEB1 /* LoginViewController.swift */,
+				DDC6609B1F4CA284003C1933 /* RestaurantOrdersTableViewController.swift */,
+				DD9A27E11F45F5CA000BFEB1 /* ProfileViewController.swift */,
+				DD9D38781F4345C000BC09A7 /* AppDelegate.swift */,
+				DD9D387A1F4345C000BC09A7 /* ViewController.swift */,
+				DD2520E21F448671008049E3 /* Stripe Checkout Elements */,
+				DD9D38AE1F43984A00BC09A7 /* CheckoutViewController.swift */,
+				DD9D38A81F43492B00BC09A7 /* RestaurantViewController.swift */,
+				DD9D38AA1F43578300BC09A7 /* RestaurantCell.swift */,
+				DD9D38AC1F4387D600BC09A7 /* MenuItemCell.swift */,
+				DDFCB92B1F4B705C00EAD70E /* OrderViewCell.swift */,
+				DDC6609D1F4CA4B1003C1933 /* RestaurantOrderCell.swift */,
+				DD9D387C1F4345C000BC09A7 /* Main.storyboard */,
+				DD9D387F1F4345C000BC09A7 /* Assets.xcassets */,
+				DD9D38811F4345C000BC09A7 /* LaunchScreen.storyboard */,
+				DD9D38841F4345C000BC09A7 /* Info.plist */,
+				DD9A27D91F44E4EC000BFEB1 /* GoogleService-Info.plist */,
+				DD9A27DB1F45DA81000BFEB1 /* Hockey_Distribution_Profile.mobileprovision */,
+			);
+			path = Nibble;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD9D38741F4345C000BC09A7 /* Nibble */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD9D389D1F4345C000BC09A7 /* Build configuration list for PBXNativeTarget "Nibble" */;
+			buildPhases = (
+				915B5F0D9AB9917AEC5DF3F4 /* [CP] Check Pods Manifest.lock */,
+				DD9D38711F4345C000BC09A7 /* Sources */,
+				DD9D38721F4345C000BC09A7 /* Frameworks */,
+				DD9D38731F4345C000BC09A7 /* Resources */,
+				BD23199F5D392EAC2F28ADD3 /* [CP] Embed Pods Frameworks */,
+				62729397764B3961232F6727 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nibble;
+			productName = UEats;
+			productReference = DD9D38751F4345C000BC09A7 /* Nibble.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DD9D38881F4345C000BC09A7 /* NibbleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD9D38A01F4345C000BC09A7 /* Build configuration list for PBXNativeTarget "NibbleTests" */;
+			buildPhases = (
+				DD9D38851F4345C000BC09A7 /* Sources */,
+				DD9D38861F4345C000BC09A7 /* Frameworks */,
+				DD9D38871F4345C000BC09A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD9D388B1F4345C000BC09A7 /* PBXTargetDependency */,
+			);
+			name = NibbleTests;
+			productName = UEatsTests;
+			productReference = DD9D38891F4345C000BC09A7 /* NibbleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD9D38931F4345C000BC09A7 /* NibbleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD9D38A31F4345C000BC09A7 /* Build configuration list for PBXNativeTarget "NibbleUITests" */;
+			buildPhases = (
+				DD9D38901F4345C000BC09A7 /* Sources */,
+				DD9D38911F4345C000BC09A7 /* Frameworks */,
+				DD9D38921F4345C000BC09A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD9D38961F4345C000BC09A7 /* PBXTargetDependency */,
+			);
+			name = NibbleUITests;
+			productName = UEatsUITests;
+			productReference = DD9D38941F4345C000BC09A7 /* NibbleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD9D386D1F4345C000BC09A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Sawyer Billings";
+				TargetAttributes = {
+					DD9D38741F4345C000BC09A7 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = DB94ZEYT99;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+					DD9D38881F4345C000BC09A7 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = DB94ZEYT99;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DD9D38741F4345C000BC09A7;
+					};
+					DD9D38931F4345C000BC09A7 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = DB94ZEYT99;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DD9D38741F4345C000BC09A7;
+					};
+				};
+			};
+			buildConfigurationList = DD9D38701F4345C000BC09A7 /* Build configuration list for PBXProject "Nibble" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD9D386C1F4345C000BC09A7;
+			productRefGroup = DD9D38761F4345C000BC09A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD9D38741F4345C000BC09A7 /* Nibble */,
+				DD9D38881F4345C000BC09A7 /* NibbleTests */,
+				DD9D38931F4345C000BC09A7 /* NibbleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD9D38731F4345C000BC09A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD9A27DA1F44E4EC000BFEB1 /* GoogleService-Info.plist in Resources */,
+				AC2D19E11F60ABA000B8844C /* data.json in Resources */,
+				DD9D38831F4345C000BC09A7 /* LaunchScreen.storyboard in Resources */,
+				DD9D38801F4345C000BC09A7 /* Assets.xcassets in Resources */,
+				DD9D38A71F43466A00BC09A7 /* Podfile in Resources */,
+				DD9D387E1F4345C000BC09A7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD9D38871F4345C000BC09A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD9D38921F4345C000BC09A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		62729397764B3961232F6727 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nibble/Pods-Nibble-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		915B5F0D9AB9917AEC5DF3F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BD23199F5D392EAC2F28ADD3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nibble/Pods-Nibble-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD9D38711F4345C000BC09A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD9A27E01F45E7E8000BFEB1 /* LoginViewController.swift in Sources */,
+				DD9D38AB1F43578300BC09A7 /* RestaurantCell.swift in Sources */,
+				ACA449521F6DD9E7000091C8 /* Item.swift in Sources */,
+				DD2520DD1F4484E1008049E3 /* CheckoutRowView.swift in Sources */,
+				DDFCB92C1F4B705C00EAD70E /* OrderViewCell.swift in Sources */,
+				DD9D387B1F4345C000BC09A7 /* ViewController.swift in Sources */,
+				DD9D38A91F43492B00BC09A7 /* RestaurantViewController.swift in Sources */,
+				DDC6609C1F4CA284003C1933 /* RestaurantOrdersTableViewController.swift in Sources */,
+				DD2520DB1F448424008049E3 /* MyAPIClient.swift in Sources */,
+				DD2520E11F44866B008049E3 /* Buttons.swift in Sources */,
+				DDC6609E1F4CA4B1003C1933 /* RestaurantOrderCell.swift in Sources */,
+				DD9D38AD1F4387D600BC09A7 /* MenuItemCell.swift in Sources */,
+				DD9D38AF1F43984A00BC09A7 /* CheckoutViewController.swift in Sources */,
+				DD9D38791F4345C000BC09A7 /* AppDelegate.swift in Sources */,
+				DD9A27E21F45F5CA000BFEB1 /* ProfileViewController.swift in Sources */,
+				DD2520DF1F4485FC008049E3 /* SettingsViewController.swift in Sources */,
+				DD9A27DE1F45E7D9000BFEB1 /* User.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD9D38851F4345C000BC09A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD9D38901F4345C000BC09A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD9D388B1F4345C000BC09A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD9D38741F4345C000BC09A7 /* Nibble */;
+			targetProxy = DD9D388A1F4345C000BC09A7 /* PBXContainerItemProxy */;
+		};
+		DD9D38961F4345C000BC09A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD9D38741F4345C000BC09A7 /* Nibble */;
+			targetProxy = DD9D38951F4345C000BC09A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DD9D387C1F4345C000BC09A7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD9D387D1F4345C000BC09A7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DD9D38811F4345C000BC09A7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD9D38821F4345C000BC09A7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DD9D389B1F4345C000BC09A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DD9D389C1F4345C000BC09A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DD9D389E1F4345C000BC09A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43C0AA10EAF0E25F515421EC /* Pods-Nibble.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = DB94ZEYT99;
+				INFOPLIST_FILE = "$(SRCROOT)/Nibble/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sbilling.Nibble;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DD9D389F1F4345C000BC09A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29238E06EDBC7BDABEC79DC5 /* Pods-Nibble.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sawyer Billings (DB94ZEYT99)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = DB94ZEYT99;
+				INFOPLIST_FILE = "$(SRCROOT)/Nibble/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sbilling.Nibble;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DD9D38A11F4345C000BC09A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = DB94ZEYT99;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nibble.app/Nibble";
+			};
+			name = Debug;
+		};
+		DD9D38A21F4345C000BC09A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = DB94ZEYT99;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nibble.app/Nibble";
+			};
+			name = Release;
+		};
+		DD9D38A41F4345C000BC09A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = DB94ZEYT99;
+				INFOPLIST_FILE = UEatsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sbilling.ueats.UEatsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = UEats;
+			};
+			name = Debug;
+		};
+		DD9D38A51F4345C000BC09A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = DB94ZEYT99;
+				INFOPLIST_FILE = UEatsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sbilling.ueats.UEatsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = UEats;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD9D38701F4345C000BC09A7 /* Build configuration list for PBXProject "Nibble" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD9D389B1F4345C000BC09A7 /* Debug */,
+				DD9D389C1F4345C000BC09A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD9D389D1F4345C000BC09A7 /* Build configuration list for PBXNativeTarget "Nibble" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD9D389E1F4345C000BC09A7 /* Debug */,
+				DD9D389F1F4345C000BC09A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD9D38A01F4345C000BC09A7 /* Build configuration list for PBXNativeTarget "NibbleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD9D38A11F4345C000BC09A7 /* Debug */,
+				DD9D38A21F4345C000BC09A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD9D38A31F4345C000BC09A7 /* Build configuration list for PBXNativeTarget "NibbleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD9D38A41F4345C000BC09A7 /* Debug */,
+				DD9D38A51F4345C000BC09A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD9D386D1F4345C000BC09A7 /* Project object */;
+}

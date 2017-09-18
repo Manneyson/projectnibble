@@ -1,0 +1,6 @@
+framework module Pods_Nibble {
+  umbrella header "Pods-Nibble-umbrella.h"
+
+  export *
+  module * { export * }
+}
