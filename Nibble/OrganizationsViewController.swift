@@ -21,6 +21,7 @@ class OrganizationsViewController: UITableViewController, MXParallaxHeaderDelega
     
     private var restaurants: [String] = []
     private var images: [String] = []
+    private var descriptions: [String] = []
     private var destinations: [String] = []
     
     var selected: String?
@@ -46,7 +47,7 @@ class OrganizationsViewController: UITableViewController, MXParallaxHeaderDelega
         tableView.parallaxHeader.minimumHeight = 20
         
         tableView.parallaxHeader.delegate = self
-        tableView.register(RestaurantCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(OrganizationCell.self, forCellReuseIdentifier: "Cell")
         tableView.separatorStyle = .none
         
         Auth.auth().addStateDidChangeListener { auth, user in
@@ -91,7 +92,7 @@ class OrganizationsViewController: UITableViewController, MXParallaxHeaderDelega
     /// corresponding image and menu link
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RestaurantCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! OrganizationCell
         
         let spots = Database.database().reference().child("organizations")
         
@@ -101,9 +102,11 @@ class OrganizationsViewController: UITableViewController, MXParallaxHeaderDelega
                     let spot = entries.value as? [String: AnyObject]
                     self.restaurants.append(spot?["name"] as! String)
                     self.images.append(spot?["icon"] as! String)
+                    self.descriptions.append(spot?["info"] as! String)
                 }
                 cell.myLabel1.text = "\(self.restaurants[indexPath.row])"
                 cell.profile.downloadedFrom(link: self.images[indexPath.row])
+                cell.detail.text = "\(self.descriptions[indexPath.row])"
             }
         })
         
@@ -113,7 +116,7 @@ class OrganizationsViewController: UITableViewController, MXParallaxHeaderDelega
     // MARK: - Table view delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! RestaurantCell
+        let cell = tableView.cellForRow(at: indexPath) as! OrganizationCell
         cell.selectionStyle = UITableViewCellSelectionStyle.none
     }
     
