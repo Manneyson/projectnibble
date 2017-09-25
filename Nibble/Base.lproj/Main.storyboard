@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7fa-Pd-zK3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7fa-Pd-zK3">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -61,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nAb-2G-7LS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2092.5" y="0.0"/>
+            <point key="canvasLocation" x="504" y="181"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -132,9 +132,9 @@
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="854" y="526"/>
+            <point key="canvasLocation" x="4921.875" y="1626.7605633802816"/>
         </scene>
-        <!--Restaurant View Controller-->
+        <!--Restaurants-->
         <scene sceneID="gOg-7S-OGX">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="3KP-Cj-W6i" customClass="RestaurantViewController" customModule="Nibble" customModuleProvider="target" sceneMemberID="viewController">
@@ -143,6 +143,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Restaurants" image="icons8-restaurant_filled" id="dsD-sE-mnZ"/>
                     <connections>
                         <outlet property="headerView" destination="NQe-ma-zRI" id="Alr-XZ-XOl"/>
                         <outlet property="profile" destination="Y6k-FM-lu0" id="rmU-Ws-avV"/>
@@ -183,7 +184,55 @@
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-15.199999999999999" y="525.78710644677665"/>
+            <point key="canvasLocation" x="3628.125" y="1626.7605633802816"/>
+        </scene>
+        <!--Organizations-->
+        <scene sceneID="fFb-PJ-iKP">
+            <objects>
+                <viewController id="G3z-Iu-7lG" customClass="OrganizationsViewController" customModule="Nibble" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pJK-RO-JPV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Organizations" image="icons8-receive_cash_filled" id="0qC-bb-LUj"/>
+                    <connections>
+                        <outlet property="headerView" destination="DpR-af-0Wm" id="Nvt-hp-35t"/>
+                        <outlet property="profile" destination="Txr-GN-rVn" id="8eX-hx-wk2"/>
+                    </connections>
+                </viewController>
+                <view contentMode="scaleToFill" id="DpR-af-0Wm">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <subviews>
+                        <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nibble" translatesAutoresizingMaskIntoConstraints="NO" id="8Ks-3B-UVb">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.opaque" value="NO"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Txr-GN-rVn">
+                            <rect key="frame" x="287.5" y="220" width="25" height="25"/>
+                            <state key="normal" image="profile"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.99607843139999996" green="0.99215686270000003" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="8Ks-3B-UVb" firstAttribute="top" secondItem="DpR-af-0Wm" secondAttribute="top" id="EHj-w3-ZbB"/>
+                        <constraint firstItem="8Ks-3B-UVb" firstAttribute="leading" secondItem="DpR-af-0Wm" secondAttribute="leading" id="TEQ-KH-Phn"/>
+                        <constraint firstAttribute="bottom" secondItem="8Ks-3B-UVb" secondAttribute="bottom" id="TZc-J5-E85"/>
+                        <constraint firstAttribute="trailing" secondItem="8Ks-3B-UVb" secondAttribute="trailing" id="eRH-Yq-OVh"/>
+                        <constraint firstItem="8Ks-3B-UVb" firstAttribute="top" secondItem="Txr-GN-rVn" secondAttribute="bottom" constant="-245" id="qc2-pv-kEA"/>
+                        <constraint firstItem="Txr-GN-rVn" firstAttribute="centerX" secondItem="DpR-af-0Wm" secondAttribute="centerX" id="rFa-LM-6fZ"/>
+                    </constraints>
+                </view>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oy3-vb-6Cp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3628" y="3095"/>
         </scene>
         <!--Restaurant Order Table View Controller-->
         <scene sceneID="XXH-Kn-wd5">
@@ -374,22 +423,42 @@
                         <outlet property="signUp" destination="u64-yu-5yf" id="S8C-2L-np2"/>
                         <outlet property="textFieldLoginEmail" destination="pUF-ob-nJ4" id="xzG-rk-NgX"/>
                         <outlet property="textFieldLoginPassword" destination="CLF-C3-2HX" id="71k-yO-YTV"/>
-                        <segue destination="3KP-Cj-W6i" kind="presentation" identifier="LoginToList" id="Wva-gs-p9n"/>
+                        <segue destination="2xT-gD-hpn" kind="presentation" identifier="LoginToList" id="Wva-gs-p9n"/>
                         <segue destination="4Kz-Xo-VJx" kind="presentation" identifier="restaurantSegue" id="scY-mR-Dfw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kor-RZ-IhE" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1130.4000000000001" y="525.78710644677665"/>
+            <point key="canvasLocation" x="-1551" y="280"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="m3O-zq-xHz">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="2xT-gD-hpn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="dON-YJ-CZa">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="3KP-Cj-W6i" kind="relationship" relationship="viewControllers" id="FtP-8d-JJh"/>
+                        <segue destination="G3z-Iu-7lG" kind="relationship" relationship="viewControllers" id="f4f-i4-ca8"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gZq-m9-AhL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2630.625" y="1626.7605633802816"/>
         </scene>
     </scenes>
     <resources>
         <image name="close" width="25" height="25"/>
+        <image name="icons8-receive_cash_filled" width="25" height="25"/>
+        <image name="icons8-restaurant_filled" width="25" height="25"/>
         <image name="nibble" width="457" height="303"/>
         <image name="portland pie header" width="200" height="200"/>
         <image name="profile" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OWf-vH-yCd"/>
+        <segue reference="pDt-tZ-ZRg"/>
     </inferredMetricsTieBreakers>
 </document>

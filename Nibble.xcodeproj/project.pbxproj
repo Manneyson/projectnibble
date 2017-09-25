@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC178ED51F792E2C009679C6 /* OrganizationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC178ED41F792E2C009679C6 /* OrganizationsViewController.swift */; };
 		AC2D19E11F60ABA000B8844C /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AC2D19E01F60ABA000B8844C /* data.json */; };
 		ACA449521F6DD9E7000091C8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA449511F6DD9E7000091C8 /* Item.swift */; };
 		DD2520DB1F448424008049E3 /* MyAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2520DA1F448424008049E3 /* MyAPIClient.swift */; };
@@ -55,6 +56,7 @@
 		43C0AA10EAF0E25F515421EC /* Pods-Nibble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nibble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nibble/Pods-Nibble.debug.xcconfig"; sourceTree = "<group>"; };
 		6477E3B2D3272B09425F2BB6 /* Pods-UEats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UEats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UEats/Pods-UEats.debug.xcconfig"; sourceTree = "<group>"; };
 		AA5020175A614410FEACE75D /* Pods_UEats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UEats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC178ED41F792E2C009679C6 /* OrganizationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsViewController.swift; sourceTree = "<group>"; };
 		AC2D19E01F60ABA000B8844C /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		ACA449511F6DD9E7000091C8 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		DD2520DA1F448424008049E3 /* MyAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIClient.swift; sourceTree = "<group>"; };
@@ -167,16 +169,17 @@
 			isa = PBXGroup;
 			children = (
 				AC2D19E01F60ABA000B8844C /* data.json */,
+				DD9D38781F4345C000BC09A7 /* AppDelegate.swift */,
 				ACA449511F6DD9E7000091C8 /* Item.swift */,
 				DD9A27DD1F45E7D9000BFEB1 /* User.swift */,
 				DD9A27DF1F45E7E8000BFEB1 /* LoginViewController.swift */,
 				DDC6609B1F4CA284003C1933 /* RestaurantOrdersTableViewController.swift */,
 				DD9A27E11F45F5CA000BFEB1 /* ProfileViewController.swift */,
-				DD9D38781F4345C000BC09A7 /* AppDelegate.swift */,
 				DD9D387A1F4345C000BC09A7 /* ViewController.swift */,
 				DD2520E21F448671008049E3 /* Stripe Checkout Elements */,
 				DD9D38AE1F43984A00BC09A7 /* CheckoutViewController.swift */,
 				DD9D38A81F43492B00BC09A7 /* RestaurantViewController.swift */,
+				AC178ED41F792E2C009679C6 /* OrganizationsViewController.swift */,
 				DD9D38AA1F43578300BC09A7 /* RestaurantCell.swift */,
 				DD9D38AC1F4387D600BC09A7 /* MenuItemCell.swift */,
 				DDFCB92B1F4B705C00EAD70E /* OrderViewCell.swift */,
@@ -401,6 +404,7 @@
 				DD2520DB1F448424008049E3 /* MyAPIClient.swift in Sources */,
 				DD2520E11F44866B008049E3 /* Buttons.swift in Sources */,
 				DDC6609E1F4CA4B1003C1933 /* RestaurantOrderCell.swift in Sources */,
+				AC178ED51F792E2C009679C6 /* OrganizationsViewController.swift in Sources */,
 				DD9D38AD1F4387D600BC09A7 /* MenuItemCell.swift in Sources */,
 				DD9D38AF1F43984A00BC09A7 /* CheckoutViewController.swift in Sources */,
 				DD9D38791F4345C000BC09A7 /* AppDelegate.swift in Sources */,

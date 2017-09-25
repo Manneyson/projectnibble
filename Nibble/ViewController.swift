@@ -35,7 +35,7 @@ class ViewController: UITableViewController, MXParallaxHeaderDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         let items = Database.database().reference().child("menu")
         items.observe(.value, with: { snapshot in
             for item in snapshot.children.allObjects as! [DataSnapshot] {
