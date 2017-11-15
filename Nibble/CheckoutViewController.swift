@@ -12,9 +12,9 @@ import Firebase
 
 class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
 
-    let stripePublishableKey = "sk_test_PrdcuoRnxhNQl9V4gz7OgE0e"
+    let stripePublishableKey = "sk_test_FJTJJAuysB52e6To02Wd1dmD"
     
-    let backendBaseURL: String? = "https://ueats-server.herokuapp.com"
+    let backendBaseURL: String? = "https://nibble-backend.herokuapp.com"
 
     let appleMerchantID: String? = nil
     
@@ -34,8 +34,9 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     let numberFormatter: NumberFormatter
     let shippingString: String
+    let restaurant: Restaurant
+    let organization: Organization
     var product = ""
-    var destination = ""
     var orderDetails : [String] = [""]
     var paymentInProgress: Bool = false {
         didSet {
@@ -55,7 +56,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         }
     }
 
-    init(product: String, price: Int, settings: Settings, order: [String], destination: String) {
+    init(product: String, price: Int, settings: Settings, order: [String], restaurant: Restaurant, organization: Organization) {
 
         let stripePublishableKey = self.stripePublishableKey
         let backendBaseURL = self.backendBaseURL
@@ -65,7 +66,8 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
 
         self.orderDetails = order
         self.product = product
-        self.destination = destination
+        self.restaurant = restaurant
+        self.organization = organization
         self.productImage.text = "My Order"
         self.productImage.font = UIFont(name: "Avenir-Book", size: 13)
         self.productImage.textColor = UIColor.white
@@ -128,7 +130,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.flatBlack()
+        self.view.backgroundColor = UIColor.black
         var red: CGFloat = 0
         self.theme.primaryBackgroundColor.getRed(&red, green: nil, blue: nil, alpha: nil)
         self.activityIndicator.activityIndicatorViewStyle = red < 0.5 ? .white : .gray
@@ -184,11 +186,15 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     // MARK: STPPaymentContextDelegate
     
     func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
+        let feePlusTax = Double(self.paymentContext.paymentAmount) + (Double(self.paymentContext.paymentAmount) * 0.08)
+
         MyAPIClient.sharedClient.completeCharge(paymentResult,
-                                                amount: self.paymentContext.paymentAmount,
-                                                fee: (Int(Double(self.paymentContext.paymentAmount) * 0.05)),
+                                                amount: Int(feePlusTax),
+                                                orgAmount: (Int(Double(feePlusTax) * (self.restaurant.pledge))),
+                                                restAmount: (Int(Double(feePlusTax) - (Double(feePlusTax) * self.restaurant.pledge))),
                                                 description: self.product,
-                                                destination: self.destination,
+                                                restaurant: self.restaurant.stripe,
+                                                organization: self.organization.stripe,
                                                 shippingAddress: self.paymentContext.shippingAddress,
                                                 shippingMethod: self.paymentContext.selectedShippingMethod,
                                                 completion: completion)
@@ -226,7 +232,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
             newOrder.child(key).setValue(order)
 
             title = "Success"
-            message = "Your order is being processed and will be on the way shortly! Check your active orders for your order status."
+            message = "Your order has been placed and your donation has been processed! Thank you for ordering with Nibble!"
         case .userCancellation:
             return
         }
@@ -295,11 +301,11 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             if address.country == nil || address.country == "US" {
-                if (self.destination != "acct_1AzCpUHeM1kSTcQf") {
+               // if (self.restaurantId != "acct_1AzCpUHeM1kSTcQf") {
                     completion(.valid, nil, [upsGround, fedEx], fedEx)
-                } else {
-                    completion(.valid, nil, [upsGround], fedEx)
-                }
+                //} else {
+                  //  completion(.valid, nil, [upsGround], fedEx)
+                //}
             }
             else if address.country == "AQ" {
                 let error = NSError(domain: "ShippingError", code: 123, userInfo: [NSLocalizedDescriptionKey: "Invalid Shipping Address",

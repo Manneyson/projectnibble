@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184B30C0DA9DF6D4ABB4A0DA /* Pods_Nibble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4018628B195BF2BAF3F366B6 /* Pods_Nibble.framework */; };
 		AC178ED51F792E2C009679C6 /* OrganizationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC178ED41F792E2C009679C6 /* OrganizationsViewController.swift */; };
 		AC178ED71F7937C9009679C6 /* OrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC178ED61F7937C9009679C6 /* OrganizationCell.swift */; };
-		AC2D19E11F60ABA000B8844C /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AC2D19E01F60ABA000B8844C /* data.json */; };
+		AC29D61C1F8C0A28001D1B11 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC29D61B1F8C0A28001D1B11 /* Organization.swift */; };
+		AC5994E71F9CFD5500BCDA36 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5994E61F9CFD5500BCDA36 /* CardView.swift */; };
+		AC5BB6081F96C663004938DD /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5BB6071F96C663004938DD /* Restaurant.swift */; };
+		AC6252501FBBD493006FCACB /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC62524F1FBBD493006FCACB /* OrderViewController.swift */; };
+		AC84F22C1FAC168100038A74 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC84F22B1FAC168100038A74 /* HUD.swift */; };
 		ACA449521F6DD9E7000091C8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA449511F6DD9E7000091C8 /* Item.swift */; };
 		DD2520DB1F448424008049E3 /* MyAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2520DA1F448424008049E3 /* MyAPIClient.swift */; };
 		DD2520DD1F4484E1008049E3 /* CheckoutRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2520DC1F4484E1008049E3 /* CheckoutRowView.swift */; };
@@ -59,7 +64,13 @@
 		AA5020175A614410FEACE75D /* Pods_UEats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UEats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC178ED41F792E2C009679C6 /* OrganizationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsViewController.swift; sourceTree = "<group>"; };
 		AC178ED61F7937C9009679C6 /* OrganizationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationCell.swift; sourceTree = "<group>"; };
-		AC2D19E01F60ABA000B8844C /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		AC29D61B1F8C0A28001D1B11 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		AC5994E61F9CFD5500BCDA36 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		AC5BB6071F96C663004938DD /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		AC62524F1FBBD493006FCACB /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		AC84F22B1FAC168100038A74 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
+		AC88CE691FB27A7200307703 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		AC88CE6A1FB27A8100307703 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		ACA449511F6DD9E7000091C8 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		DD2520DA1F448424008049E3 /* MyAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIClient.swift; sourceTree = "<group>"; };
 		DD2520DC1F4484E1008049E3 /* CheckoutRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutRowView.swift; sourceTree = "<group>"; };
@@ -95,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184B30C0DA9DF6D4ABB4A0DA /* Pods_Nibble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,9 +127,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC12CE731FB2B62900833502 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AC5994E61F9CFD5500BCDA36 /* CardView.swift */,
+				ACA449511F6DD9E7000091C8 /* Item.swift */,
+				DD9A27DD1F45E7D9000BFEB1 /* User.swift */,
+				AC29D61B1F8C0A28001D1B11 /* Organization.swift */,
+				AC5BB6071F96C663004938DD /* Restaurant.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		AC12CE741FB2B63C00833502 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DD9D38AE1F43984A00BC09A7 /* CheckoutViewController.swift */,
+				DD9A27DF1F45E7E8000BFEB1 /* LoginViewController.swift */,
+				DDC6609B1F4CA284003C1933 /* RestaurantOrdersTableViewController.swift */,
+				DD9A27E11F45F5CA000BFEB1 /* ProfileViewController.swift */,
+				DD9D387A1F4345C000BC09A7 /* ViewController.swift */,
+				DD9D38A81F43492B00BC09A7 /* RestaurantViewController.swift */,
+				AC62524F1FBBD493006FCACB /* OrderViewController.swift */,
+				AC178ED41F792E2C009679C6 /* OrganizationsViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		AC12CE751FB2B65300833502 /* TableView Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AC178ED61F7937C9009679C6 /* OrganizationCell.swift */,
+				DD9D38AA1F43578300BC09A7 /* RestaurantCell.swift */,
+				DD9D38AC1F4387D600BC09A7 /* MenuItemCell.swift */,
+				DDFCB92B1F4B705C00EAD70E /* OrderViewCell.swift */,
+				DDC6609D1F4CA4B1003C1933 /* RestaurantOrderCell.swift */,
+			);
+			name = "TableView Cells";
+			sourceTree = "<group>";
+		};
+		AC12CE761FB2B66100833502 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DD9D387C1F4345C000BC09A7 /* Main.storyboard */,
+				AC84F22B1FAC168100038A74 /* HUD.swift */,
+				DD9D38781F4345C000BC09A7 /* AppDelegate.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		C4388EB4EE0B662BC0BCC8C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC88CE6A1FB27A8100307703 /* FBSDKLoginKit.framework */,
+				AC88CE691FB27A7200307703 /* FBSDKCoreKit.framework */,
 				AA5020175A614410FEACE75D /* Pods_UEats.framework */,
 				4018628B195BF2BAF3F366B6 /* Pods_Nibble.framework */,
 			);
@@ -170,24 +233,11 @@
 		DD9D38771F4345C000BC09A7 /* Nibble */ = {
 			isa = PBXGroup;
 			children = (
-				AC2D19E01F60ABA000B8844C /* data.json */,
-				DD9D38781F4345C000BC09A7 /* AppDelegate.swift */,
-				ACA449511F6DD9E7000091C8 /* Item.swift */,
-				DD9A27DD1F45E7D9000BFEB1 /* User.swift */,
-				DD9A27DF1F45E7E8000BFEB1 /* LoginViewController.swift */,
-				DDC6609B1F4CA284003C1933 /* RestaurantOrdersTableViewController.swift */,
-				DD9A27E11F45F5CA000BFEB1 /* ProfileViewController.swift */,
-				DD9D387A1F4345C000BC09A7 /* ViewController.swift */,
+				AC12CE761FB2B66100833502 /* Helpers */,
+				AC12CE731FB2B62900833502 /* Models */,
+				AC12CE741FB2B63C00833502 /* View Controllers */,
 				DD2520E21F448671008049E3 /* Stripe Checkout Elements */,
-				DD9D38AE1F43984A00BC09A7 /* CheckoutViewController.swift */,
-				DD9D38A81F43492B00BC09A7 /* RestaurantViewController.swift */,
-				AC178ED41F792E2C009679C6 /* OrganizationsViewController.swift */,
-				AC178ED61F7937C9009679C6 /* OrganizationCell.swift */,
-				DD9D38AA1F43578300BC09A7 /* RestaurantCell.swift */,
-				DD9D38AC1F4387D600BC09A7 /* MenuItemCell.swift */,
-				DDFCB92B1F4B705C00EAD70E /* OrderViewCell.swift */,
-				DDC6609D1F4CA4B1003C1933 /* RestaurantOrderCell.swift */,
-				DD9D387C1F4345C000BC09A7 /* Main.storyboard */,
+				AC12CE751FB2B65300833502 /* TableView Cells */,
 				DD9D387F1F4345C000BC09A7 /* Assets.xcassets */,
 				DD9D38811F4345C000BC09A7 /* LaunchScreen.storyboard */,
 				DD9D38841F4345C000BC09A7 /* Info.plist */,
@@ -319,7 +369,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD9A27DA1F44E4EC000BFEB1 /* GoogleService-Info.plist in Resources */,
-				AC2D19E11F60ABA000B8844C /* data.json in Resources */,
 				DD9D38831F4345C000BC09A7 /* LaunchScreen.storyboard in Resources */,
 				DD9D38801F4345C000BC09A7 /* Assets.xcassets in Resources */,
 				DD9D38A71F43466A00BC09A7 /* Podfile in Resources */,
@@ -396,9 +445,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC5BB6081F96C663004938DD /* Restaurant.swift in Sources */,
 				DD9A27E01F45E7E8000BFEB1 /* LoginViewController.swift in Sources */,
 				DD9D38AB1F43578300BC09A7 /* RestaurantCell.swift in Sources */,
 				ACA449521F6DD9E7000091C8 /* Item.swift in Sources */,
+				AC29D61C1F8C0A28001D1B11 /* Organization.swift in Sources */,
 				DD2520DD1F4484E1008049E3 /* CheckoutRowView.swift in Sources */,
 				DDFCB92C1F4B705C00EAD70E /* OrderViewCell.swift in Sources */,
 				DD9D387B1F4345C000BC09A7 /* ViewController.swift in Sources */,
@@ -408,13 +459,16 @@
 				DD2520E11F44866B008049E3 /* Buttons.swift in Sources */,
 				DDC6609E1F4CA4B1003C1933 /* RestaurantOrderCell.swift in Sources */,
 				AC178ED51F792E2C009679C6 /* OrganizationsViewController.swift in Sources */,
+				AC84F22C1FAC168100038A74 /* HUD.swift in Sources */,
 				DD9D38AD1F4387D600BC09A7 /* MenuItemCell.swift in Sources */,
 				DD9D38AF1F43984A00BC09A7 /* CheckoutViewController.swift in Sources */,
 				DD9D38791F4345C000BC09A7 /* AppDelegate.swift in Sources */,
 				AC178ED71F7937C9009679C6 /* OrganizationCell.swift in Sources */,
 				DD9A27E21F45F5CA000BFEB1 /* ProfileViewController.swift in Sources */,
 				DD2520DF1F4485FC008049E3 /* SettingsViewController.swift in Sources */,
+				AC5994E71F9CFD5500BCDA36 /* CardView.swift in Sources */,
 				DD9A27DE1F45E7D9000BFEB1 /* User.swift in Sources */,
+				AC6252501FBBD493006FCACB /* OrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,7 +620,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = DB94ZEYT99;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Nibble/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sbilling.Nibble;
@@ -574,7 +629,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -585,7 +640,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Sawyer Billings (DB94ZEYT99)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = DB94ZEYT99;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Nibble/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sbilling.Nibble;
@@ -593,7 +649,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -9,20 +9,35 @@
 import UIKit
 import MXParallaxHeader
 import Firebase
-import Lottie
 import PopupDialog
 import GMStepper
+import SCLAlertView
+import Kingfisher
 
 
-class ViewController: UITableViewController, MXParallaxHeaderDelegate {
+//
+//  ViewController.swift
+//  UEats
+//
+//  Created by Sawyer Billings on 8/15/17.
+//  Copyright © 2017 Sawyer Billings. All rights reserved.
+//
+
+import UIKit
+import Firebase
+
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var close: UIButton!
     
     @IBOutlet weak var checkout: UIButton!
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerImage: UIImageView!
     @IBOutlet var restaurantHeader: UIView!
-    var restaurant: String?
+    var restaurant: Restaurant?
+    var organizations: [Organization] = []
+    var organizationSelected: Organization?
     var destination: String?
     let settingsVC = SettingsViewController()
     var indexPath: IndexPath!
@@ -30,51 +45,84 @@ class ViewController: UITableViewController, MXParallaxHeaderDelegate {
     //var total = 0
     var ref: DatabaseReference!
     var counter : [String] = []
-
-
-
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        let hud = HUD.showLoading()
         let items = Database.database().reference().child("menu")
         items.observe(.value, with: { snapshot in
             for item in snapshot.children.allObjects as! [DataSnapshot] {
                 let menuObject = item.value as? [String: AnyObject]
-                if ((menuObject?["restaurant"] as! String).contains(self.restaurant!)) {
+                if ((menuObject?["restaurant"] as! String).contains(self.restaurant!.name)) {
                     self.counter.append("found")
                 }
             }
-                self.tableView.reloadData()
+            hud.dismiss()
+            self.tableView.reloadData()
         })
-
         
-        checkout.backgroundColor = UIColor.flatBlack()
+        
+        checkout.backgroundColor = UIColor.black
         checkout.layer.cornerRadius = 7
         
         // Parallax Header
         checkout.addTarget(self, action: #selector(checkoutPressed(_:)), for: .touchUpInside)
+        close.addTarget(self, action: #selector(closePressed(_:)), for: .touchUpInside)
         
-        headerImage.image = UIImage(named: (restaurant?.appending(" Header"))!) ?? UIImage(named: "nibble")
-        tableView.parallaxHeader.view = restaurantHeader
-        tableView.parallaxHeader.height = 200
-        tableView.parallaxHeader.mode = MXParallaxHeaderMode.fill
-        tableView.parallaxHeader.minimumHeight = 20
-        tableView.parallaxHeader.delegate = self
+        let url = URL(string: (self.restaurant?.header)!)
+        headerImage.kf.setImage(with: url)
+        tableView.delegate = self
         tableView.register(MenuItemCell.self, forCellReuseIdentifier: "Cell")
         tableView.separatorStyle = .singleLine
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.backgroundColor = UIColor.white
         close.addTarget(self, action: #selector(closePressed(_:)), for: UIControlEvents.touchUpInside)
         close.tintColor = UIColor.white
         
+        loadOrganizations()
         tableView.reloadData()
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return counter.count
+    
+    func loadOrganizations() {
+        let hud = HUD.showLoading()
+        let organizations = Database.database().reference().child("organizations")
+        organizations.observe(DataEventType.value, with: { (snapshot) in
+            if (snapshot.childrenCount > 0) {
+                for entries in snapshot.children.allObjects as! [DataSnapshot] {
+                    let spot = entries.value as? [String: AnyObject]
+                    self.organizations.append(Organization(name: spot?["name"] as! String, info: spot?["info"] as! String, icon: spot?["icon"] as! String, stripe: spot?["stripe"] as! String))
+                }
+            }
+            self.tableView.reloadData()
+            hud.dismiss()
+        })
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.counter.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! RestaurantCell
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! MenuItemCell
         var names : [String] = []
@@ -83,13 +131,12 @@ class ViewController: UITableViewController, MXParallaxHeaderDelegate {
         var attributes: [[Int]] = [[]]
         
         let items = Database.database().reference().child("menu")
-        
         items.observe(DataEventType.value, with: { (snapshot) in
             if (snapshot.childrenCount > 0) {
                 for item in snapshot.children.allObjects as! [DataSnapshot] {
                     let menuObject = item.value as? [String: AnyObject]
                     let currRestaurant = menuObject?["restaurant"] as! String
-                    if (currRestaurant == self.restaurant!) {
+                    if (currRestaurant == self.restaurant?.name) {
                         names.append(menuObject?["name"] as! String)
                         details.append(menuObject?["description"] as! String)
                         prices.append(menuObject?["price"] as! Int)
@@ -102,11 +149,11 @@ class ViewController: UITableViewController, MXParallaxHeaderDelegate {
                         continue
                     }
                 }
-                cell.myLabel1.text = names[indexPath.row]
-                //cell.faveButton.addTarget(self, action: #selector(self.addPressed(_:)), for: UIControlEvents.touchUpInside)
+                
+                cell.myLabel1.text = names[indexPath.section]
                 cell.addButton.addTarget(self, action: #selector(self.addPressed(_:)), for: UIControlEvents.touchUpInside)
-                cell.details.text = details[indexPath.row]
-                cell.attributes = [attributes[indexPath.row + 1]]
+                cell.details.text = details[indexPath.section]
+                cell.attributes = [attributes[indexPath.section + 1]]
                 if (self.shoppingCart.contains(where: {$0.name == cell.myLabel1.text!})) {
                     let item = self.shoppingCart.first(where: { $0.name == cell.myLabel1.text!})
                     cell.addButton.setImage(UIImage(named: "cancel"), for: .normal)
@@ -115,7 +162,7 @@ class ViewController: UITableViewController, MXParallaxHeaderDelegate {
                 } else {
                     cell.addButton.setImage(UIImage(named: "icons8-add_filled"), for: .normal)
                     cell.quantity.isHidden = true
-                    cell.quantityLabel.isHidden = true
+                    cell.quantityLabel.text = ("")
                 }
                 cell.quantity.addTarget(self, action: #selector(self.quantityPressed(_:)), for: .touchUpInside)
                 
@@ -124,17 +171,17 @@ class ViewController: UITableViewController, MXParallaxHeaderDelegate {
                 if (cell.attributes[0][0] == 99999) {
                     cell.attributes = nil
                     cell.price.isHidden = false
-                    cell.price.setTitle("$\(prices[indexPath.row]/100)", for: .normal)
+                    cell.price.setTitle("$\((prices[indexPath.section]/100) + 1)", for: .normal)
                     cell.price.titleLabel!.font =  UIFont(name: "Avenir-Book", size: 13)
-                    cell.cost = prices[indexPath.row]
+                    cell.cost = prices[indexPath.section]
                 } else {
                     if (self.shoppingCart.contains(where: {$0.name == cell.myLabel1.text!})) {
                         let item = self.shoppingCart.first(where: { $0.name == cell.myLabel1.text!})
-                        cell.price.setTitle("$\((item?.price)! / 100)", for: .normal)
+                        cell.price.setTitle("$\(((item?.price)! / 100) + 1)", for: .normal)
                         cell.price.titleLabel!.font =  UIFont(name: "Avenir-Book", size: 13)
                         cell.price.isHidden = false
                     } else {
-                        cell.price.setTitle("$\(cell.attributes[0][2]/100) - \(cell.attributes[0][0]/100)", for: .normal)
+                        cell.price.setTitle("$\((cell.attributes[0][2]/100) + 1) - \((cell.attributes[0][0]/100) + 1)", for: .normal)
                         cell.price.titleLabel!.font =  UIFont(name: "Avenir-Book", size: 10)
                     }
                 }
@@ -144,12 +191,13 @@ class ViewController: UITableViewController, MXParallaxHeaderDelegate {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 150
+        return 165
     }
     
-    func closePressed(_ sender:UIButton!){
+    
+    func closePressed(_ sender: UIButton!){
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -170,34 +218,48 @@ class ViewController: UITableViewController, MXParallaxHeaderDelegate {
     }
     
     func checkoutPressed(_ sender:UIButton!){
+        
         if (shoppingCart.count != 0) {
-            let checkoutViewController = CheckoutViewController(product: self.restaurant!,
-                                                                price: getOrderTotal(order: shoppingCart),
-                                                            settings: self.settingsVC.settings,
-                                                            order: convertOrderDetails(order: shoppingCart),
-                                                            destination: self.destination!)
-            self.present(checkoutViewController, animated: true)
+            //this will need to pull up the entire list of organizations
+            let alertView = SCLAlertView()
+            for org in self.organizations {
+                alertView.addButton("\(org.name)")  {
+                    self.organizationSelected = org
+                    let checkoutViewController = CheckoutViewController(product: self.restaurant!.name,
+                                                                        price: self.getOrderTotal(order: self.shoppingCart),
+                                                                        settings: self.settingsVC.settings,
+                                                                        order: self.convertOrderDetails(order: self.shoppingCart),
+                                                                        restaurant: self.restaurant!,
+                                                                        organization: (self.organizationSelected ?? nil)!)
+                    self.present(checkoutViewController, animated: true)
+                }
+            }
+            alertView.showSuccess(
+                "Organization Selection",
+                subTitle: "Please select a non profit",
+                colorStyle: 0x00000)
         }
+        
     }
     
     func quantityPressed(_ sender: UIButton!) {
         let cell = sender.superview?.superview as! MenuItemCell
         indexPath = self.tableView.indexPath(for: cell)
         
-        //increment the quantity and price of the item in our shopping cart 
+        //increment the quantity and price of the item in our shopping cart
         
         shoppingCart.first(where: { $0.name == cell.myLabel1.text! })?.quantity += 1
         shoppingCart.first(where: { $0.name == cell.myLabel1.text! })?.price += cell.cost!
         
         cell.quantityLabel.text = ("\(shoppingCart.first(where: { $0.name == cell.myLabel1.text! })?.quantity ?? 0) x ")
-        cell.quantityLabel.isHidden = false
+        //cell.quantityLabel.isHidden = false
     }
     
     func addPressed(_ sender:UIButton!){
         let cell = sender.superview?.superview as! MenuItemCell
         indexPath = self.tableView.indexPath(for: cell)
         
-
+        
         if (cell.attributes != nil) {
             if (shoppingCart.contains(where: { $0.name == cell.myLabel1.text! })){
                 for item in shoppingCart {
@@ -264,6 +326,8 @@ class ViewController: UITableViewController, MXParallaxHeaderDelegate {
             }
         }
     }
-
+    
 }
+
+
 

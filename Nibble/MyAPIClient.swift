@@ -24,19 +24,23 @@ class MyAPIClient: NSObject, STPEphemeralKeyProvider {
 
     func completeCharge(_ result: STPPaymentResult,
                         amount: Int,
-                        fee: Int,
+                        orgAmount: Int,
+                        restAmount: Int,
                         description: String,
-                        destination: String,
+                        restaurant: String,
+                        organization: String,
                         shippingAddress: STPAddress?,
                         shippingMethod: PKShippingMethod?,
                         completion: @escaping STPErrorBlock) {
         let url = self.baseURL.appendingPathComponent("charge")
         var params: [String: Any] = [
             "description": description,
-            "fee": fee,
             "source": result.source.stripeID,
             "amount": amount,
-            "destination": destination
+            "rest_amount": restAmount,
+            "org_amount": orgAmount,
+            "restaurant_id": restaurant,
+            "organization_id": organization,
         ]
         params["shipping"] = STPAddress.shippingInfoForCharge(with: shippingAddress, shippingMethod: shippingMethod)
         Alamofire.request(url, method: .post, parameters: params)

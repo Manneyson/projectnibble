@@ -14,6 +14,7 @@
 #import "STPAPIClient+Private.h"
 
 #import "NSBundle+Stripe_AppName.h"
+#import "NSError+Stripe.h"
 #import "STPAPIRequest.h"
 #import "STPAnalyticsClient.h"
 #import "STPBankAccount.h"
@@ -31,7 +32,6 @@
 #import "STPSourcePoller.h"
 #import "STPTelemetryClient.h"
 #import "STPToken.h"
-#import "StripeError.h"
 #import "UIImage+Stripe.h"
 
 #if __has_include("Fabric.h")
@@ -46,7 +46,7 @@
 #define FAUXPAS_IGNORED_IN_METHOD(...)
 FAUXPAS_IGNORED_IN_FILE(APIAvailability)
 
-static NSString * const APIVersion = @"2017-08-15";
+static NSString * const APIVersion = @"2015-10-12";
 static NSString * const APIBaseURL = @"https://api.stripe.com/v1";
 static NSString * const APIEndpointToken = @"tokens";
 static NSString * const APIEndpointSources = @"sources";
@@ -186,11 +186,11 @@ static NSString * const FileUploadURL = @"https://uploads.stripe.com/v1/files";
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-variable"
 + (void)validateKey:(NSString *)publishableKey {
-    //NSCAssert(publishableKey != nil && ![publishableKey isEqualToString:@""],
-              //@"You must use a valid publishable key to create a token. For more info, see https://stripe.com/docs/stripe.js");
-    //BOOL secretKey = [publishableKey hasPrefix:@"sk_"];
-    //NSCAssert(!secretKey,
-              //@"You are using a secret key to create a token, instead of the publishable one. For more info, see https://stripe.com/docs/stripe.js");
+    NSCAssert(publishableKey != nil && ![publishableKey isEqualToString:@""],
+              @"You must use a valid publishable key to create a token. For more info, see https://stripe.com/docs/stripe.js");
+    BOOL secretKey = [publishableKey hasPrefix:@"sk_"];
+    NSCAssert(!secretKey,
+              @"You are using a secret key to create a token, instead of the publishable one. For more info, see https://stripe.com/docs/stripe.js");
 #ifndef DEBUG
     if ([publishableKey.lowercaseString hasPrefix:@"pk_test"]) {
         FAUXPAS_IGNORED_IN_METHOD(NSLogUsed);
@@ -365,8 +365,8 @@ static NSString * const FileUploadURL = @"https://uploads.stripe.com/v1/files";
 
 @implementation STPAPIClient (CreditCards)
 
-- (void)createTokenWithCard:(STPCard *)card completion:(STPTokenCompletionBlock)completion {
-    NSMutableDictionary *params = [[STPFormEncoder dictionaryForObject:card] mutableCopy];
+- (void)createTokenWithCard:(STPCardParams *)cardParams completion:(STPTokenCompletionBlock)completion {
+    NSMutableDictionary *params = [[STPFormEncoder dictionaryForObject:cardParams] mutableCopy];
     [[STPTelemetryClient sharedInstance] addTelemetryFieldsToParams:params];
     [self createTokenWithParameters:params completion:completion];
     [[STPTelemetryClient sharedInstance] sendTelemetryData];
@@ -414,8 +414,8 @@ static NSString * const FileUploadURL = @"https://uploads.stripe.com/v1/files";
     [paymentRequest setMerchantIdentifier:merchantIdentifier];
     [paymentRequest setSupportedNetworks:[self supportedPKPaymentNetworks]];
     [paymentRequest setMerchantCapabilities:PKMerchantCapability3DS];
-    [paymentRequest setCountryCode:countryCode];
-    [paymentRequest setCurrencyCode:currencyCode];
+    [paymentRequest setCountryCode:countryCode.uppercaseString];
+    [paymentRequest setCurrencyCode:currencyCode.uppercaseString];
     return paymentRequest;
 }
 

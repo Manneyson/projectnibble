@@ -10,25 +10,24 @@ import UIKit
 import MXParallaxHeader
 import FirebaseAuth
 import Firebase
+import Kingfisher
 
-class OrganizationsViewController: UITableViewController, MXParallaxHeaderDelegate {
-
+class OrganizationsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet var headerView: UIView!
     
-    @IBOutlet weak var profile: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var donationCount: UILabel!
     
     var ref: DatabaseReference!
     
     private var restaurants: [String] = []
-    private var images: [String] = []
-    private var descriptions: [String] = []
-    private var destinations: [String] = []
+    private var organizations: [Organization] = []
+
     
     var selected: String?
     var indexPath: IndexPath!
     var user: User!
-    var start : [Int] = []
-    var end : [Int] = []
     
     
     override func viewDidLoad() {
@@ -36,126 +35,70 @@ class OrganizationsViewController: UITableViewController, MXParallaxHeaderDelega
         
         ref = Database.database().reference()
         
-        profile.addTarget(self, action: #selector(profilePressed(_:)), for: .touchUpInside)
-        profile.tintColor = UIColor.white
-        
-        
-        // Parallax Header
-        tableView.parallaxHeader.view = headerView // You can set the parallax header view from the floating view
-        tableView.parallaxHeader.height = 260
-        tableView.parallaxHeader.mode = MXParallaxHeaderMode.fill
-        tableView.parallaxHeader.minimumHeight = 20
-        
-        tableView.parallaxHeader.delegate = self
         tableView.register(OrganizationCell.self, forCellReuseIdentifier: "Cell")
         tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.backgroundColor = UIColor.white
         
-        Auth.auth().addStateDidChangeListener { auth, user in
-            guard let user = user else { return }
-            self.user = User(uid: user.uid, email: user.email!)
-        }
-        
-        /// Query in the closing hour of all the restaurants to be displayed
-        let items = Database.database().reference().child("hours")
-        items.observe(DataEventType.value, with: { (snapshot) in
-            if (snapshot.childrenCount > 0) {
-                for entries in snapshot.children.allObjects as! [DataSnapshot] {
-                    let hours = entries.value as? String
-                    let startHour = hours?.substring(to: (hours?.characters.index(of: "-"))!)
-                    var endHour = hours?.substring(from: (hours?.characters.index(of: "-"))!)
-                    endHour?.characters.removeFirst()
-                    self.start.append(((startHour as NSString?)?.integerValue)!)
-                    self.end.append(((endHour as NSString?)?.integerValue)!)
-                }
-            }
-            self.tableView.reloadData()
-        })
-        
-        let destinations = Database.database().reference().child("stripe")
-        destinations.observe(DataEventType.value, with: { (snapshot) in
-            if (snapshot.childrenCount > 0) {
-                for entries in snapshot.children.allObjects as! [DataSnapshot] {
-                    let dest = entries.value as? String
-                    self.destinations.append(dest!)
-                }
-            }
-        })
+        self.loadOrganizations()
     }
     
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return start.count
-    }
-    
-    
-    /// Query all of the existing restaurants from the server and display them with their
-    /// corresponding image and menu link
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! OrganizationCell
-        
-        let spots = Database.database().reference().child("organizations")
-        
-        spots.observe(DataEventType.value, with: { (snapshot) in
+    func loadOrganizations() {
+        let hud = HUD.showLoading()
+        let organizations = Database.database().reference().child("organizations")
+        organizations.observe(DataEventType.value, with: { (snapshot) in
             if (snapshot.childrenCount > 0) {
                 for entries in snapshot.children.allObjects as! [DataSnapshot] {
                     let spot = entries.value as? [String: AnyObject]
-                    self.restaurants.append(spot?["name"] as! String)
-                    self.images.append(spot?["icon"] as! String)
-                    self.descriptions.append(spot?["info"] as! String)
+                    self.organizations.append(Organization(name: spot?["name"] as! String, info: spot?["info"] as! String, icon: spot?["icon"] as! String, stripe: spot?["stripe"] as! String))
                 }
-                cell.myLabel1.text = "\(self.restaurants[indexPath.row])"
-                cell.profile.downloadedFrom(link: self.images[indexPath.row])
-                cell.detail.text = "\(self.descriptions[indexPath.row])"
             }
+            self.tableView.reloadData()
+            hud.dismiss()
         })
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.organizations.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! OrganizationCell
+        
+        cell.myLabel1.text = "\(self.organizations[indexPath.section].name)"
+        let url = URL(string: self.organizations[indexPath.section].icon)
+        cell.profile.kf.setImage(with: url)
+        cell.detail.text = "\(self.organizations[indexPath.section].info)"
         
         return cell
     }
     
     // MARK: - Table view delegate
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! OrganizationCell
         cell.selectionStyle = UITableViewCellSelectionStyle.none
     }
     
-    func profilePressed(_ sender:UIButton!){
-        
-    }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "profileSegue" {
-            if let toViewController = segue.destination as? ProfileViewController {
-                toViewController.user = user.email
-            }
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 150
+        return 200
     }
-}
-
-extension UIImageView {
-    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() { () -> Void in
-                self.image = image
-            }
-            }.resume()
-    }
-    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }
-        downloadedFrom(url: url, contentMode: mode)
-    }
+    
 }

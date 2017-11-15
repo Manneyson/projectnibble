@@ -22,6 +22,9 @@ class RestaurantCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        contentView.backgroundColor = UIColor.clear
+        backgroundView = UIImageView(image: UIImage(named: "cellbg")!)
+        
         let gap : CGFloat = 10
         let labelHeight: CGFloat = 30
         let labelWidth: CGFloat = frame.width * 0.65
@@ -30,22 +33,14 @@ class RestaurantCell: UITableViewCell {
         
         
         myLabel1 = UILabel()
-        myLabel1.frame = CGRect(x: gap, y: gap, width: labelWidth, height: labelHeight)
+        myLabel1.frame = CGRect(x: gap * 4, y: gap * 2, width: labelWidth, height: labelHeight)
         myLabel1.textColor = UIColor.black
-        myLabel1.font =  UIFont(name: "Avenir-Book", size: 15)
+        myLabel1.font =  UIFont(name: "Avenir-Book", size: 17)
         contentView.addSubview(myLabel1)
-        
-        /*
-        delivery = UILabel()
-        delivery.frame = CGRect(x: gap, y: 100, width: labelWidth, height: labelHeight)
-        delivery.textColor = UIColor.green
-        delivery.text = "Delivering until 3AM"
-        contentView.addSubview(delivery)
-         */
         
         profile = UIImageView()
         profile.image = UIImage()
-        profile.frame = CGRect(x: UIScreen.main.bounds.width - (bounds.height * 1.5), y: bounds.height / 2, width: bounds.height * 1.25, height: bounds.height * 1.25)
+        profile.frame = CGRect(x: UIScreen.main.bounds.width - (bounds.height * 2.3), y: bounds.height / 2, width: bounds.height * 1.5, height: bounds.height * 1.5)
         profile.layer.cornerRadius = (bounds.height * 1.25) / 2
         profile.layer.masksToBounds = true
         profile.contentMode = UIViewContentMode.scaleAspectFit
@@ -53,14 +48,25 @@ class RestaurantCell: UITableViewCell {
         contentView.addSubview(profile)
         
         menu = UIButton()
-        menu.frame = CGRect(x: UIScreen.main.bounds.width - (bounds.height * 1.5), y: (bounds.height * 2), width: bounds.height * 1.25, height: bounds.height * 1.25)
-        menu.layer.cornerRadius = (bounds.height * 1.25) / 2
+        menu.frame = CGRect(x: UIScreen.main.bounds.width - (bounds.height * 2.3), y: (bounds.height * 3), width: bounds.height * 1.5, height: 30)
+        menu.layer.cornerRadius = 6
         menu.layer.masksToBounds = true
         menu.backgroundColor = UIColor(patternImage: UIImage(named: "menu bg2")!)
-        menu.setTitle("Menu", for: .normal)
+        menu.setTitle("Pay", for: .normal)
         menu.titleLabel!.font = UIFont(name: "Avenir-Book", size: 13)
         contentView.addSubview(menu)
         
     }
+    
+//    override var frame: CGRect {
+//        get {
+//            return super.frame
+//        }
+//        set (newFrame) {
+//            var frame = newFrame
+//            frame = CGRect(x: 10, y: super.frame.origin.y, width: super.frame.width - 10, height: super.frame.height)
+//            super.frame = frame
+//        }
+//    }
     
 }

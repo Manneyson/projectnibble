@@ -29,7 +29,7 @@ class SettingsViewController: UITableViewController {
     private var theme: Theme = .Default
     private var applePay: Switch = .Enabled
     private var requiredBillingAddressFields: RequiredBillingAddressFields = .None
-    private var requiredShippingAddressFields: RequiredShippingAddressFields = .PostalAddressPhone
+    private var requiredShippingAddressFields: RequiredShippingAddressFields = .None
     private var shippingType: ShippingType = .Shipping
 
     fileprivate enum Section: String {

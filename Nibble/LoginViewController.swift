@@ -23,6 +23,7 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
   
@@ -37,7 +38,7 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var textFieldLoginEmail: UITextField!
   @IBOutlet weak var textFieldLoginPassword: UITextField!
   
-    @IBOutlet weak var restaurantLogin: UIButton!
+    //@IBOutlet weak var restaurantLogin: UIButton!
     @IBOutlet weak var signUp: UIButton!
     @IBOutlet var bgView: UIView!
     @IBOutlet weak var login: UIButton!
@@ -86,25 +87,52 @@ class LoginViewController: UIViewController {
     present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func facebookLogin(sender: UIButton) {
+        let fbLoginManager = FBSDKLoginManager()
+        fbLoginManager.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
+            if let error = error {
+                print("Failed to login: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let accessToken = FBSDKAccessToken.current() else {
+                print("Failed to get access token")
+                return
+            }
+            
+            let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
+            
+            // Perform login by calling Firebase APIs
+            Auth.auth().signIn(with: credential, completion: { (user, error) in
+                if let error = error {
+                    print("Login error: \(error.localizedDescription)")
+                    let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
+                    let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(okayAction)
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                    return
+                }
+                
+                // Present the main view
+//                if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "RestaurantScene") {
+//                    UIApplication.shared.keyWindow?.rootViewController = viewController
+//                    self.dismiss(animated: true, completion: nil)
+//                }
+                let hud = HUD.showLoading()
+                self.performSegue(withIdentifier: self.loginToList, sender: nil)
+                hud.dismiss()
+            })
+            
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         login.backgroundColor = UIColor.white
-        bgView.backgroundColor = UIColor(patternImage: UIImage(named:"bgLogin")!)
+        bgView.backgroundColor = UIColor.flatMint()
         signUp.layer.borderColor = UIColor.white.cgColor
-        restaurantLogin.layer.borderColor = UIColor.clear.cgColor
-        restaurantLogin.addTarget(self, action: #selector(restaurantLoginDidTouch(_:)), for: .touchUpInside)
-                
-        //Query restaurants
-        let items = Database.database().reference().child("restaurantAccounts")
-        items.observe(.value, with: { snapshot in
-            for item in snapshot.children.allObjects as! [DataSnapshot] {
-                let object = item.value as? [String: AnyObject]
-                self.identifiers.append((object?["id"] as? String)!)
-                self.restaurants.append((object?["restaurant"] as? String)!)
-            }
-        })
-
 
         
         // 1

@@ -1,107 +1,130 @@
 PODS:
   - Alamofire (4.5.1)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
   - FaveButton (2.0.3)
-  - Firebase/Auth (4.1.1):
+  - FBSDKCoreKit (4.28.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.28.0):
+    - FBSDKCoreKit
+  - Firebase/Auth (4.6.0):
     - Firebase/Core
-    - FirebaseAuth (= 4.1.1)
-  - Firebase/Core (4.1.1):
-    - FirebaseAnalytics (= 4.0.3)
-    - FirebaseCore (= 4.0.6)
-  - Firebase/Database (4.1.1):
+    - FirebaseAuth (= 4.3.2)
+  - Firebase/Core (4.6.0):
+    - FirebaseAnalytics (= 4.0.5)
+    - FirebaseCore (= 4.0.11)
+  - Firebase/Database (4.6.0):
     - Firebase/Core
-    - FirebaseDatabase (= 4.0.2)
-  - Firebase/Messaging (4.1.1):
+    - FirebaseDatabase (= 4.1.1)
+  - Firebase/Messaging (4.6.0):
     - Firebase/Core
-    - FirebaseMessaging (= 2.0.2)
-  - FirebaseAnalytics (4.0.3):
+    - FirebaseMessaging (= 2.0.6)
+  - FirebaseAnalytics (4.0.5):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
-  - FirebaseAuth (4.1.1):
+  - FirebaseAuth (4.3.2):
     - FirebaseAnalytics (~> 4.0)
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (4.0.6):
+  - FirebaseCore (4.0.11):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-    - nanopb (~> 0.3)
-  - FirebaseDatabase (4.0.2):
+  - FirebaseDatabase (4.1.1):
     - FirebaseAnalytics (~> 4.0)
     - FirebaseCore (~> 4.0)
     - leveldb-library (~> 1.18)
-  - FirebaseInstanceID (2.0.2):
-    - FirebaseCore (~> 4.0)
-  - FirebaseMessaging (2.0.2):
+  - FirebaseInstanceID (2.0.6)
+  - FirebaseMessaging (2.0.6):
     - FirebaseAnalytics (~> 4.0)
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - Protobuf (~> 3.1)
-  - GMStepper (2.0.0)
-  - GoogleToolboxForMac/DebugUtils (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-  - GoogleToolboxForMac/Defines (2.1.1)
-  - GoogleToolboxForMac/Logger (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-  - GoogleToolboxForMac/NSData+zlib (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.1):
-    - GoogleToolboxForMac/DebugUtils (= 2.1.1)
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
-  - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
-  - GTMSessionFetcher/Core (1.1.11)
-  - leveldb-library (1.18.3)
-  - lottie-ios (2.1.3)
+  - GMStepper (2.1)
+  - GoogleToolboxForMac/DebugUtils (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/Defines (2.1.3)
+  - GoogleToolboxForMac/Logger (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/NSData+zlib (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.3):
+    - GoogleToolboxForMac/DebugUtils (= 2.1.3)
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)
+  - GoogleToolboxForMac/NSString+URLArguments (2.1.3)
+  - GTMSessionFetcher/Core (1.1.12)
+  - JGProgressHUD (2.0)
+  - Kingfisher (4.2.0)
+  - leveldb-library (1.20)
   - MXParallaxHeader (0.6.1)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - PopupDialog (0.5.4)
+  - PopupDialog (0.6.1)
   - Protobuf (3.4.0)
-  - Stripe (11.2.0)
+  - SACountingLabel (0.1.1)
+  - SCLAlertView (0.7.0)
+  - Stripe (11.5.0)
 
 DEPENDENCIES:
   - Alamofire
+  - Bolts
   - ChameleonFramework/Swift
   - FaveButton (~> 2.0.3)
+  - FBSDKCoreKit
+  - FBSDKLoginKit
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Messaging
   - GMStepper
-  - lottie-ios
+  - JGProgressHUD
+  - Kingfisher
   - MXParallaxHeader
   - PopupDialog (~> 0.5)
+  - SACountingLabel
+  - SCLAlertView
   - Stripe
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   FaveButton: cfcbc5e73da159c4f916613da5687357b5bb4783
-  Firebase: 052c0de688fc87b414996eea13e223dd9fee3fa2
-  FirebaseAnalytics: 76f754d37ca5b04f36856729b6af3ca0152d1069
-  FirebaseAuth: f8b07aa83de60d606b4eadd81484b3ac2097ea3e
-  FirebaseCore: 28def3c643989c97ea5a69ea5000f5fa9902b9fd
-  FirebaseDatabase: 4d1a10639a42cae26e094296951b53c689e5e191
-  FirebaseInstanceID: c4c7fca62c7b7330caee5da04f19a37ea37bb1c1
-  FirebaseMessaging: 85af6c27188538b3a6f7dfd0b3b0596358cb0c39
-  GMStepper: 6aff0c881afac2f432e5c9b0df71e44e14110a06
-  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
-  GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
-  leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
-  lottie-ios: 8c150606598931621e927377f1426d2d3e99282d
+  FBSDKCoreKit: ca961e279113f691fd83dc634c0bbad9d4e3f370
+  FBSDKLoginKit: b077381c27d800f21661757e8140cf2c80a91e4a
+  Firebase: 27321a925aa85520618255a7c630859e0502ccbd
+  FirebaseAnalytics: 5b02a63ead2c3f0259cfc7f15e053e440587ecf8
+  FirebaseAuth: e58563adb207a43910a2ed87fecb9fa7d556df5a
+  FirebaseCore: 2a946ece8fbe3ce1fdeeb55324f273caade22df9
+  FirebaseDatabase: 2e6e8e110b93b9a6e7aac71774c769a363035cb1
+  FirebaseInstanceID: 24958382a1011bba5aaff37e334e7a650b9118f5
+  FirebaseMessaging: 75d83375b0f7a9911568d7bdd1a1a8261cbcbdef
+  GMStepper: 8994824040d57d952134e409b7724d05a1a41c18
+  GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
+  GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
+  JGProgressHUD: c402c0f41fc291ca7e33bba2f999118d9682dd9c
+  Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
+  leveldb-library: 44ef425bfde64f5b41daef86b38db2d13edbbee1
   MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
+  PopupDialog: 1bdd1efbfb49eb619a280faa9a3bbaac76f94120
   Protobuf: 03eef2ee0b674770735cf79d9c4d3659cf6908e8
-  Stripe: 898f83a95d72180c6eb4acd65b2ae6158fc6a8bd
+  SACountingLabel: 6b0c2a177b77e65ea63772e50f4d4285bb6d5a71
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
+  Stripe: 10761682d20dc491c52287393c800db056c9748d
 
-PODFILE CHECKSUM: 8583ec4c07b7f71674f1a9297e07c8d47fab5b20
+PODFILE CHECKSUM: a0a124f6fc800785777d9896166b7a2d28d16e98
 
 COCOAPODS: 1.1.1

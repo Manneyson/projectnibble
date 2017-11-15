@@ -13,16 +13,10 @@ import FirebaseDatabase
 import FirebaseMessaging
 import UserNotifications
 import FirebaseInstanceID
+import FBSDKCoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
-    
-    /// This method will be called whenever FCM receives a new, default FCM token for your
-    /// Firebase project's Sender ID.
-    /// You can send this token to your application server to send notifications to this device.
-    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
-        
-    }
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     var window: UIWindow?
@@ -31,28 +25,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        if #available(iOS 10.0, *) {
-            // For iOS 10 display notification (sent via APNS)
-            UNUserNotificationCenter.current().delegate = self
-            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(
-                options: authOptions,
-                completionHandler: {_, _ in })
-            // For iOS 10 data message (sent via FCM
-            Messaging.messaging().remoteMessageDelegate = self
-        } else {
-            let settings: UIUserNotificationSettings =
-                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-        }
-        
         application.registerForRemoteNotifications()
         
         
         FirebaseApp.configure()
         Database.database().isPersistenceEnabled = true
+        
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         return true
     }
+    
     
     // The callback to handle data message received via FCM for devices running iOS 10 or above.
     func application(received remoteMessage: MessagingRemoteMessage) {
@@ -68,9 +51,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         else {
             // This was not a stripe url, do whatever url handling your app
             // normally does, if any.
+            
+            let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+            
+            return handled
         }
-        
-        return false
     }
     
     // This method is where you handle URL opens if you are using univeral link URLs (eg "https://example.com/stripe_ios_callback")

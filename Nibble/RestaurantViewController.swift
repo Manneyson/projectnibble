@@ -10,17 +10,28 @@ import UIKit
 import MXParallaxHeader
 import FirebaseAuth
 import Firebase
+import Kingfisher
+import SCLAlertView
 
-class RestaurantViewController: UITableViewController, MXParallaxHeaderDelegate {
+class RestaurantViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet var tableView: UITableView!
     @IBOutlet var headerView: UIView!
     
+
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var logout: UIButton!
+    @IBOutlet weak var favOrg: UIImageView!
     @IBOutlet weak var profile: UIButton!
-    
+    @IBOutlet weak var favRest: UIImageView!
     var ref: DatabaseReference!
 
-    private var restaurants: [String] = []
-    private var destinations: [String] = []
+    @IBOutlet weak var donationCount: UILabel!
+    private var restaurants: [Restaurant] = []
+    var organizations: [Organization] = []
+    let settingsVC = SettingsViewController()
+    var organizationSelected: Organization?
+    var restaurantSelected: Restaurant?
 
     var selected: String?
     var indexPath: IndexPath!
@@ -31,142 +42,142 @@ class RestaurantViewController: UITableViewController, MXParallaxHeaderDelegate 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         ref = Database.database().reference()
         
-        profile.addTarget(self, action: #selector(profilePressed(_:)), for: .touchUpInside)
-        profile.tintColor = UIColor.white
+        logout.tintColor = UIColor.white
+        logout.addTarget(self, action: #selector(self.logoutPressed(_:)), for: UIControlEvents.touchUpInside)
         
-        
-        // Parallax Header
-        tableView.parallaxHeader.view = headerView // You can set the parallax header view from the floating view
-        tableView.parallaxHeader.height = 260
-        tableView.parallaxHeader.mode = MXParallaxHeaderMode.fill
-        tableView.parallaxHeader.minimumHeight = 20
-        
-        tableView.parallaxHeader.delegate = self
         tableView.register(RestaurantCell.self, forCellReuseIdentifier: "Cell")
         tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.backgroundColor = UIColor.white
         
         Auth.auth().addStateDidChangeListener { auth, user in
             guard let user = user else { return }
             self.user = User(uid: user.uid, email: user.email!)
         }
         
-        /// Query in the closing hour of all the restaurants to be displayed
-        let items = Database.database().reference().child("hours")
-        items.observe(DataEventType.value, with: { (snapshot) in
+        self.loadRestaurants()
+        self.loadOrganizations()
+    }
+    
+    func loadRestaurants() {
+        let hud = HUD.showLoading()
+        let spots = Database.database().reference().child("restaurants")
+        spots.observe(DataEventType.value, with: { (snapshot) in
             if (snapshot.childrenCount > 0) {
                 for entries in snapshot.children.allObjects as! [DataSnapshot] {
-                    let hours = entries.value as? String
-                    let startHour = hours?.substring(to: (hours?.characters.index(of: "-"))!)
-                    var endHour = hours?.substring(from: (hours?.characters.index(of: "-"))!)
-                    endHour?.characters.removeFirst()
-                    self.start.append(((startHour as NSString?)?.integerValue)!)
-                    self.end.append(((endHour as NSString?)?.integerValue)!)
+                    let spot = entries.value as? [String: AnyObject]
+                    self.restaurants.append(Restaurant(name: spot?["name"] as! String, pledge: spot?["pledge"] as! Double, stripe: spot?["stripe"] as! String, open: spot?["open"] as! Int, close: spot?["close"] as! Int, icon: spot?["icon"] as! String, info: spot?["info"] as! String, header: spot?["header"] as! String))
                 }
             }
             self.tableView.reloadData()
         })
-        
-        let destinations = Database.database().reference().child("stripe")
-        destinations.observe(DataEventType.value, with: { (snapshot) in
+        hud.dismiss()
+    }
+    
+    func loadOrganizations() {
+        let hud = HUD.showLoading()
+        let organizations = Database.database().reference().child("organizations")
+        organizations.observe(DataEventType.value, with: { (snapshot) in
             if (snapshot.childrenCount > 0) {
                 for entries in snapshot.children.allObjects as! [DataSnapshot] {
-                    let dest = entries.value as? String
-                    self.destinations.append(dest!)
+                    let spot = entries.value as? [String: AnyObject]
+                    self.organizations.append(Organization(name: spot?["name"] as! String, info: spot?["info"] as! String, icon: spot?["icon"] as! String, stripe: spot?["stripe"] as! String))
                 }
             }
+            self.tableView.reloadData()
+            hud.dismiss()
         })
     }
     
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return start.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.restaurants.count
     }
     
     
     /// Query all of the existing restaurants from the server and display them with their
     /// corresponding image and menu link
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RestaurantCell
-
-        let spots = Database.database().reference().child("restaurants")
-
-        spots.observe(DataEventType.value, with: { (snapshot) in
-            if (snapshot.childrenCount > 0) {
-                for entries in snapshot.children.allObjects as! [DataSnapshot] {
-                    let spot = entries.value as? [String: AnyObject]
-                    self.restaurants.append(spot?["name"] as! String)
-                }
-                cell.myLabel1.text = "\(self.restaurants[indexPath.row])"
-                cell.profile.image = UIImage(named: self.restaurants[indexPath.row]) ?? UIImage(named: "placeholder")
-                cell.menu.addTarget(self, action: #selector(self.menuPressed(_:)), for: UIControlEvents.touchUpInside)
-            }
-        })
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! RestaurantCell
         
+        cell.myLabel1.text = "\(self.restaurants[indexPath.section].name)"
+        let url = URL(string: self.restaurants[indexPath.section].icon)
+        cell.profile.kf.setImage(with: url)
+        cell.menu.addTarget(self, action: #selector(self.menuPressed(_:)), for: UIControlEvents.touchUpInside)
         return cell
     }
     
     // MARK: - Table view delegate
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! RestaurantCell
         cell.selectionStyle = UITableViewCellSelectionStyle.none
     }
     
-    func menuPressed(_ sender:UIButton!){
+    func menuPressed(_ sender:UIButton!) {
         let cell = sender.superview?.superview as! UITableViewCell
         indexPath = self.tableView.indexPath(for: cell)
-
-        let curr = self.tableView.indexPath(for: cell)
         
-        
-        let calendar = Calendar.current
-        let date = Date()
-
-        let hour = calendar.component(.hour, from: date)
-        print("current hour : \(hour)")
-        
-        
-        /// Need to check to see if the menu being requested is tied to an open
-        /// restaurant. We query for open and closing on times when the view is loaded. 
-        
-        ///NOTE: The logic accounts for times that go past midnight!
-        
-        if ((start[(curr?.row)!]) > end[(curr?.row)!]) {
-            if ((end[(curr?.row)!]...start[(curr?.row)!]-1).contains(hour) == false) {
-                self.performSegue(withIdentifier: "menuSegue", sender: sender)
-            } else {
-                let alertController = UIAlertController(title: "Restaurant Closed", message: "We're sorry but the restaurant you're trying to view is currently closed!", preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .cancel)
-                alertController.addAction(action)
-                self.present(alertController, animated: true, completion: nil)
-            }
-        } else {
-            if ((start[(curr?.row)!]...end[(curr?.row)!]-1).contains(hour)) {
-                self.performSegue(withIdentifier: "menuSegue", sender: sender)
-            } else {
-                let alertController = UIAlertController(title: "Restaurant Closed", message: "We're sorry but the restaurant you're trying to view is currently closed!", preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .cancel)
-                alertController.addAction(action)
-                self.present(alertController, animated: true, completion: nil)
+        let alertView = SCLAlertView()
+        for org in self.organizations {
+            alertView.addButton("\(org.name)")  {
+                self.organizationSelected = org
+                self.restaurantSelected = self.restaurants[self.indexPath.section]
+                self.performSegue(withIdentifier: "orderSegue", sender: self)
             }
         }
+        alertView.showSuccess(
+            "Organization Selection",
+            subTitle: "Please select a non profit",
+            colorStyle: 0x00000)
     }
     
-    func profilePressed(_ sender:UIButton!){
+    func profilePressed(_ sender: UIButton!){
         
+    }
+    
+    func logoutPressed(_ sender: AnyObject) {
+        
+        let alert = UIAlertController(title: "Settings", message: "Select an option below.", preferredStyle: .actionSheet)
+        
+        let logout = UIAlertAction(title: "Logout", style: .destructive) { action in
+            do {
+                try Auth.auth().signOut()
+                self.performSegue(withIdentifier: "signoutSegue", sender: nil)
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+
+        alert.addAction(logout)
+        alert.addAction(cancel)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "menuSegue" {
-            let cell = tableView(tableView, cellForRowAt: indexPath) as! RestaurantCell
             if let toViewController = segue.destination as? ViewController {
-                toViewController.restaurant = self.restaurants[indexPath.row]
-                toViewController.destination = self.destinations[indexPath.row]
+                toViewController.restaurant = self.restaurants[indexPath.section]
             }
         }
         
@@ -175,10 +186,17 @@ class RestaurantViewController: UITableViewController, MXParallaxHeaderDelegate 
                 toViewController.user = user.email
             }
         }
+        
+        if segue.identifier == "orderSegue" {
+            if let toViewController = segue.destination as? OrderViewController {
+                toViewController.restaurant = self.restaurantSelected
+                toViewController.organization = self.organizationSelected
+            }
+        }
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 150
+        return 200
     }
 }

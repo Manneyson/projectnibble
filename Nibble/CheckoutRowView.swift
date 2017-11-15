@@ -59,16 +59,16 @@ class CheckoutRowView: UIView {
         self.detail = detail
 
         //self.backgroundColor = theme.secondaryBackgroundColor
-        self.backgroundColor = UIColor.flatBlack()
+        self.backgroundColor = UIColor.black
         self.backgroundView.addTarget(self, action: #selector(didTap), for: .touchUpInside)
         if !tappable {
             self.backgroundView.isUserInteractionEnabled = false
-            self.backgroundColor = UIColor.flatBlack()
+            self.backgroundColor = UIColor.black
         }
         self.addSubview(self.backgroundView)
-        self.bottomSeparator.backgroundColor = UIColor.flatBlack()
+        self.bottomSeparator.backgroundColor = UIColor.black
         self.addSubview(self.bottomSeparator)
-        self.topSeparator.backgroundColor = UIColor.flatBlack()
+        self.topSeparator.backgroundColor = UIColor.black
         self.addSubview(self.topSeparator)
         self.titleLabel.text = title
         self.titleLabel.backgroundColor = UIColor.clear
