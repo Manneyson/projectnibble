@@ -175,11 +175,11 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "menuSegue" {
-            if let toViewController = segue.destination as? ViewController {
-                toViewController.restaurant = self.restaurants[indexPath.section]
-            }
-        }
+//        if segue.identifier == "menuSegue" {
+//            if let toViewController = segue.destination as? ViewController {
+//                toViewController.restaurant = self.restaurants[indexPath.section]
+//            }
+//        }
         
         if segue.identifier == "profileSegue" {
             if let toViewController = segue.destination as? ProfileViewController {

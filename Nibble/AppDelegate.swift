@@ -14,6 +14,7 @@ import FirebaseMessaging
 import UserNotifications
 import FirebaseInstanceID
 import FBSDKCoreKit
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,6 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Database.database().isPersistenceEnabled = true
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+        IQKeyboardManager.sharedManager().shouldShowToolbarPlaceholder = false
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
         
         return true
     }

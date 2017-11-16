@@ -59,16 +59,16 @@ class CheckoutRowView: UIView {
         self.detail = detail
 
         //self.backgroundColor = theme.secondaryBackgroundColor
-        self.backgroundColor = UIColor.black
+        self.backgroundColor = UIColor.flatMint()
         self.backgroundView.addTarget(self, action: #selector(didTap), for: .touchUpInside)
         if !tappable {
             self.backgroundView.isUserInteractionEnabled = false
-            self.backgroundColor = UIColor.black
+            self.backgroundColor = UIColor.flatMint()
         }
         self.addSubview(self.backgroundView)
-        self.bottomSeparator.backgroundColor = UIColor.black
+        self.bottomSeparator.backgroundColor = UIColor.flatMint()
         self.addSubview(self.bottomSeparator)
-        self.topSeparator.backgroundColor = UIColor.black
+        self.topSeparator.backgroundColor = UIColor.flatMint()
         self.addSubview(self.topSeparator)
         self.titleLabel.text = title
         self.titleLabel.backgroundColor = UIColor.clear
@@ -81,7 +81,7 @@ class CheckoutRowView: UIView {
         self.detailLabel.textColor = UIColor.white
         self.detailLabel.textAlignment = .right;
         self.detailLabel.font = UIFont(name: "Avenir-Book", size: 13)
-        self.detailLabel.textColor = theme.secondaryForegroundColor
+        self.detailLabel.textColor = UIColor.black
         self.addSubview(self.detailLabel)
         var red: CGFloat = 0
         theme.primaryBackgroundColor.getRed(&red, green: nil, blue: nil, alpha: nil)

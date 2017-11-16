@@ -14,6 +14,7 @@
 		AC5994E71F9CFD5500BCDA36 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5994E61F9CFD5500BCDA36 /* CardView.swift */; };
 		AC5BB6081F96C663004938DD /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5BB6071F96C663004938DD /* Restaurant.swift */; };
 		AC6252501FBBD493006FCACB /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC62524F1FBBD493006FCACB /* OrderViewController.swift */; };
+		AC8341DE1FBCA0AA001BCE31 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8341DD1FBCA0AA001BCE31 /* TipViewController.swift */; };
 		AC84F22C1FAC168100038A74 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC84F22B1FAC168100038A74 /* HUD.swift */; };
 		ACA449521F6DD9E7000091C8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA449511F6DD9E7000091C8 /* Item.swift */; };
 		DD2520DB1F448424008049E3 /* MyAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2520DA1F448424008049E3 /* MyAPIClient.swift */; };
@@ -68,6 +69,7 @@
 		AC5994E61F9CFD5500BCDA36 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		AC5BB6071F96C663004938DD /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		AC62524F1FBBD493006FCACB /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		AC8341DD1FBCA0AA001BCE31 /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
 		AC84F22B1FAC168100038A74 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		AC88CE691FB27A7200307703 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		AC88CE6A1FB27A8100307703 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				DD9D38A81F43492B00BC09A7 /* RestaurantViewController.swift */,
 				AC62524F1FBBD493006FCACB /* OrderViewController.swift */,
 				AC178ED41F792E2C009679C6 /* OrganizationsViewController.swift */,
+				AC8341DD1FBCA0AA001BCE31 /* TipViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				DD2520DD1F4484E1008049E3 /* CheckoutRowView.swift in Sources */,
 				DDFCB92C1F4B705C00EAD70E /* OrderViewCell.swift in Sources */,
 				DD9D387B1F4345C000BC09A7 /* ViewController.swift in Sources */,
+				AC8341DE1FBCA0AA001BCE31 /* TipViewController.swift in Sources */,
 				DD9D38A91F43492B00BC09A7 /* RestaurantViewController.swift in Sources */,
 				DDC6609C1F4CA284003C1933 /* RestaurantOrdersTableViewController.swift in Sources */,
 				DD2520DB1F448424008049E3 /* MyAPIClient.swift in Sources */,

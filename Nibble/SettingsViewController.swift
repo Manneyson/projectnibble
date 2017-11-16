@@ -27,10 +27,10 @@ class SettingsViewController: UITableViewController {
     }
 
     private var theme: Theme = .Default
-    private var applePay: Switch = .Enabled
+    private var applePay: Switch = .Disabled
     private var requiredBillingAddressFields: RequiredBillingAddressFields = .None
     private var requiredShippingAddressFields: RequiredShippingAddressFields = .None
-    private var shippingType: ShippingType = .Shipping
+    private var shippingType: ShippingType = .Delivery
 
     fileprivate enum Section: String {
         case Theme = "Theme"
@@ -77,8 +77,8 @@ class SettingsViewController: UITableViewController {
                 theme.secondaryForegroundColor = UIColor(red:0.66, green:0.66, blue:0.66, alpha:1.00)
                 theme.accentColor = UIColor(red:0.09, green:0.81, blue:0.51, alpha:1.00)
                 theme.errorColor = UIColor(red:0.87, green:0.18, blue:0.20, alpha:1.00)
-                theme.font = UIFont(name: "ChalkboardSE-Light", size: 17)
-                theme.emphasisFont = UIFont(name: "ChalkboardSE-Bold", size: 17)
+                theme.font = UIFont(name: "Avenir-Next", size: 17)
+                theme.emphasisFont = UIFont(name: "Avenir-Next", size: 17)
                 return theme
             case .CustomDark:
                 let theme = STPTheme()
@@ -88,8 +88,8 @@ class SettingsViewController: UITableViewController {
                 theme.secondaryForegroundColor = UIColor(red:0.60, green:0.64, blue:0.71, alpha:1.00)
                 theme.accentColor = UIColor(red:0.98, green:0.80, blue:0.00, alpha:1.00)
                 theme.errorColor = UIColor(red:0.85, green:0.48, blue:0.48, alpha:1.00)
-                theme.font = UIFont(name: "GillSans", size: 17)
-                theme.emphasisFont = UIFont(name: "GillSans", size: 17)
+                theme.font = UIFont(name: "Avenir-Next", size: 17)
+                theme.emphasisFont = UIFont(name: "Avenir-Next", size: 17)
                 return theme
             }
         }

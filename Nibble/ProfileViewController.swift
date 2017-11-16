@@ -13,6 +13,7 @@ import SACountingLabel
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var label: SACountingLabel!
     @IBOutlet weak var profileCardImage: UIImageView!
     @IBOutlet weak var profileCard: UIView!
     var user: String!
@@ -23,12 +24,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.view.backgroundColor = UIColor.flatMint()
         
-        let label = SACountingLabel(frame: CGRect(x: self.profileCardImage.frame.midX + 25, y: self.profileCardImage.frame.height + 100, width: 200, height: 100))
         label.font = UIFont(name: "Avenir-Heavy", size: 25)
-        label.countFrom(fromValue: 0, to: 100, withDuration: 1.0, andAnimationType: .EaseIn, andCountingType: .Int)
+        label.countFrom(fromValue: 0, to: 100, withDuration: 1.0, andAnimationType: .EaseIn, andCountingType: .Custom)
         label.textAlignment = .center
-        self.view.addSubview(label)
-        
+        label.format = "$%.2f%"
         
         close.setImage(UIImage(named: "close"), for: .normal)
         close.addTarget(self, action: #selector(closePressed(_:)), for: UIControlEvents.touchUpInside)

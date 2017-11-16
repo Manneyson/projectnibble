@@ -34,13 +34,13 @@ class OrganizationCell: UITableViewCell {
         
         
         myLabel1 = UILabel()
-        myLabel1.frame = CGRect(x: gap * 3.5, y: gap * 2, width: labelWidth, height: labelHeight)
+        myLabel1.frame = CGRect(x: gap * 2, y: gap * 2, width: labelWidth, height: labelHeight)
         myLabel1.textColor = UIColor.black
         myLabel1.font =  UIFont(name: "Avenir-Book", size: 15)
         contentView.addSubview(myLabel1)
         
         detail = UILabel()
-        detail.frame = CGRect(x: gap * 4, y: gap * 3, width: labelWidth * 1.05, height: labelHeight * 5)
+        detail.frame = CGRect(x: gap * 2, y: gap * 3, width: labelWidth * 1.05, height: labelHeight * 5)
         detail.textColor = UIColor.gray
         detail.numberOfLines = 7
         detail.font =  UIFont(name: "Avenir-Book", size: 10)

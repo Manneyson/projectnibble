@@ -19,4 +19,5 @@ target ‘Nibble’ do
     pod 'FBSDKCoreKit'
     pod 'FBSDKLoginKit'
     pod 'SACountingLabel'
+    pod 'IQKeyboardManagerSwift'
 end

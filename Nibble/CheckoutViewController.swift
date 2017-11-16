@@ -56,7 +56,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         }
     }
 
-    init(product: String, price: Int, settings: Settings, order: [String], restaurant: Restaurant, organization: Organization) {
+    init(price: Int, settings: Settings, restaurant: Restaurant, organization: Organization) {
 
         let stripePublishableKey = self.stripePublishableKey
         let backendBaseURL = self.backendBaseURL
@@ -64,8 +64,8 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         //assert(stripePublishableKey.hasPrefix("pk_"), "You must set your Stripe publishable key at the top of CheckoutViewController.swift to run this app.")
         assert(backendBaseURL != nil, "You must set your backend base url at the top of CheckoutViewController.swift to run this app.")
 
-        self.orderDetails = order
-        self.product = product
+        //self.orderDetails = order
+        //self.product = product
         self.restaurant = restaurant
         self.organization = organization
         self.productImage.text = "My Order"
@@ -130,15 +130,15 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.black
+        self.view.backgroundColor = UIColor.flatMint()
         var red: CGFloat = 0
         self.theme.primaryBackgroundColor.getRed(&red, green: nil, blue: nil, alpha: nil)
         self.activityIndicator.activityIndicatorViewStyle = red < 0.5 ? .white : .gray
 
-        self.productImage.font = UIFont.systemFont(ofSize: 20)
+        self.productImage.font = UIFont(name: "Avenir-Heavy", size: 35)
         self.view.addSubview(self.totalRow)
         self.view.addSubview(self.paymentRow)
-        self.view.addSubview(self.shippingRow)
+        //self.view.addSubview(self.shippingRow)
         self.view.addSubview(self.productImage)
         self.view.addSubview(self.buyButton)
         self.view.addSubview(self.cancelButton)
@@ -150,9 +150,9 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         self.paymentRow.onTap = { [weak self] _ in
             self?.paymentContext.presentPaymentMethodsViewController()
         }
-        self.shippingRow.onTap = { [weak self] _ in
-            self?.paymentContext.presentShippingViewController()
-        }
+//        self.shippingRow.onTap = { [weak self] _ in
+//            self?.paymentContext.presentShippingViewController()
+//        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -163,9 +163,9 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
                                            y: self.productImage.bounds.height/2.0 + rowHeight)
         self.paymentRow.frame = CGRect(x: 0, y: self.productImage.frame.maxY + rowHeight,
                                        width: width, height: rowHeight)
-        self.shippingRow.frame = CGRect(x: 0, y: self.paymentRow.frame.maxY,
-                                        width: width, height: rowHeight)
-        self.totalRow.frame = CGRect(x: 0, y: self.shippingRow.frame.maxY,
+//        self.shippingRow.frame = CGRect(x: 0, y: self.paymentRow.frame.maxY,
+//                                        width: width, height: rowHeight)
+        self.totalRow.frame = CGRect(x: 0, y: self.paymentRow.frame.maxY,
                                      width: width, height: rowHeight)
         self.buyButton.frame = CGRect(x: 0, y: 0, width: 88, height: 44)
         self.buyButton.center = CGPoint(x: width/2.0, y: self.totalRow.frame.maxY + rowHeight*0.5)
@@ -192,7 +192,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
                                                 amount: Int(feePlusTax),
                                                 orgAmount: (Int(Double(feePlusTax) * (self.restaurant.pledge))),
                                                 restAmount: (Int(Double(feePlusTax) - (Double(feePlusTax) * self.restaurant.pledge))),
-                                                description: self.product,
+                                                description: self.restaurant.name,
                                                 restaurant: self.restaurant.stripe,
                                                 organization: self.organization.stripe,
                                                 shippingAddress: self.paymentContext.shippingAddress,
@@ -220,12 +220,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
                          "email": userEmail,
                          "selections": orderDetails,
                          "total": totalRow.detail,
-                         "deliver": self.paymentContext.selectedShippingMethod?.identifier ?? "",
-                         "address1": "\(self.paymentContext.shippingAddress?.line1 ?? "")",
-                         "address2": "\(self.paymentContext.shippingAddress?.line2 ?? "")",
-                         "city": "\(self.paymentContext.shippingAddress?.city ?? "")",
-                         "phone": self.paymentContext.shippingAddress?.phone ?? "",
-                         "restaurant": self.product,
+                         "restaurant": self.restaurant.name,
                          "status": "placed"
                 ] as [String : Any]
             
@@ -272,6 +267,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
             // Need to assign to _ because optional binding loses @discardableResult value
             // https://bugs.swift.org/browse/SR-1681
             _ = self.navigationController?.popViewController(animated: true)
+            //_ = self.navigationController?.popToViewController(RestaurantViewController(), animated: true)
         })
         let retry = UIAlertAction(title: "Retry", style: .default, handler: { action in
             self.paymentContext.retryLoading()

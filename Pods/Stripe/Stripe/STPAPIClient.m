@@ -188,9 +188,9 @@ static NSString * const FileUploadURL = @"https://uploads.stripe.com/v1/files";
 + (void)validateKey:(NSString *)publishableKey {
     NSCAssert(publishableKey != nil && ![publishableKey isEqualToString:@""],
               @"You must use a valid publishable key to create a token. For more info, see https://stripe.com/docs/stripe.js");
-    BOOL secretKey = [publishableKey hasPrefix:@"sk_"];
-    NSCAssert(!secretKey,
-              @"You are using a secret key to create a token, instead of the publishable one. For more info, see https://stripe.com/docs/stripe.js");
+//    BOOL secretKey = [publishableKey hasPrefix:@"sk_"];
+//    NSCAssert(!secretKey,
+//              @"You are using a secret key to create a token, instead of the publishable one. For more info, see https://stripe.com/docs/stripe.js");
 #ifndef DEBUG
     if ([publishableKey.lowercaseString hasPrefix:@"pk_test"]) {
         FAUXPAS_IGNORED_IN_METHOD(NSLogUsed);
