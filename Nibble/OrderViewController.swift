@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RZTransitions
 
 class OrderViewController: UIViewController {
     
@@ -41,8 +42,7 @@ class OrderViewController: UIViewController {
     
     func checkoutPressed(_: AnyObject) {
         if (price.text != "") {
-            let checkoutVC = CheckoutViewController(price: self.total, settings: settingsVC.settings, restaurant: self.restaurant!, organization: self.organization!)
-            self.present(checkoutVC, animated: true, completion: nil)
+            self.performSegue(withIdentifier: "tipSegue", sender: self)
         }
     }
     
@@ -50,7 +50,9 @@ class OrderViewController: UIViewController {
         
         if let amountString = price.text?.currencyInputFormatting() {
             price.text = amountString
-            self.total = Int((price.text?.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: "$", with: ""))!)!
+            if (price.text != "") {
+                self.total = Int((price.text?.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: "$", with: ""))!)!
+            }
         }
     }
     

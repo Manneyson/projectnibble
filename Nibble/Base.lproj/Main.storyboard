@@ -45,16 +45,54 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent Donations:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WaS-8r-Vsu">
+                                        <rect key="frame" x="92" y="277" width="96" height="23.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="NbY-hJ-rKA">
+                                        <rect key="frame" x="29" y="304" width="222" height="54"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N8D-Ym-PuS" userLabel="recent1">
+                                                <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="54" id="1EA-lO-udX"/>
+                                                    <constraint firstAttribute="height" constant="54" id="O60-Rp-sOG"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uL7-k0-nNE" userLabel="recent2">
+                                                <rect key="frame" x="84" y="0.0" width="54" height="54"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="54" id="fCu-Vi-WVv"/>
+                                                    <constraint firstAttribute="height" constant="54" id="mGz-BP-Tbr"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ye0-ht-O6a" userLabel="recent3">
+                                                <rect key="frame" x="168" y="0.0" width="54" height="54"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="54" id="8SU-ey-pbW"/>
+                                                    <constraint firstAttribute="height" constant="54" id="Rde-Fv-4sC"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="NbY-hJ-rKA" secondAttribute="bottom" constant="30" id="7NN-YZ-S48"/>
                                     <constraint firstItem="sBe-nQ-EAS" firstAttribute="leading" secondItem="0nn-PE-Wya" secondAttribute="leading" id="Gjr-c6-ET7"/>
                                     <constraint firstItem="sBe-nQ-EAS" firstAttribute="centerX" secondItem="0nn-PE-Wya" secondAttribute="centerX" id="IVJ-mI-Mex"/>
+                                    <constraint firstItem="WaS-8r-Vsu" firstAttribute="top" secondItem="0nn-PE-Wya" secondAttribute="top" constant="277" id="Jjr-6h-Dbe"/>
                                     <constraint firstAttribute="trailing" secondItem="sBe-nQ-EAS" secondAttribute="trailing" id="MEj-Fp-FiQ"/>
                                     <constraint firstItem="sBe-nQ-EAS" firstAttribute="top" secondItem="0nn-PE-Wya" secondAttribute="top" id="O1s-Ac-vp7"/>
                                     <constraint firstAttribute="bottom" secondItem="sBe-nQ-EAS" secondAttribute="bottom" id="P2G-Wk-awZ"/>
+                                    <constraint firstItem="NbY-hJ-rKA" firstAttribute="centerX" secondItem="0nn-PE-Wya" secondAttribute="centerX" id="VqT-48-3BU"/>
                                     <constraint firstItem="Avv-k8-hse" firstAttribute="top" secondItem="0nn-PE-Wya" secondAttribute="top" constant="248" id="YaA-vP-8hh"/>
                                     <constraint firstAttribute="bottom" secondItem="Avv-k8-hse" secondAttribute="bottom" constant="119" id="ZSO-tm-baH"/>
+                                    <constraint firstAttribute="bottom" secondItem="WaS-8r-Vsu" secondAttribute="bottom" constant="87.5" id="aMk-Dn-u1U"/>
+                                    <constraint firstItem="NbY-hJ-rKA" firstAttribute="top" secondItem="0nn-PE-Wya" secondAttribute="top" constant="304" id="gIj-02-ShR"/>
                                     <constraint firstItem="Avv-k8-hse" firstAttribute="centerX" secondItem="0nn-PE-Wya" secondAttribute="centerX" id="lP2-0Y-VDV"/>
+                                    <constraint firstItem="WaS-8r-Vsu" firstAttribute="centerX" secondItem="0nn-PE-Wya" secondAttribute="centerX" id="uHN-Fn-5fc"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -73,6 +111,9 @@
                         <outlet property="label" destination="Avv-k8-hse" id="dZB-HK-tnQ"/>
                         <outlet property="profileCard" destination="0nn-PE-Wya" id="QOC-D1-5JR"/>
                         <outlet property="profileCardImage" destination="sBe-nQ-EAS" id="rn5-sG-6mf"/>
+                        <outlet property="recent1" destination="N8D-Ym-PuS" id="3AX-9Q-IXh"/>
+                        <outlet property="recent2" destination="uL7-k0-nNE" id="Quv-nF-gcz"/>
+                        <outlet property="recent3" destination="Ye0-ht-O6a" id="ssX-us-p65"/>
                         <segue destination="7fa-Pd-zK3" kind="presentation" identifier="signoutSegue" id="pDt-tZ-ZRg"/>
                     </connections>
                 </viewController>
@@ -387,7 +428,8 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dV6-l8-XWt">
                                 <rect key="frame" x="0.0" y="228" width="320" height="291"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.15700405840000001" green="0.7366242409" blue="0.61059659720000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.15700405840000001" green="0.7366242409" blue="0.61059659720000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -404,6 +446,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Restaurants" image="icons8-restaurant_filled" id="Cb0-wg-Nw6"/>
+                    <navigationItem key="navigationItem" id="WNC-YC-wIx"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="logout" destination="3yL-wS-j5i" id="g8D-AL-eDV"/>
@@ -438,6 +481,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$0.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OnN-kC-F54">
                                 <rect key="frame" x="53" y="230" width="213" height="51"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="XdH-jc-GaX"/>
                                 </constraints>
@@ -453,9 +497,6 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="icons8-long_arrow_right_filled"/>
-                                <connections>
-                                    <segue destination="V2T-UU-2t5" kind="show" identifier="tipSegue" id="i1e-by-s8r"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lD-dO-mpA">
                                 <rect key="frame" x="20" y="30" width="25" height="25"/>
@@ -481,11 +522,12 @@
                         <outlet property="checkout" destination="HUu-xT-qWY" id="UBt-eC-jUN"/>
                         <outlet property="close" destination="5lD-dO-mpA" id="o7u-Gi-nnF"/>
                         <outlet property="price" destination="OnN-kC-F54" id="bvB-vL-jvU"/>
+                        <segue destination="V2T-UU-2t5" kind="show" identifier="tipSegue" id="5kD-3r-jkw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="txt-tU-l0d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1475.625" y="840.84507042253517"/>
+            <point key="canvasLocation" x="2544" y="355"/>
         </scene>
         <!--Tip View Controller-->
         <scene sceneID="Ri7-gd-85L">
@@ -512,6 +554,7 @@
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$0.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7x3-cz-1Ux">
                                 <rect key="frame" x="112.5" y="229.5" width="95" height="51"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="njI-Ui-Cfp"/>
                                 </constraints>
@@ -549,7 +592,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFS-Wg-pCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2259.375" y="840.84507042253517"/>
+            <point key="canvasLocation" x="3544" y="355"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="06B-90-MHn">
@@ -684,6 +727,6 @@
         <image name="icons8-user" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pDt-tZ-ZRg"/>
+        <segue reference="TMm-Wv-9aZ"/>
     </inferredMetricsTieBreakers>
 </document>

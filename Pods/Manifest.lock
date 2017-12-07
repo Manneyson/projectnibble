@@ -74,6 +74,7 @@ PODS:
   - nanopb/encode (0.3.8)
   - PopupDialog (0.6.1)
   - Protobuf (3.4.0)
+  - RZTransitions (1.2.1)
   - SACountingLabel (0.1.1)
   - SCLAlertView (0.7.0)
   - Stripe (11.5.0)
@@ -95,6 +96,7 @@ DEPENDENCIES:
   - Kingfisher
   - MXParallaxHeader
   - PopupDialog (~> 0.5)
+  - RZTransitions
   - SACountingLabel
   - SCLAlertView
   - Stripe
@@ -124,10 +126,11 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PopupDialog: 1bdd1efbfb49eb619a280faa9a3bbaac76f94120
   Protobuf: 03eef2ee0b674770735cf79d9c4d3659cf6908e8
+  RZTransitions: 0e0013fda6989ee84dc5e44dca79fd539e1a975a
   SACountingLabel: 6b0c2a177b77e65ea63772e50f4d4285bb6d5a71
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   Stripe: 10761682d20dc491c52287393c800db056c9748d
 
-PODFILE CHECKSUM: 236da58134d0b2431fdc137803d2dc72ff3519cf
+PODFILE CHECKSUM: '08a469a3d3c93be74baba2c455d71983b7de9f1b'
 
 COCOAPODS: 1.1.1

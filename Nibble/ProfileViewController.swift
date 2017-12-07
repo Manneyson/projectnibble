@@ -10,28 +10,81 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import SACountingLabel
+import Kingfisher
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var recent3: UIImageView!
+    @IBOutlet weak var recent2: UIImageView!
+    @IBOutlet weak var recent1: UIImageView!
     @IBOutlet weak var label: SACountingLabel!
     @IBOutlet weak var profileCardImage: UIImageView!
     @IBOutlet weak var profileCard: UIView!
     var user: String!
     @IBOutlet weak var close: UIButton!
+    private var recentOrders: [Order] = []
+    var restaurants: [Restaurant]?
+    var organizations: [Organization]?
+    var totalDonation = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.flatMint()
         
-        label.font = UIFont(name: "Avenir-Heavy", size: 25)
-        label.countFrom(fromValue: 0, to: 100, withDuration: 1.0, andAnimationType: .EaseIn, andCountingType: .Custom)
-        label.textAlignment = .center
-        label.format = "$%.2f%"
+        getMostRecent()
         
         close.setImage(UIImage(named: "close"), for: .normal)
         close.addTarget(self, action: #selector(closePressed(_:)), for: UIControlEvents.touchUpInside)
-        
+    }
+    
+    func assignLabels() {
+        label.font = UIFont(name: "Avenir-Heavy", size: 25)
+        label.countFrom(fromValue: 0, to: Float(totalDonation) / 100, withDuration: 1.0, andAnimationType: .EaseIn, andCountingType: .Custom)
+        label.textAlignment = .center
+        label.format = "$%.2f%"
+    }
+    
+    func getMostRecent() {
+        let hud = HUD.showLoading()
+        let organizations = Database.database().reference().child("orders")
+        organizations.observe(DataEventType.value, with: { (snapshot) in
+            if (snapshot.childrenCount > 0) {
+                for entries in snapshot.children.allObjects as! [DataSnapshot] {
+                    let spot = entries.value as? [String: AnyObject]
+                    if (Auth.auth().currentUser?.email == spot?["email"] as! String) {
+                        self.recentOrders.append(Order(email: spot?["email"] as! String, restaurant: self.restaurants!.first(where: {$0.name == spot?["restaurant"] as! String})!, organization: self.organizations!.first(where: {$0.name == spot?["organization"] as! String})!, total: spot?["subtotal"] as! String))
+                        var total = spot?["donation"] as! Int
+                        self.totalDonation += total
+                    }
+                }
+            }
+            self.assignRecentDonationImages()
+            self.assignLabels()
+        })
+        hud.dismiss()
+    }
+    
+    func assignRecentDonationImages() {
+        if self.recentOrders.count > 2 {
+            let url1 = URL(string: self.recentOrders.reversed()[0].organization.icon)
+            recent1.kf.setImage(with: url1)
+            
+            let url2 = URL(string: self.recentOrders.reversed()[1].organization.icon)
+            recent2.kf.setImage(with: url2)
+            
+            let url3 = URL(string: self.recentOrders.reversed()[2].organization.icon)
+            recent3.kf.setImage(with: url3)
+        } else if self.recentOrders.count == 2 {
+            let url1 = URL(string: self.recentOrders.reversed()[0].organization.icon)
+            recent1.kf.setImage(with: url1)
+            
+            let url2 = URL(string: self.recentOrders.reversed()[1].organization.icon)
+            recent2.kf.setImage(with: url2)
+        } else if self.recentOrders.count == 1 {
+            let url1 = URL(string: self.recentOrders[0].organization.icon)
+            recent1.kf.setImage(with: url1)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -17,6 +17,7 @@
 		AC8341DE1FBCA0AA001BCE31 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8341DD1FBCA0AA001BCE31 /* TipViewController.swift */; };
 		AC84F22C1FAC168100038A74 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC84F22B1FAC168100038A74 /* HUD.swift */; };
 		ACA449521F6DD9E7000091C8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA449511F6DD9E7000091C8 /* Item.swift */; };
+		ACDB49021FC257450018A2B3 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB49011FC257450018A2B3 /* Order.swift */; };
 		DD2520DB1F448424008049E3 /* MyAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2520DA1F448424008049E3 /* MyAPIClient.swift */; };
 		DD2520DD1F4484E1008049E3 /* CheckoutRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2520DC1F4484E1008049E3 /* CheckoutRowView.swift */; };
 		DD2520DF1F4485FC008049E3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2520DE1F4485FC008049E3 /* SettingsViewController.swift */; };
@@ -74,6 +75,7 @@
 		AC88CE691FB27A7200307703 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		AC88CE6A1FB27A8100307703 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		ACA449511F6DD9E7000091C8 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		ACDB49011FC257450018A2B3 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		DD2520DA1F448424008049E3 /* MyAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIClient.swift; sourceTree = "<group>"; };
 		DD2520DC1F4484E1008049E3 /* CheckoutRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutRowView.swift; sourceTree = "<group>"; };
 		DD2520DE1F4485FC008049E3 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				DD9A27DD1F45E7D9000BFEB1 /* User.swift */,
 				AC29D61B1F8C0A28001D1B11 /* Organization.swift */,
 				AC5BB6071F96C663004938DD /* Restaurant.swift */,
+				ACDB49011FC257450018A2B3 /* Order.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				DD9D387B1F4345C000BC09A7 /* ViewController.swift in Sources */,
 				AC8341DE1FBCA0AA001BCE31 /* TipViewController.swift in Sources */,
 				DD9D38A91F43492B00BC09A7 /* RestaurantViewController.swift in Sources */,
+				ACDB49021FC257450018A2B3 /* Order.swift in Sources */,
 				DDC6609C1F4CA284003C1933 /* RestaurantOrdersTableViewController.swift in Sources */,
 				DD2520DB1F448424008049E3 /* MyAPIClient.swift in Sources */,
 				DD2520E11F44866B008049E3 /* Buttons.swift in Sources */,

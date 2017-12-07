@@ -34,22 +34,23 @@ class OrganizationCell: UITableViewCell {
         
         
         myLabel1 = UILabel()
-        myLabel1.frame = CGRect(x: gap * 2, y: gap * 2, width: labelWidth, height: labelHeight)
+        myLabel1.frame = CGRect(x: gap * 3, y: gap * 2, width: labelWidth, height: labelHeight)
         myLabel1.textColor = UIColor.black
         myLabel1.font =  UIFont(name: "Avenir-Book", size: 15)
         contentView.addSubview(myLabel1)
         
         detail = UILabel()
-        detail.frame = CGRect(x: gap * 2, y: gap * 3, width: labelWidth * 1.05, height: labelHeight * 5)
+        detail.frame = CGRect(x: gap * 3, y: gap * 3, width: labelWidth * 1.05, height: labelHeight * 5)
         detail.textColor = UIColor.gray
         detail.numberOfLines = 7
         detail.font =  UIFont(name: "Avenir-Book", size: 10)
         contentView.addSubview(detail)
         
         learn = UIButton()
-        learn.titleLabel?.text = "Learn more"
-        learn.frame = CGRect(x: (bounds.width / 2) + 50, y: bounds.height - gap, width: labelWidth / 2, height: 50)
+        learn.frame = CGRect(x: UIScreen.main.bounds.width - (bounds.height * 2), y: (bounds.height * 3), width: bounds.height * 1.5, height: 30)
+        learn.setImage(UIImage(named: "info"), for: .normal)
         contentView.addSubview(learn)
+
         
         profile = UIImageView()
         profile.image = UIImage()

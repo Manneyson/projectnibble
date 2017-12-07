@@ -36,7 +36,9 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     let shippingString: String
     let restaurant: Restaurant
     let organization: Organization
+    let tip: Int
     var product = ""
+    var donation = 0
     var orderDetails : [String] = [""]
     var paymentInProgress: Bool = false {
         didSet {
@@ -56,7 +58,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         }
     }
 
-    init(price: Int, settings: Settings, restaurant: Restaurant, organization: Organization) {
+    init(price: Int, tip: Int, settings: Settings, restaurant: Restaurant, organization: Organization) {
 
         let stripePublishableKey = self.stripePublishableKey
         let backendBaseURL = self.backendBaseURL
@@ -68,7 +70,8 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         //self.product = product
         self.restaurant = restaurant
         self.organization = organization
-        self.productImage.text = "My Order"
+        self.tip = tip
+        self.productImage.text = "\(price + tip)".currencyInputFormatting()
         self.productImage.font = UIFont(name: "Avenir-Book", size: 13)
         self.productImage.textColor = UIColor.white
         self.theme = settings.theme
@@ -136,7 +139,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         self.activityIndicator.activityIndicatorViewStyle = red < 0.5 ? .white : .gray
 
         self.productImage.font = UIFont(name: "Avenir-Heavy", size: 35)
-        self.view.addSubview(self.totalRow)
+        //self.view.addSubview(self.totalRow)
         self.view.addSubview(self.paymentRow)
         //self.view.addSubview(self.shippingRow)
         self.view.addSubview(self.productImage)
@@ -187,11 +190,11 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     
     func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
         let feePlusTax = Double(self.paymentContext.paymentAmount) + (Double(self.paymentContext.paymentAmount) * 0.08)
-
+        self.donation = Int(Double(self.paymentContext.paymentAmount) * (self.restaurant.pledge))
         MyAPIClient.sharedClient.completeCharge(paymentResult,
-                                                amount: Int(feePlusTax),
+                                                amount: Int(feePlusTax) + self.tip,
                                                 orgAmount: (Int(Double(feePlusTax) * (self.restaurant.pledge))),
-                                                restAmount: (Int(Double(feePlusTax) - (Double(feePlusTax) * self.restaurant.pledge))),
+                                                restAmount: (Int(Double(feePlusTax) - (Double(feePlusTax) * self.restaurant.pledge)) + self.tip),
                                                 description: self.restaurant.name,
                                                 restaurant: self.restaurant.stripe,
                                                 organization: self.organization.stripe,
@@ -218,9 +221,12 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
             
             let order = ["id":userID,
                          "email": userEmail,
-                         "selections": orderDetails,
-                         "total": totalRow.detail,
+                         //"selections": orderDetails,
+                         "subtotal": totalRow.detail,
+                         "tip": self.tip,
                          "restaurant": self.restaurant.name,
+                         "organization": self.organization.name,
+                         "donation": self.donation,
                          "status": "placed"
                 ] as [String : Any]
             
@@ -267,7 +273,6 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
             // Need to assign to _ because optional binding loses @discardableResult value
             // https://bugs.swift.org/browse/SR-1681
             _ = self.navigationController?.popViewController(animated: true)
-            //_ = self.navigationController?.popToViewController(RestaurantViewController(), animated: true)
         })
         let retry = UIAlertAction(title: "Retry", style: .default, handler: { action in
             self.paymentContext.retryLoading()

@@ -41,7 +41,7 @@ class TipViewController: UIViewController {
     
     func checkoutPressed(_: AnyObject) {
         if (tip.text != "") {
-            let checkoutVC = CheckoutViewController(price: self.total! + self.tipCount, settings: settingsVC.settings, restaurant: self.restaurant!, organization: self.organization!)
+            let checkoutVC = CheckoutViewController(price: self.total!, tip: self.tipCount, settings: self.settingsVC.settings, restaurant: self.restaurant!, organization: self.organization!)
             self.present(checkoutVC, animated: true, completion: nil)
         }
     }
@@ -50,7 +50,9 @@ class TipViewController: UIViewController {
         
         if let amountString = tip.text?.currencyInputFormatting() {
             tip.text = amountString
-            self.tipCount = Int((tip.text?.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: "$", with: ""))!)!
+            if (tip.text != "") {
+                self.tipCount = Int((tip.text?.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: "$", with: ""))!)!
+            }
         }
     }
     

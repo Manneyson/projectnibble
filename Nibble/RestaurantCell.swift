@@ -33,7 +33,7 @@ class RestaurantCell: UITableViewCell {
         
         
         myLabel1 = UILabel()
-        myLabel1.frame = CGRect(x: gap * 4, y: gap * 2, width: labelWidth, height: labelHeight)
+        myLabel1.frame = CGRect(x: gap * 3, y: gap * 2, width: labelWidth, height: labelHeight)
         myLabel1.textColor = UIColor.black
         myLabel1.font =  UIFont(name: "Avenir-Book", size: 17)
         contentView.addSubview(myLabel1)

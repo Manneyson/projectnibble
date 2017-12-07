@@ -40,7 +40,7 @@ class OrganizationsViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.backgroundColor = UIColor.white
+        tableView.backgroundColor = UIColor.flatMint()
         
         self.loadOrganizations()
     }
@@ -52,7 +52,7 @@ class OrganizationsViewController: UIViewController, UITableViewDelegate, UITabl
             if (snapshot.childrenCount > 0) {
                 for entries in snapshot.children.allObjects as! [DataSnapshot] {
                     let spot = entries.value as? [String: AnyObject]
-                    self.organizations.append(Organization(name: spot?["name"] as! String, info: spot?["info"] as! String, icon: spot?["icon"] as! String, stripe: spot?["stripe"] as! String))
+                    self.organizations.append(Organization(name: spot?["name"] as! String, info: spot?["info"] as! String, icon: spot?["icon"] as! String, stripe: spot?["stripe"] as! String, url: spot?["url"] as! String))
                 }
             }
             self.tableView.reloadData()
@@ -67,7 +67,7 @@ class OrganizationsViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
-        headerView.backgroundColor = UIColor.clear
+        headerView.backgroundColor = UIColor.flatMint()
         return headerView
     }
     
@@ -80,12 +80,28 @@ class OrganizationsViewController: UIViewController, UITableViewDelegate, UITabl
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! OrganizationCell
         
+        cell.backgroundView?.backgroundColor = UIColor.flatMint()
         cell.myLabel1.text = "\(self.organizations[indexPath.section].name)"
         let url = URL(string: self.organizations[indexPath.section].icon)
         cell.profile.kf.setImage(with: url)
         cell.detail.text = "\(self.organizations[indexPath.section].info)"
+        cell.learn.addTarget(self, action: #selector(learnPressed(sender:)), for: .touchUpInside)
         
         return cell
+    }
+    
+    func learnPressed(sender: UIButton!) {
+        let cell = sender.superview?.superview as! UITableViewCell
+        indexPath = self.tableView.indexPath(for: cell)
+        openUrl(urlStr: self.organizations[indexPath.section].url)
+    }
+    
+    func openUrl(urlStr:String!) {
+        
+        if let url = NSURL(string:urlStr) {
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        }
+        
     }
     
     // MARK: - Table view delegate

@@ -13,11 +13,13 @@ struct Organization {
     let info: String
     let icon: String
     let stripe: String
+    let url: String
     
-    init(name: String, info: String, icon: String, stripe: String) {
+    init(name: String, info: String, icon: String, stripe: String, url: String) {
         self.name = name
         self.info = info
         self.icon = icon
         self.stripe = stripe
+        self.url = url
     }
 }

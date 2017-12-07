@@ -16,17 +16,10 @@ import SCLAlertView
 class RestaurantViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var headerView: UIView!
-    
 
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var logout: UIButton!
-    @IBOutlet weak var favOrg: UIImageView!
-    @IBOutlet weak var profile: UIButton!
-    @IBOutlet weak var favRest: UIImageView!
     var ref: DatabaseReference!
-
-    @IBOutlet weak var donationCount: UILabel!
     private var restaurants: [Restaurant] = []
     var organizations: [Organization] = []
     let settingsVC = SettingsViewController()
@@ -43,6 +36,7 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+        view.backgroundColor = UIColor.flatMint()
         
         logout.tintColor = UIColor.white
         logout.addTarget(self, action: #selector(self.logoutPressed(_:)), for: UIControlEvents.touchUpInside)
@@ -52,7 +46,7 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.backgroundColor = UIColor.white
+        tableView.backgroundColor = UIColor.flatMint()
         
         Auth.auth().addStateDidChangeListener { auth, user in
             guard let user = user else { return }
@@ -85,7 +79,7 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
             if (snapshot.childrenCount > 0) {
                 for entries in snapshot.children.allObjects as! [DataSnapshot] {
                     let spot = entries.value as? [String: AnyObject]
-                    self.organizations.append(Organization(name: spot?["name"] as! String, info: spot?["info"] as! String, icon: spot?["icon"] as! String, stripe: spot?["stripe"] as! String))
+                    self.organizations.append(Organization(name: spot?["name"] as! String, info: spot?["info"] as! String, icon: spot?["icon"] as! String, stripe: spot?["stripe"] as! String, url: spot?["url"] as! String))
                 }
             }
             self.tableView.reloadData()
@@ -101,7 +95,7 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
-        headerView.backgroundColor = UIColor.clear
+        headerView.backgroundColor = UIColor.flatMint()
         return headerView
     }
     
@@ -115,7 +109,7 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! RestaurantCell
-        
+        cell.backgroundView?.backgroundColor = UIColor.flatMint()
         cell.myLabel1.text = "\(self.restaurants[indexPath.section].name)"
         let url = URL(string: self.restaurants[indexPath.section].icon)
         cell.profile.kf.setImage(with: url)
@@ -184,13 +178,18 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         if segue.identifier == "profileSegue" {
             if let toViewController = segue.destination as? ProfileViewController {
                 toViewController.user = user.email
+                toViewController.restaurants = self.restaurants
+                toViewController.organizations = self.organizations
             }
         }
         
         if segue.identifier == "orderSegue" {
+            print(self.restaurantSelected)
+            print(self.organizationSelected)
             if let toViewController = segue.destination as? OrderViewController {
                 toViewController.restaurant = self.restaurantSelected
                 toViewController.organization = self.organizationSelected
+                toViewController.total = 0
             }
         }
     }
