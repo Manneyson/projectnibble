@@ -14,9 +14,13 @@
 		AC5994E71F9CFD5500BCDA36 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5994E61F9CFD5500BCDA36 /* CardView.swift */; };
 		AC5BB6081F96C663004938DD /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5BB6071F96C663004938DD /* Restaurant.swift */; };
 		AC6252501FBBD493006FCACB /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC62524F1FBBD493006FCACB /* OrderViewController.swift */; };
+		AC6B1871202DE0D200D3755B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B1870202DE0D200D3755B /* Constants.swift */; };
+		AC74101E202DDA7F002B0870 /* StripeCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74101D202DDA7F002B0870 /* StripeCheckoutViewController.swift */; };
 		AC8341DE1FBCA0AA001BCE31 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8341DD1FBCA0AA001BCE31 /* TipViewController.swift */; };
 		AC84F22C1FAC168100038A74 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC84F22B1FAC168100038A74 /* HUD.swift */; };
+		AC8931B22034C93D004FB66C /* StripeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8931B12034C93D004FB66C /* StripeClient.swift */; };
 		ACA449521F6DD9E7000091C8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA449511F6DD9E7000091C8 /* Item.swift */; };
+		ACBF04DC20690E87000EA72B /* SocialFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF04DB20690E87000EA72B /* SocialFeedViewController.swift */; };
 		ACDB49021FC257450018A2B3 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB49011FC257450018A2B3 /* Order.swift */; };
 		DD2520DB1F448424008049E3 /* MyAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2520DA1F448424008049E3 /* MyAPIClient.swift */; };
 		DD2520DD1F4484E1008049E3 /* CheckoutRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2520DC1F4484E1008049E3 /* CheckoutRowView.swift */; };
@@ -70,11 +74,15 @@
 		AC5994E61F9CFD5500BCDA36 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		AC5BB6071F96C663004938DD /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		AC62524F1FBBD493006FCACB /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		AC6B1870202DE0D200D3755B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AC74101D202DDA7F002B0870 /* StripeCheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCheckoutViewController.swift; sourceTree = "<group>"; };
 		AC8341DD1FBCA0AA001BCE31 /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
 		AC84F22B1FAC168100038A74 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		AC88CE691FB27A7200307703 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		AC88CE6A1FB27A8100307703 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		AC8931B12034C93D004FB66C /* StripeClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeClient.swift; sourceTree = "<group>"; };
 		ACA449511F6DD9E7000091C8 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		ACBF04DB20690E87000EA72B /* SocialFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialFeedViewController.swift; sourceTree = "<group>"; };
 		ACDB49011FC257450018A2B3 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		DD2520DA1F448424008049E3 /* MyAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIClient.swift; sourceTree = "<group>"; };
 		DD2520DC1F4484E1008049E3 /* CheckoutRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutRowView.swift; sourceTree = "<group>"; };
@@ -156,6 +164,8 @@
 				AC62524F1FBBD493006FCACB /* OrderViewController.swift */,
 				AC178ED41F792E2C009679C6 /* OrganizationsViewController.swift */,
 				AC8341DD1FBCA0AA001BCE31 /* TipViewController.swift */,
+				AC74101D202DDA7F002B0870 /* StripeCheckoutViewController.swift */,
+				ACBF04DB20690E87000EA72B /* SocialFeedViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -178,6 +188,8 @@
 				DD9D387C1F4345C000BC09A7 /* Main.storyboard */,
 				AC84F22B1FAC168100038A74 /* HUD.swift */,
 				DD9D38781F4345C000BC09A7 /* AppDelegate.swift */,
+				AC6B1870202DE0D200D3755B /* Constants.swift */,
+				AC8931B12034C93D004FB66C /* StripeClient.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -420,13 +432,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Nibble-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BD23199F5D392EAC2F28ADD3 /* [CP] Embed Pods Frameworks */ = {
@@ -435,9 +450,52 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Nibble/Pods-Nibble-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FaveButton/FaveButton.framework",
+				"${BUILT_PRODUCTS_DIR}/GMStepper/GMStepper.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SACountingLabel/SACountingLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FaveButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GMStepper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SACountingLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -453,14 +511,17 @@
 			files = (
 				AC5BB6081F96C663004938DD /* Restaurant.swift in Sources */,
 				DD9A27E01F45E7E8000BFEB1 /* LoginViewController.swift in Sources */,
+				AC74101E202DDA7F002B0870 /* StripeCheckoutViewController.swift in Sources */,
 				DD9D38AB1F43578300BC09A7 /* RestaurantCell.swift in Sources */,
 				ACA449521F6DD9E7000091C8 /* Item.swift in Sources */,
 				AC29D61C1F8C0A28001D1B11 /* Organization.swift in Sources */,
 				DD2520DD1F4484E1008049E3 /* CheckoutRowView.swift in Sources */,
+				ACBF04DC20690E87000EA72B /* SocialFeedViewController.swift in Sources */,
 				DDFCB92C1F4B705C00EAD70E /* OrderViewCell.swift in Sources */,
 				DD9D387B1F4345C000BC09A7 /* ViewController.swift in Sources */,
 				AC8341DE1FBCA0AA001BCE31 /* TipViewController.swift in Sources */,
 				DD9D38A91F43492B00BC09A7 /* RestaurantViewController.swift in Sources */,
+				AC6B1871202DE0D200D3755B /* Constants.swift in Sources */,
 				ACDB49021FC257450018A2B3 /* Order.swift in Sources */,
 				DDC6609C1F4CA284003C1933 /* RestaurantOrdersTableViewController.swift in Sources */,
 				DD2520DB1F448424008049E3 /* MyAPIClient.swift in Sources */,
@@ -477,6 +538,7 @@
 				AC5994E71F9CFD5500BCDA36 /* CardView.swift in Sources */,
 				DD9A27DE1F45E7D9000BFEB1 /* User.swift in Sources */,
 				AC6252501FBBD493006FCACB /* OrderViewController.swift in Sources */,
+				AC8931B22034C93D004FB66C /* StripeClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,6 @@ import UserNotifications
 import FirebaseInstanceID
 import FBSDKCoreKit
 import IQKeyboardManagerSwift
-import RZTransitions
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -40,8 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().shouldShowToolbarPlaceholder = false
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
         
-        RZTransitionsManager.shared().defaultPresentDismissAnimationController = RZZoomAlphaAnimationController()
-        RZTransitionsManager.shared().defaultPushPopAnimationController = RZZoomPushAnimationController()
+        STPPaymentConfiguration.shared().publishableKey = Constants.publishableKey
 
         
         return true

@@ -57,18 +57,25 @@ class LoginViewController: UIViewController {
     
     let saveAction = UIAlertAction(title: "Register",
                                    style: .default) { action in
+                                    
                                     // 1
                                     let emailField = alert.textFields![0]
                                     let passwordField = alert.textFields![1]
+                                    
                                     
                                     // 2
                                     Auth.auth().createUser(withEmail: emailField.text!,
                                                                password: passwordField.text!) { user, error in
                                                                 if error == nil {
+                                                                    //write user to users
+                                                                    let newUser = Database.database().reference().child("Users")
+                                                                    newUser.child("\(UIDevice.current.identifierForVendor!.uuidString)").setValue("0")
+                                                                    
                                                                     // 3
                                                                     Auth.auth().signIn(withEmail: self.textFieldLoginEmail.text!,
                                                                                            password: self.textFieldLoginPassword.text!)
                                                                 }
+                                                                
                                     }
                                     
         }
@@ -102,23 +109,22 @@ class LoginViewController: UIViewController {
             
             let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
             
-            // Perform login by calling Firebase APIs
-            Auth.auth().signIn(with: credential, completion: { (user, error) in
-                if let error = error {
-                    print("Login error: \(error.localizedDescription)")
-                    let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
-                    let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(okayAction)
-                    self.present(alertController, animated: true, completion: nil)
+                // Perform login by calling Firebase APIs
+                Auth.auth().signIn(with: credential, completion: { (user, error) in
+                    if let error = error {
+                        print("Login error: \(error.localizedDescription)")
+                        let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
+                        let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                        alertController.addAction(okayAction)
+                        self.present(alertController, animated: true, completion: nil)
                     
                     return
                 }
                 
-                // Present the main view
-//                if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "RestaurantScene") {
-//                    UIApplication.shared.keyWindow?.rootViewController = viewController
-//                    self.dismiss(animated: true, completion: nil)
-//                }
+                //write user to users will this happen every time we login?
+                let newUser = Database.database().reference().child("Users")
+                newUser.child("\(UIDevice.current.identifierForVendor!.uuidString)").setValue("0")
+                    
                 let hud = HUD.showLoading()
                 self.performSegue(withIdentifier: self.loginToList, sender: nil)
                 hud.dismiss()

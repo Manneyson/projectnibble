@@ -35,7 +35,6 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ref = Database.database().reference()
         view.backgroundColor = UIColor.flatMint()
         
         logout.tintColor = UIColor.white
@@ -50,7 +49,6 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         
         Auth.auth().addStateDidChangeListener { auth, user in
             guard let user = user else { return }
-            self.user = User(uid: user.uid, email: user.email!)
         }
         
         self.loadRestaurants()
@@ -177,7 +175,7 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if segue.identifier == "profileSegue" {
             if let toViewController = segue.destination as? ProfileViewController {
-                toViewController.user = user.email
+                toViewController.user = Auth.auth().currentUser?.email
                 toViewController.restaurants = self.restaurants
                 toViewController.organizations = self.organizations
             }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import RZTransitions
+import Firebase
 
 class OrderViewController: UIViewController {
     
@@ -51,7 +51,7 @@ class OrderViewController: UIViewController {
         if let amountString = price.text?.currencyInputFormatting() {
             price.text = amountString
             if (price.text != "") {
-                self.total = Int((price.text?.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: "$", with: ""))!)!
+                self.total = Int((price.text?.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: "$", with: "").replacingOccurrences(of: ",", with: ""))!)!
             }
         }
     }
@@ -64,9 +64,7 @@ class OrderViewController: UIViewController {
         
         if segue.identifier == "tipSegue" {
             if let toViewController = segue.destination as? TipViewController {
-                toViewController.restaurant = self.restaurant
-                toViewController.organization = self.organization
-                toViewController.total = self.total
+                toViewController.currOrder = Order(email: Auth.auth().currentUser!.email!, restaurant: self.restaurant!, organization: self.organization!, total: "\(self.total)", tip: "", donation: "\(Double(self.total) * (self.restaurant?.pledge)!)")
             }
         }
     }

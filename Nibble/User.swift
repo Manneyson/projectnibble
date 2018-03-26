@@ -22,19 +22,20 @@
 
 import Foundation
 
-struct User {
-  
-  let uid: String
-  let email: String
-  
-  init(authData: User) {
-    uid = authData.uid
-    email = authData.email
-  }
-  
-  init(uid: String, email: String) {
-    self.uid = uid
-    self.email = email
-  }
-  
+class User {
+    let uid: String
+    let email: String
+    let customerId: String
+
+    init(authData: User) {
+        uid = authData.uid
+        email = authData.email
+        customerId = authData.customerId
+    }
+
+    init(uid: String, email: String, customerId: String) {
+        self.uid = uid
+        self.email = email
+        self.customerId = customerId
+    }
 }

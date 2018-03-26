@@ -74,10 +74,10 @@ PODS:
   - nanopb/encode (0.3.8)
   - PopupDialog (0.6.1)
   - Protobuf (3.4.0)
-  - RZTransitions (1.2.1)
   - SACountingLabel (0.1.1)
   - SCLAlertView (0.7.0)
   - Stripe (11.5.0)
+  - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -96,10 +96,10 @@ DEPENDENCIES:
   - Kingfisher
   - MXParallaxHeader
   - PopupDialog (~> 0.5)
-  - RZTransitions
   - SACountingLabel
   - SCLAlertView
   - Stripe
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
@@ -121,16 +121,16 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 02bfbb0dff71c66d0ab77d80d25dfce0c3717735
   JGProgressHUD: c402c0f41fc291ca7e33bba2f999118d9682dd9c
   Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
-  leveldb-library: 4f9eedf84ab46b4fa3b7893bf30714b2a1a74022
+  leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PopupDialog: 1bdd1efbfb49eb619a280faa9a3bbaac76f94120
   Protobuf: 03eef2ee0b674770735cf79d9c4d3659cf6908e8
-  RZTransitions: 0e0013fda6989ee84dc5e44dca79fd539e1a975a
   SACountingLabel: 6b0c2a177b77e65ea63772e50f4d4285bb6d5a71
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   Stripe: 10761682d20dc491c52287393c800db056c9748d
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: '08a469a3d3c93be74baba2c455d71983b7de9f1b'
+PODFILE CHECKSUM: b02ae5a0aa9d26e5e83095e1b008498cdc20940c
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.4.0
