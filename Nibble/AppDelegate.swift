@@ -40,6 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
         
         STPPaymentConfiguration.shared().publishableKey = Constants.publishableKey
+        
+        SharedData.sharedInstance.loadOrganizations()
+        SharedData.sharedInstance.loadRestaurants()
 
         
         return true

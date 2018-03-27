@@ -30,9 +30,9 @@ class StripeCheckoutViewController: UIViewController {
         checkout.addTarget(self, action: #selector(checkoutPressed(sender:)), for: .touchUpInside)
         quickPay.addTarget(self, action: #selector(quickPayPressed(sender:)), for: .touchUpInside)
         close.addTarget(self, action: #selector(closePressed(sender:)), for: .touchUpInside)
-        subtotal.text = order?.total.currencyInputFormatting()
-        tip.text = order?.tip.currencyInputFormatting()
-        totalCost = Int((order?.total)!)! + Int((order?.tip)!)!
+        subtotal.text = "\(order?.total)".currencyInputFormatting()
+        tip.text = "\(order?.tip)".currencyInputFormatting()
+        totalCost = Int((order?.total)!) + Int((order?.tip)!)
         total.text = "\(totalCost)".currencyInputFormatting()
         
         navigationController?.navigationBar.isHidden = true

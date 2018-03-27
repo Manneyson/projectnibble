@@ -21,6 +21,8 @@
 		AC8931B22034C93D004FB66C /* StripeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8931B12034C93D004FB66C /* StripeClient.swift */; };
 		ACA449521F6DD9E7000091C8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA449511F6DD9E7000091C8 /* Item.swift */; };
 		ACBF04DC20690E87000EA72B /* SocialFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF04DB20690E87000EA72B /* SocialFeedViewController.swift */; };
+		ACBF04DE20693309000EA72B /* SocialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF04DD20693309000EA72B /* SocialCell.swift */; };
+		ACBF04E02069390B000EA72B /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF04DF2069390B000EA72B /* SharedData.swift */; };
 		ACDB49021FC257450018A2B3 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB49011FC257450018A2B3 /* Order.swift */; };
 		DD2520DB1F448424008049E3 /* MyAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2520DA1F448424008049E3 /* MyAPIClient.swift */; };
 		DD2520DD1F4484E1008049E3 /* CheckoutRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2520DC1F4484E1008049E3 /* CheckoutRowView.swift */; };
@@ -83,6 +85,8 @@
 		AC8931B12034C93D004FB66C /* StripeClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeClient.swift; sourceTree = "<group>"; };
 		ACA449511F6DD9E7000091C8 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		ACBF04DB20690E87000EA72B /* SocialFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialFeedViewController.swift; sourceTree = "<group>"; };
+		ACBF04DD20693309000EA72B /* SocialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialCell.swift; sourceTree = "<group>"; };
+		ACBF04DF2069390B000EA72B /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
 		ACDB49011FC257450018A2B3 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		DD2520DA1F448424008049E3 /* MyAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIClient.swift; sourceTree = "<group>"; };
 		DD2520DC1F4484E1008049E3 /* CheckoutRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutRowView.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 				AC8341DD1FBCA0AA001BCE31 /* TipViewController.swift */,
 				AC74101D202DDA7F002B0870 /* StripeCheckoutViewController.swift */,
 				ACBF04DB20690E87000EA72B /* SocialFeedViewController.swift */,
+				ACBF04DF2069390B000EA72B /* SharedData.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 				DD9D38AC1F4387D600BC09A7 /* MenuItemCell.swift */,
 				DDFCB92B1F4B705C00EAD70E /* OrderViewCell.swift */,
 				DDC6609D1F4CA4B1003C1933 /* RestaurantOrderCell.swift */,
+				ACBF04DD20693309000EA72B /* SocialCell.swift */,
 			);
 			name = "TableView Cells";
 			sourceTree = "<group>";
@@ -528,6 +534,7 @@
 				DD2520E11F44866B008049E3 /* Buttons.swift in Sources */,
 				DDC6609E1F4CA4B1003C1933 /* RestaurantOrderCell.swift in Sources */,
 				AC178ED51F792E2C009679C6 /* OrganizationsViewController.swift in Sources */,
+				ACBF04DE20693309000EA72B /* SocialCell.swift in Sources */,
 				AC84F22C1FAC168100038A74 /* HUD.swift in Sources */,
 				DD9D38AD1F4387D600BC09A7 /* MenuItemCell.swift in Sources */,
 				DD9D38AF1F43984A00BC09A7 /* CheckoutViewController.swift in Sources */,
@@ -536,6 +543,7 @@
 				DD9A27E21F45F5CA000BFEB1 /* ProfileViewController.swift in Sources */,
 				DD2520DF1F4485FC008049E3 /* SettingsViewController.swift in Sources */,
 				AC5994E71F9CFD5500BCDA36 /* CardView.swift in Sources */,
+				ACBF04E02069390B000EA72B /* SharedData.swift in Sources */,
 				DD9A27DE1F45E7D9000BFEB1 /* User.swift in Sources */,
 				AC6252501FBBD493006FCACB /* OrderViewController.swift in Sources */,
 				AC8931B22034C93D004FB66C /* StripeClient.swift in Sources */,

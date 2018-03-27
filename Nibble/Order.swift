@@ -13,11 +13,11 @@ class Order {
     var email: String
     var restaurant: Restaurant
     var organization: Organization
-    var total: String
-    var tip: String
-    var donation: String
+    var total: Int
+    var tip: Int
+    var donation: Int
     
-    init(email: String, restaurant: Restaurant, organization: Organization, total: String, tip: String, donation: String) {
+    init(email: String, restaurant: Restaurant, organization: Organization, total: Int, tip: Int, donation: Int) {
         self.email = email
         self.restaurant = restaurant
         self.organization = organization

@@ -64,7 +64,7 @@ class OrderViewController: UIViewController {
         
         if segue.identifier == "tipSegue" {
             if let toViewController = segue.destination as? TipViewController {
-                toViewController.currOrder = Order(email: Auth.auth().currentUser!.email!, restaurant: self.restaurant!, organization: self.organization!, total: "\(self.total)", tip: "", donation: "\(Double(self.total) * (self.restaurant?.pledge)!)")
+                toViewController.currOrder = Order(email: Auth.auth().currentUser!.email!, restaurant: self.restaurant!, organization: self.organization!, total: self.total, tip: 0, donation: ((Int(Double(self.total) * (Double((self.restaurant?.pledge)!))))))
             }
         }
     }

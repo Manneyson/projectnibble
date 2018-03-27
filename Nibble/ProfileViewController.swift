@@ -53,7 +53,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 for entries in snapshot.children.allObjects as! [DataSnapshot] {
                     let spot = entries.value as? [String: AnyObject]
                     if (Auth.auth().currentUser?.email == spot?["email"] as! String) {
-                        self.recentOrders.append(Order(email: spot?["email"] as! String, restaurant: self.restaurants!.first(where: {$0.name == spot?["restaurant"] as? String})!, organization: self.organizations!.first(where: {$0.name == spot?["organization"] as! String})!, total: spot?["subtotal"] as! String, tip: "", donation: spot?["donation"] as! String))
+                        self.recentOrders.append(Order(email: spot?["email"] as! String, restaurant: self.restaurants!.first(where: {$0.name == spot?["restaurant"] as? String})!, organization: self.organizations!.first(where: {$0.name == spot?["organization"] as! String})!, total: spot?["subtotal"] as! Int, tip: 0, donation: spot?["donation"] as! Int))
                         var donation = spot?["donation"] as! Int
                         self.totalDonation += donation
                     }

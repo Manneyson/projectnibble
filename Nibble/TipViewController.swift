@@ -67,7 +67,7 @@ class TipViewController: UIViewController {
         if segue.identifier == "checkoutSegue" {
             let destinationNavigationController = segue.destination as! UINavigationController
             if let toViewController = destinationNavigationController.topViewController as? StripeCheckoutViewController {
-                currOrder?.tip = "\(self.tipCount)"
+                currOrder?.tip = self.tipCount
                 toViewController.order = currOrder
                 toViewController.navigationController?.navigationBar.isHidden = false
             }

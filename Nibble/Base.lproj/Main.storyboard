@@ -360,13 +360,37 @@
                     <view key="view" contentMode="scaleToFill" id="iz3-7n-UOM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerbg" translatesAutoresizingMaskIntoConstraints="NO" id="H65-MT-cWA">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="efM-MF-v3b"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cte-L3-Nnv">
+                                <rect key="frame" x="0.0" y="230" width="320" height="289"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Cte-L3-Nnv" firstAttribute="leading" secondItem="iz3-7n-UOM" secondAttribute="leading" id="5MW-np-XNB"/>
+                            <constraint firstAttribute="trailing" secondItem="H65-MT-cWA" secondAttribute="trailing" id="Dn8-Qb-WBa"/>
+                            <constraint firstItem="3Oa-rx-5UW" firstAttribute="top" secondItem="Cte-L3-Nnv" secondAttribute="bottom" id="bOE-sC-Xan"/>
+                            <constraint firstItem="H65-MT-cWA" firstAttribute="top" secondItem="iz3-7n-UOM" secondAttribute="top" id="cN8-aJ-3jE"/>
+                            <constraint firstItem="H65-MT-cWA" firstAttribute="leading" secondItem="iz3-7n-UOM" secondAttribute="leading" id="gJD-PZ-UQB"/>
+                            <constraint firstItem="Cte-L3-Nnv" firstAttribute="top" secondItem="H65-MT-cWA" secondAttribute="bottom" id="sFg-NM-XAu"/>
+                            <constraint firstAttribute="trailing" secondItem="Cte-L3-Nnv" secondAttribute="trailing" id="uDP-wt-KV4"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="icons8-groups_filled" id="qVC-mA-0RT"/>
+                    <connections>
+                        <outlet property="tableView" destination="Cte-L3-Nnv" id="zZW-UL-Dkf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8nO-GO-tK1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2584" y="1613"/>
+            <point key="canvasLocation" x="-2585.625" y="1611.9718309859154"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="m3O-zq-xHz">

@@ -45,6 +45,7 @@ class OrganizationsViewController: UIViewController, UITableViewDelegate, UITabl
         self.loadOrganizations()
     }
     
+    
     func loadOrganizations() {
         let hud = HUD.showLoading()
         let organizations = Database.database().reference().child("organizations")

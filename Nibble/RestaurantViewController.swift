@@ -65,6 +65,7 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
                     self.restaurants.append(Restaurant(name: spot?["name"] as! String, pledge: spot?["pledge"] as! Double, stripe: spot?["stripe"] as! String, open: spot?["open"] as! Int, close: spot?["close"] as! Int, icon: spot?["icon"] as! String, info: spot?["info"] as! String, header: spot?["header"] as! String))
                 }
             }
+            SharedData.sharedInstance.restaurants = self.restaurants
             self.tableView.reloadData()
         })
         hud.dismiss()
@@ -80,6 +81,7 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
                     self.organizations.append(Organization(name: spot?["name"] as! String, info: spot?["info"] as! String, icon: spot?["icon"] as! String, stripe: spot?["stripe"] as! String, url: spot?["url"] as! String))
                 }
             }
+            SharedData.sharedInstance.organizations = self.organizations
             self.tableView.reloadData()
             hud.dismiss()
         })
