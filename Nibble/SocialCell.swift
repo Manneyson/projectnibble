@@ -22,8 +22,8 @@ class SocialCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         let marginGuide = contentView.layoutMarginsGuide
+        contentView.backgroundColor = UIColor.clear
         backgroundView = UIImageView(image: UIImage(named: "cellbg")!)
-//        backgroundView?.contentMode = .scaleAspectFill
         
         // configure titleLabel
         

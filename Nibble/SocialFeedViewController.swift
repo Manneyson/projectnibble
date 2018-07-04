@@ -36,7 +36,7 @@ class SocialFeedViewController: UIViewController, UITableViewDataSource, UITable
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = UIColor.flatMint()
-        tableView.estimatedRowHeight = 110
+        tableView.estimatedRowHeight = 140
         
         self.loadOrders()
     }
@@ -77,7 +77,7 @@ class SocialFeedViewController: UIViewController, UITableViewDataSource, UITable
         
         cell.backgroundColor = UIColor.flatMint()
         
-        let name = Auth.auth().currentUser?.email?.components(separatedBy: "@").first ?? "Anonymous user"
+        let name = self.orders.reversed()[indexPath.section].email.components(separatedBy: "@").first ?? "Anonymous user"
         cell.myLabel1.text = self.orders.reversed()[indexPath.section].restaurant.name
         let url = URL(string: self.orders.reversed()[indexPath.section].organization.icon)
         cell.profile.kf.setImage(with: url)

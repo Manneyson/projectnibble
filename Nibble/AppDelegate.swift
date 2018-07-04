@@ -43,6 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         SharedData.sharedInstance.loadOrganizations()
         SharedData.sharedInstance.loadRestaurants()
+        
+        STPPaymentConfiguration.shared().appleMerchantIdentifier = "merchant.com.ProjectNibble"
 
         
         return true

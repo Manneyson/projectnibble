@@ -27,6 +27,9 @@ class TipViewController: UIViewController {
         tip.addTarget(self, action: #selector(myTextFieldDidChange(_:)), for: .editingChanged)
         close.addTarget(self, action: #selector(closePressed(_:)), for: .touchUpInside)
         
+        navigationController?.navigationBar.isHidden = true
+
+        
         // Do any additional setup after loading the view.
     }
 
@@ -65,8 +68,7 @@ class TipViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "checkoutSegue" {
-            let destinationNavigationController = segue.destination as! UINavigationController
-            if let toViewController = destinationNavigationController.topViewController as? StripeCheckoutViewController {
+            if let toViewController = segue.destination as? StripeCheckoutViewController {
                 currOrder?.tip = self.tipCount
                 toViewController.order = currOrder
                 toViewController.navigationController?.navigationBar.isHidden = false

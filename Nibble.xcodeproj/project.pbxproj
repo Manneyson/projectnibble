@@ -84,6 +84,7 @@
 		AC88CE6A1FB27A8100307703 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		AC8931B12034C93D004FB66C /* StripeClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeClient.swift; sourceTree = "<group>"; };
 		ACA449511F6DD9E7000091C8 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		ACB2300320EC3AF900715568 /* Nibble.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nibble.entitlements; sourceTree = "<group>"; };
 		ACBF04DB20690E87000EA72B /* SocialFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialFeedViewController.swift; sourceTree = "<group>"; };
 		ACBF04DD20693309000EA72B /* SocialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialCell.swift; sourceTree = "<group>"; };
 		ACBF04DF2069390B000EA72B /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
@@ -257,6 +258,7 @@
 		DD9D38771F4345C000BC09A7 /* Nibble */ = {
 			isa = PBXGroup;
 			children = (
+				ACB2300320EC3AF900715568 /* Nibble.entitlements */,
 				AC12CE761FB2B66100833502 /* Helpers */,
 				AC12CE731FB2B62900833502 /* Models */,
 				AC12CE741FB2B63C00833502 /* View Controllers */,
@@ -345,6 +347,9 @@
 						DevelopmentTeam = DB94ZEYT99;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
@@ -697,9 +702,10 @@
 			baseConfigurationReference = 43C0AA10EAF0E25F515421EC /* Pods-Nibble.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Nibble/Nibble.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = DB94ZEYT99;
 				INFOPLIST_FILE = "$(SRCROOT)/Nibble/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sbilling.Nibble;
@@ -716,10 +722,11 @@
 			baseConfigurationReference = 29238E06EDBC7BDABEC79DC5 /* Pods-Nibble.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Nibble/Nibble.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Sawyer Billings (DB94ZEYT99)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = DB94ZEYT99;
 				INFOPLIST_FILE = "$(SRCROOT)/Nibble/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sbilling.Nibble;

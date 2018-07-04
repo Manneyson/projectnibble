@@ -31,9 +31,9 @@ final class StripeClient {
         return url
     }()
     
-    func completeCharge(with token: STPToken, amount: Int, customer: String, completion: @escaping (Result) -> Void) {
+    func completeCharge(with token: STPToken, amount: Double, donation: Double, restaurantAmount: Double, customer: String, org_stripe: String, rest_stripe: String, completion: @escaping (Result) -> Void) {
         // 1
-        let url = baseURL.appendingPathComponent("charge")
+        let url = baseURL.appendingPathComponent("/charge")
         
         // 2
         let params: [String: Any] = [
@@ -43,7 +43,12 @@ final class StripeClient {
             "description": Constants.defaultDescription,
             "customer": customer,
             "email": Auth.auth().currentUser?.email ?? "",
-            "userID": UIDevice.current.identifierForVendor!.uuidString
+            "userID": UIDevice.current.identifierForVendor!.uuidString,
+            "org_stripe": org_stripe,
+            "rest_stripe": rest_stripe,
+            "donation_amount": Int(donation),
+            "restaurant_amount": Int(restaurantAmount),
+            "transfer": String.random(),
         ]
         print(params)
         // 3

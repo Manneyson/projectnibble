@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/StripeCheckoutViewController.swift"
-            timestampString = "543813358.09492"
+            timestampString = "552366911.4441561"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,28 +26,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/StripeCheckoutViewController.swift"
-            timestampString = "543813358.0950119"
+            timestampString = "552366911.4447989"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "StripeCheckoutViewController"
-            landmarkType = "3">
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "getExistingCustomerCards()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/StripeClient.swift"
-            timestampString = "540417950.640416"
+            timestampString = "545882126.615373"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
             endingLineNumber = "44"
-            landmarkName = "completeCharge(with:amount:customer:completion:)"
+            landmarkName = "completeCharge(with:amount:donation:restaurantAmount:customer:org_stripe:rest_stripe:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/StripeClient.swift"
-            timestampString = "540417950.6404721"
+            timestampString = "545882126.615535"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "completeCharge(with:amount:customer:completion:)"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "completeCharge(with:amount:donation:restaurantAmount:customer:org_stripe:rest_stripe:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/StripeCheckoutViewController.swift"
-            timestampString = "543813358.095192"
+            timestampString = "552366911.445277"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "getExistingCustomer()"
             landmarkType = "7">
             <Locations>
@@ -118,31 +118,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/StripeCheckoutViewController.swift"
-            timestampString = "543813358.095253"
+            timestampString = "552366911.445694"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "quickPayPressed(sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Nibble/StripeCheckoutViewController.swift"
-            timestampString = "543813358.095304"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "quickPayPressed(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,11 +138,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/StripeCheckoutViewController.swift"
-            timestampString = "543813358.0953521"
+            timestampString = "552366911.446104"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "closePressed(sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nibble/StripeCheckoutViewController.swift"
+            timestampString = "552366911.446601"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "getExistingCustomerCards()"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,13 +170,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/StripeCheckoutViewController.swift"
-            timestampString = "543813358.095399"
+            timestampString = "552366911.447107"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "StripeCheckoutViewController"
-            landmarkType = "3">
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "updateButtonText()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -186,27 +186,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/StripeCheckoutViewController.swift"
-            timestampString = "543813358.095446"
+            timestampString = "552366911.447546"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "StripeCheckoutViewController"
-            landmarkType = "3">
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "checkoutPressed(sender:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/StripeCheckoutViewController.swift"
-            timestampString = "543813358.095493"
+            timestampString = "552366911.448005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "quickPayPressed(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,45 +218,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/StripeCheckoutViewController.swift"
-            timestampString = "543813358.09554"
+            timestampString = "552366911.448388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "quickPayPressed(sender:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Nibble.StripeCheckoutViewController.quickPayPressed(sender: Swift.Optional&lt;__ObjC.UIButton&gt;) -&gt; ()"
-                  moduleName = "Nibble"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sawyerbillings/Desktop/Dev/Nibble/Nibble/StripeCheckoutViewController.swift"
-                  timestampString = "543813284.9765019"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "114"
-                  endingLineNumber = "114"
-                  offsetFromSymbolStart = "2586">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Swift.String&gt;) -&gt; () in Nibble.StripeCheckoutViewController.quickPayPressed(sender: Swift.Optional&lt;__ObjC.UIButton&gt;) -&gt; ()"
-                  moduleName = "Nibble"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sawyerbillings/Desktop/Dev/Nibble/Nibble/StripeCheckoutViewController.swift"
-                  timestampString = "543813284.9797781"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "115"
-                  endingLineNumber = "115"
-                  offsetFromSymbolStart = "222">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -266,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/StripeCheckoutViewController.swift"
-            timestampString = "543813358.095587"
+            timestampString = "552366911.448748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "getExistingCustomerCards()"
             landmarkType = "7">
             <Locations>
@@ -314,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/StripeCheckoutViewController.swift"
-            timestampString = "543813358.095634"
+            timestampString = "552366911.449092"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "getExistingCustomerCards()"
             landmarkType = "7">
          </BreakpointContent>
@@ -330,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/StripeCheckoutViewController.swift"
-            timestampString = "543813358.095679"
+            timestampString = "552366911.449458"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "getExistingCustomerCards()"
             landmarkType = "7">
          </BreakpointContent>
@@ -346,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/TipViewController.swift"
-            timestampString = "543813358.095729"
+            timestampString = "545877843.989957"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -362,12 +330,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/StripeCheckoutViewController.swift"
-            timestampString = "543813358.095775"
+            timestampString = "552366911.449861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "updateButtonText()"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -458,7 +426,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/SocialFeedViewController.swift"
-            timestampString = "543841965.392998"
+            timestampString = "545882126.616954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -474,7 +442,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/SocialFeedViewController.swift"
-            timestampString = "543841965.393096"
+            timestampString = "545882126.617025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
@@ -490,7 +458,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/SocialFeedViewController.swift"
-            timestampString = "543841965.393172"
+            timestampString = "545882126.617087"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
@@ -568,13 +536,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/RestaurantViewController.swift"
-            timestampString = "543811064.7505291"
+            timestampString = "545523693.70131"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
             endingLineNumber = "68"
-            landmarkName = "loadRestaurants()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -584,7 +552,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/SocialFeedViewController.swift"
-            timestampString = "543841965.3932641"
+            timestampString = "545882126.617175"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
@@ -600,12 +568,108 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nibble/SocialFeedViewController.swift"
-            timestampString = "543841965.393344"
+            timestampString = "545882126.617239"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
             endingLineNumber = "86"
             landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nibble/StripeCheckoutViewController.swift"
+            timestampString = "552366911.450375"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "quickPayPressed(sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nibble/StripeCheckoutViewController.swift"
+            timestampString = "552366911.45074"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "addCardViewController(_:didCreateToken:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Nibble.StripeCheckoutViewController.addCardViewController(__ObjC.STPAddCardViewController, didCreateToken: __ObjC.STPToken, completion: (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Nibble"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sawyerbillings/Desktop/Dev/Nibble/Nibble/StripeCheckoutViewController.swift"
+                  timestampString = "545881790.222945"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "183"
+                  endingLineNumber = "183"
+                  offsetFromSymbolStart = "33">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Nibble.Result) -&gt; () in Nibble.StripeCheckoutViewController.addCardViewController(__ObjC.STPAddCardViewController, didCreateToken: __ObjC.STPToken, completion: (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Nibble"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sawyerbillings/Desktop/Dev/Nibble/Nibble/StripeCheckoutViewController.swift"
+                  timestampString = "545881790.225139"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "184"
+                  endingLineNumber = "184"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nibble/StripeClient.swift"
+            timestampString = "545882126.617465"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "completeCharge(with:amount:donation:restaurantAmount:customer:org_stripe:rest_stripe:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nibble/StripeCheckoutViewController.swift"
+            timestampString = "552366911.451146"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

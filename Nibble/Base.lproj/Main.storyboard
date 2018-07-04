@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7fa-Pd-zK3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7fa-Pd-zK3">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Avenir.ttc">
-            <string>Avenir-Book</string>
-            <string>Avenir-Heavy</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Profile View Controller-->
         <scene sceneID="BYj-ja-gHk">
@@ -498,7 +492,7 @@
                         <outlet property="topView" destination="tJR-6h-J8t" id="lgi-5w-bIJ"/>
                         <segue destination="qQf-AR-fKx" kind="show" identifier="menuSegue" id="sRG-Kv-up0"/>
                         <segue destination="7fa-Pd-zK3" kind="show" identifier="signoutSegue" id="TMm-Wv-9aZ"/>
-                        <segue destination="DVP-kN-l0V" kind="show" identifier="orderSegue" id="YhK-3Y-m6G"/>
+                        <segue destination="F7T-nz-zDq" kind="show" identifier="orderSegue" id="YhK-3Y-m6G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKn-m4-QSg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -518,13 +512,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please hand your device to the waitstaff so they can enter your order subtotal" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H65-jm-6gP">
-                                <rect key="frame" x="40" y="90" width="240" height="70"/>
+                                <rect key="frame" x="40" y="134" width="240" height="70"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$0.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OnN-kC-F54">
-                                <rect key="frame" x="53" y="230" width="213" height="51"/>
+                                <rect key="frame" x="53" y="274" width="213" height="51"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="XdH-jc-GaX"/>
@@ -534,7 +528,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUu-xT-qWY">
-                                <rect key="frame" x="198" y="351" width="91" height="37"/>
+                                <rect key="frame" x="198" y="395" width="91" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="kRi-bG-vFP"/>
                                     <constraint firstAttribute="width" constant="91" id="ptX-hn-TZN"/>
@@ -543,7 +537,7 @@
                                 <state key="normal" image="icons8-long_arrow_right_filled"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lD-dO-mpA">
-                                <rect key="frame" x="20" y="30" width="25" height="25"/>
+                                <rect key="frame" x="20" y="74" width="25" height="25"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="close"/>
                             </button>
@@ -562,16 +556,17 @@
                             <constraint firstAttribute="trailing" secondItem="HUu-xT-qWY" secondAttribute="trailing" constant="31" id="sHI-vx-uS8"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="wbX-UK-0u0"/>
                     <connections>
                         <outlet property="checkout" destination="HUu-xT-qWY" id="UBt-eC-jUN"/>
                         <outlet property="close" destination="5lD-dO-mpA" id="o7u-Gi-nnF"/>
                         <outlet property="price" destination="OnN-kC-F54" id="bvB-vL-jvU"/>
-                        <segue destination="V2T-UU-2t5" kind="show" identifier="tipSegue" id="5kD-3r-jkw"/>
+                        <segue destination="V2T-UU-2t5" kind="show" identifier="tipSegue" id="Wv5-yi-TU7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="txt-tU-l0d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2544" y="355"/>
+            <point key="canvasLocation" x="3345" y="359"/>
         </scene>
         <!--Tip View Controller-->
         <scene sceneID="Ri7-gd-85L">
@@ -586,18 +581,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you like to add a tip?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WxB-gC-18m">
-                                <rect key="frame" x="47" y="90" width="226" height="23.5"/>
+                                <rect key="frame" x="47" y="134" width="226" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ah-uV-nZs">
-                                <rect key="frame" x="20" y="30" width="25" height="25"/>
+                                <rect key="frame" x="20" y="74" width="25" height="25"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="close"/>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$0.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7x3-cz-1Ux">
-                                <rect key="frame" x="112.5" y="229.5" width="95" height="51"/>
+                                <rect key="frame" x="112.5" y="273.5" width="95" height="51"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="njI-Ui-Cfp"/>
@@ -607,7 +602,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIx-nF-aN0">
-                                <rect key="frame" x="198" y="350.5" width="91" height="37"/>
+                                <rect key="frame" x="198" y="394.5" width="91" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="91" id="71Q-FW-ArW"/>
                                     <constraint firstAttribute="height" constant="37" id="YEv-v9-z95"/>
@@ -632,12 +627,12 @@
                         <outlet property="checkout" destination="hIx-nF-aN0" id="XfU-Zi-guK"/>
                         <outlet property="close" destination="4Ah-uV-nZs" id="4bT-B7-vjA"/>
                         <outlet property="tip" destination="7x3-cz-1Ux" id="uRk-mG-Ww4"/>
-                        <segue destination="hxQ-xD-tF2" kind="show" identifier="checkoutSegue" id="bZc-FM-CmU"/>
+                        <segue destination="Do6-1c-IcJ" kind="show" identifier="checkoutSegue" id="ECj-Ip-IBa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFS-Wg-pCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3544" y="355"/>
+            <point key="canvasLocation" x="4179" y="358"/>
         </scene>
         <!--Stripe Checkout View Controller-->
         <scene sceneID="kfe-wd-0Mk">
@@ -717,9 +712,9 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqN-Xc-C2F">
-                                <rect key="frame" x="99" y="474" width="122" height="36"/>
+                                <rect key="frame" x="83" y="474" width="154" height="36"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
-                                <state key="normal" title="Enter Card Info">
+                                <state key="normal" title="Pay with Apple Pay">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -765,7 +760,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gsL-2K-mEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5366.25" y="359.15492957746477"/>
+            <point key="canvasLocation" x="5160" y="358"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="06B-90-MHn">
@@ -889,22 +884,22 @@
             <point key="canvasLocation" x="-26" y="2474"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="7eH-Kl-qlg">
+        <scene sceneID="R5q-LG-518">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hxQ-xD-tF2" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F7T-nz-zDq" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QN6-md-1AR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nmn-Oa-vHa">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Do6-1c-IcJ" kind="relationship" relationship="rootViewController" id="r9z-pA-Epm"/>
+                        <segue destination="DVP-kN-l0V" kind="relationship" relationship="rootViewController" id="geo-7W-3Qc"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Y1i-tN-hjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ydz-vU-lvh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4432.5" y="360.21126760563379"/>
+            <point key="canvasLocation" x="2542.5" y="354.92957746478874"/>
         </scene>
     </scenes>
     <resources>

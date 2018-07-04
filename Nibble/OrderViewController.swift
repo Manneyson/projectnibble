@@ -27,6 +27,9 @@ class OrderViewController: UIViewController {
         checkout.addTarget(self, action: #selector(checkoutPressed(_:)), for: .touchUpInside)
         price.addTarget(self, action: #selector(myTextFieldDidChange(_:)), for: .editingChanged)
         close.addTarget(self, action: #selector(closePressed(_:)), for: .touchUpInside)
+        
+        navigationController?.navigationBar.isHidden = true
+
 
         // Do any additional setup after loading the view.
     }

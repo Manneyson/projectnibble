@@ -184,9 +184,8 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
         if segue.identifier == "orderSegue" {
-            print(self.restaurantSelected)
-            print(self.organizationSelected)
-            if let toViewController = segue.destination as? OrderViewController {
+            let navView = segue.destination as? UINavigationController
+            if let toViewController = navView?.topViewController as? OrderViewController {
                 toViewController.restaurant = self.restaurantSelected
                 toViewController.organization = self.organizationSelected
                 toViewController.total = 0
