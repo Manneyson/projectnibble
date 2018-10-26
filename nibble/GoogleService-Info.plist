@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>390186076422-f4l39gs8d2eqsn2ij65jv8jtb0ef195l.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.390186076422-f4l39gs8d2eqsn2ij65jv8jtb0ef195l</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDhg2PVYwYZ6Us5fJcPMDU5Ggx81BdsJeM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>390186076422</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.sbilling.projectNibble</string>
+	<key>PROJECT_ID</key>
+	<string>nibble-c00f6</string>
+	<key>STORAGE_BUCKET</key>
+	<string>nibble-c00f6.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:390186076422:ios:3d41012bd5d75a42</string>
+	<key>DATABASE_URL</key>
+	<string>https://nibble-c00f6.firebaseio.com</string>
+</dict>
+</plist>

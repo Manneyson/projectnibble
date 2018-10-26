@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		006C1D689B31B2D613DD2722 /* Pods_nibbleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89068F4F6CBAAA97DD7E3D4E /* Pods_nibbleUITests.framework */; };
+		502D4066953F33FF446D0981 /* Pods_nibbleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8A561E2390E37664340455 /* Pods_nibbleTests.framework */; };
 		AC0F24742182E07E00637AD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F24732182E07E00637AD2 /* AppDelegate.swift */; };
 		AC0F24762182E07E00637AD2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F24752182E07E00637AD2 /* ViewController.swift */; };
 		AC0F24792182E07E00637AD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0F24772182E07E00637AD2 /* Main.storyboard */; };
@@ -14,6 +16,28 @@
 		AC0F247E2182E07F00637AD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0F247C2182E07F00637AD2 /* LaunchScreen.storyboard */; };
 		AC0F24892182E07F00637AD2 /* nibbleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F24882182E07F00637AD2 /* nibbleTests.swift */; };
 		AC0F24942182E07F00637AD2 /* nibbleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F24932182E07F00637AD2 /* nibbleUITests.swift */; };
+		AC574F67218375D20082B143 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC574F66218375D20082B143 /* RegistrationViewController.swift */; };
+		AC574F6C2183765D0082B143 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC574F6B2183765D0082B143 /* HomeViewController.swift */; };
+		AC574F6E218377770082B143 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC574F6D218377770082B143 /* Data.swift */; };
+		AC574F75218379A80082B143 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC574F74218379A80082B143 /* EventCell.swift */; };
+		AC574F7921837A360082B143 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC574F7821837A360082B143 /* API.swift */; };
+		AC574F7C2183818A0082B143 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC574F7B2183818A0082B143 /* Event.swift */; };
+		AC574F7E218387460082B143 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC574F7D218387460082B143 /* AuthError.swift */; };
+		AC574F8021838BA50082B143 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC574F7F21838BA50082B143 /* Extension+String.swift */; };
+		AC574F85218392600082B143 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC574F84218392600082B143 /* Colors.swift */; };
+		AC574F872183973B0082B143 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC574F862183973B0082B143 /* OrderViewController.swift */; };
+		AC574F8B2183ACBC0082B143 /* OrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC574F8A2183ACBC0082B143 /* OrganizationCell.swift */; };
+		AC574F8F2183BB750082B143 /* Extension+Stripe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC574F8E2183BB750082B143 /* Extension+Stripe.swift */; };
+		AC574F912183BF910082B143 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC574F902183BF910082B143 /* GoogleService-Info.plist */; };
+		ACBA92802182E37C00C656BF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA927F2182E37C00C656BF /* LoginViewController.swift */; };
+		ACBA92822182E3C100C656BF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA92812182E3C100C656BF /* Constants.swift */; };
+		ACBA92842182E41000C656BF /* StripeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA92832182E41000C656BF /* StripeClient.swift */; };
+		ACBA92862182E42C00C656BF /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA92852182E42C00C656BF /* HUD.swift */; };
+		ACBA928E2182E45A00C656BF /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA92892182E45700C656BF /* Order.swift */; };
+		ACBA928F2182E45A00C656BF /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA928A2182E45800C656BF /* Restaurant.swift */; };
+		ACBA92902182E45A00C656BF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA928B2182E45900C656BF /* User.swift */; };
+		ACBA92912182E45A00C656BF /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA928C2182E45A00C656BF /* Organization.swift */; };
+		C316E4A36647FC5D0449F413 /* Pods_nibble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1658C17975CB78475840B26 /* Pods_nibble.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +58,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A8A561E2390E37664340455 /* Pods_nibbleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nibbleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		248ECC77EC3C6FF19F01D05F /* Pods-nibbleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nibbleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-nibbleUITests/Pods-nibbleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2B38E1E9791C0FAE748D9FD4 /* Pods-nibbleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nibbleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nibbleUITests/Pods-nibbleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2F0E06B535660AA86139AB44 /* Pods-nibble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nibble.release.xcconfig"; path = "Pods/Target Support Files/Pods-nibble/Pods-nibble.release.xcconfig"; sourceTree = "<group>"; };
+		89068F4F6CBAAA97DD7E3D4E /* Pods_nibbleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nibbleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0F24702182E07E00637AD2 /* nibble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nibble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0F24732182E07E00637AD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC0F24752182E07E00637AD2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +76,32 @@
 		AC0F248F2182E07F00637AD2 /* nibbleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nibbleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0F24932182E07F00637AD2 /* nibbleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nibbleUITests.swift; sourceTree = "<group>"; };
 		AC0F24952182E07F00637AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC574F66218375D20082B143 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		AC574F6B2183765D0082B143 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = nibble/Views/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
+		AC574F6D218377770082B143 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		AC574F74218379A80082B143 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		AC574F7821837A360082B143 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		AC574F7A21837ED60082B143 /* nibble.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nibble.entitlements; sourceTree = "<group>"; };
+		AC574F7B2183818A0082B143 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		AC574F7D218387460082B143 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		AC574F7F21838BA50082B143 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+String.swift"; path = "/Users/sawyerbillings/Documents/Personal/nibble/nibble/Extension+String.swift"; sourceTree = "<absolute>"; };
+		AC574F84218392600082B143 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		AC574F862183973B0082B143 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		AC574F8A2183ACBC0082B143 /* OrganizationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationCell.swift; sourceTree = "<group>"; };
+		AC574F8E2183BB750082B143 /* Extension+Stripe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Stripe.swift"; sourceTree = "<group>"; };
+		AC574F902183BF910082B143 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ACBA927F2182E37C00C656BF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		ACBA92812182E3C100C656BF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		ACBA92832182E41000C656BF /* StripeClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeClient.swift; sourceTree = "<group>"; };
+		ACBA92852182E42C00C656BF /* HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
+		ACBA92892182E45700C656BF /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		ACBA928A2182E45800C656BF /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		ACBA928B2182E45900C656BF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		ACBA928C2182E45A00C656BF /* Organization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		CC85626252D82966C85858DC /* Pods-nibbleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nibbleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-nibbleTests/Pods-nibbleTests.release.xcconfig"; sourceTree = "<group>"; };
+		E7526DE40C0412EDD9CF60E2 /* Pods-nibbleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nibbleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nibbleTests/Pods-nibbleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F1658C17975CB78475840B26 /* Pods_nibble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nibble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3DCFA03E6654C01B41DC8B3 /* Pods-nibble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nibble.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nibble/Pods-nibble.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C316E4A36647FC5D0449F413 /* Pods_nibble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				502D4066953F33FF446D0981 /* Pods_nibbleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +125,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				006C1D689B31B2D613DD2722 /* Pods_nibbleUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F6FC370A2474439EDD8F006 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1658C17975CB78475840B26 /* Pods_nibble.framework */,
+				0A8A561E2390E37664340455 /* Pods_nibbleTests.framework */,
+				89068F4F6CBAAA97DD7E3D4E /* Pods_nibbleUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AC0F24672182E07E00637AD2 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +149,8 @@
 				AC0F24872182E07F00637AD2 /* nibbleTests */,
 				AC0F24922182E07F00637AD2 /* nibbleUITests */,
 				AC0F24712182E07E00637AD2 /* Products */,
+				DDDFBE0EB66F3411D05382EA /* Pods */,
+				8F6FC370A2474439EDD8F006 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +167,19 @@
 		AC0F24722182E07E00637AD2 /* nibble */ = {
 			isa = PBXGroup;
 			children = (
-				AC0F24732182E07E00637AD2 /* AppDelegate.swift */,
-				AC0F24752182E07E00637AD2 /* ViewController.swift */,
+				AC574F7A21837ED60082B143 /* nibble.entitlements */,
+				ACBA92872182E43100C656BF /* Helpers */,
+				ACBA92922182E46900C656BF /* Models */,
+				AC574F68218375D70082B143 /* Authentication */,
+				AC574F77218379BB0082B143 /* Views */,
+				AC574F76218379AF0082B143 /* Cells */,
+				AC574F6F218377DA0082B143 /* Data+Network */,
+				AC574F8121838BB10082B143 /* Extensions */,
 				AC0F24772182E07E00637AD2 /* Main.storyboard */,
 				AC0F247A2182E07F00637AD2 /* Assets.xcassets */,
 				AC0F247C2182E07F00637AD2 /* LaunchScreen.storyboard */,
 				AC0F247F2182E07F00637AD2 /* Info.plist */,
+				AC574F902183BF910082B143 /* GoogleService-Info.plist */,
 			);
 			path = nibble;
 			sourceTree = "<group>";
@@ -125,6 +202,90 @@
 			path = nibbleUITests;
 			sourceTree = "<group>";
 		};
+		AC574F68218375D70082B143 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				ACBA927F2182E37C00C656BF /* LoginViewController.swift */,
+				AC574F66218375D20082B143 /* RegistrationViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		AC574F6F218377DA0082B143 /* Data+Network */ = {
+			isa = PBXGroup;
+			children = (
+				ACBA92832182E41000C656BF /* StripeClient.swift */,
+				AC574F6D218377770082B143 /* Data.swift */,
+				AC574F7821837A360082B143 /* API.swift */,
+			);
+			path = "Data+Network";
+			sourceTree = "<group>";
+		};
+		AC574F76218379AF0082B143 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AC574F74218379A80082B143 /* EventCell.swift */,
+				AC574F8A2183ACBC0082B143 /* OrganizationCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		AC574F77218379BB0082B143 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AC0F24752182E07E00637AD2 /* ViewController.swift */,
+				AC574F6B2183765D0082B143 /* HomeViewController.swift */,
+				AC574F862183973B0082B143 /* OrderViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AC574F8121838BB10082B143 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AC574F7F21838BA50082B143 /* Extension+String.swift */,
+				AC574F8E2183BB750082B143 /* Extension+Stripe.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		ACBA92872182E43100C656BF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AC0F24732182E07E00637AD2 /* AppDelegate.swift */,
+				ACBA92852182E42C00C656BF /* HUD.swift */,
+				ACBA92812182E3C100C656BF /* Constants.swift */,
+				AC574F7D218387460082B143 /* AuthError.swift */,
+				AC574F84218392600082B143 /* Colors.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		ACBA92922182E46900C656BF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ACBA92892182E45700C656BF /* Order.swift */,
+				ACBA928C2182E45A00C656BF /* Organization.swift */,
+				ACBA928A2182E45800C656BF /* Restaurant.swift */,
+				ACBA928B2182E45900C656BF /* User.swift */,
+				AC574F7B2183818A0082B143 /* Event.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DDDFBE0EB66F3411D05382EA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F3DCFA03E6654C01B41DC8B3 /* Pods-nibble.debug.xcconfig */,
+				2F0E06B535660AA86139AB44 /* Pods-nibble.release.xcconfig */,
+				E7526DE40C0412EDD9CF60E2 /* Pods-nibbleTests.debug.xcconfig */,
+				CC85626252D82966C85858DC /* Pods-nibbleTests.release.xcconfig */,
+				2B38E1E9791C0FAE748D9FD4 /* Pods-nibbleUITests.debug.xcconfig */,
+				248ECC77EC3C6FF19F01D05F /* Pods-nibbleUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +293,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC0F24982182E07F00637AD2 /* Build configuration list for PBXNativeTarget "nibble" */;
 			buildPhases = (
+				587B9B1EDAB194AF203E9AE0 /* [CP] Check Pods Manifest.lock */,
 				AC0F246C2182E07E00637AD2 /* Sources */,
 				AC0F246D2182E07E00637AD2 /* Frameworks */,
 				AC0F246E2182E07E00637AD2 /* Resources */,
+				0B05017952B3DA8AE60B1759 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +312,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC0F249B2182E07F00637AD2 /* Build configuration list for PBXNativeTarget "nibbleTests" */;
 			buildPhases = (
+				3E17DB1EF6E2C08527DE4051 /* [CP] Check Pods Manifest.lock */,
 				AC0F24802182E07F00637AD2 /* Sources */,
 				AC0F24812182E07F00637AD2 /* Frameworks */,
 				AC0F24822182E07F00637AD2 /* Resources */,
@@ -167,6 +331,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC0F249E2182E07F00637AD2 /* Build configuration list for PBXNativeTarget "nibbleUITests" */;
 			buildPhases = (
+				453CB2818124D29C1346AF5A /* [CP] Check Pods Manifest.lock */,
 				AC0F248B2182E07F00637AD2 /* Sources */,
 				AC0F248C2182E07F00637AD2 /* Frameworks */,
 				AC0F248D2182E07F00637AD2 /* Resources */,
@@ -193,6 +358,11 @@
 				TargetAttributes = {
 					AC0F246F2182E07E00637AD2 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
+						};
 					};
 					AC0F24832182E07F00637AD2 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -232,6 +402,7 @@
 				AC0F247E2182E07F00637AD2 /* LaunchScreen.storyboard in Resources */,
 				AC0F247B2182E07F00637AD2 /* Assets.xcassets in Resources */,
 				AC0F24792182E07E00637AD2 /* Main.storyboard in Resources */,
+				AC574F912183BF910082B143 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,13 +422,154 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0B05017952B3DA8AE60B1759 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-nibble/Pods-nibble-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionTransitioning/MotionTransitioning.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionAnimator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionInterchange.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionTransitioning.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nibble/Pods-nibble-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E17DB1EF6E2C08527DE4051 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-nibbleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		453CB2818124D29C1346AF5A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-nibbleUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		587B9B1EDAB194AF203E9AE0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-nibble-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AC0F246C2182E07E00637AD2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACBA92802182E37C00C656BF /* LoginViewController.swift in Sources */,
 				AC0F24762182E07E00637AD2 /* ViewController.swift in Sources */,
+				ACBA92912182E45A00C656BF /* Organization.swift in Sources */,
+				AC574F67218375D20082B143 /* RegistrationViewController.swift in Sources */,
+				AC574F7921837A360082B143 /* API.swift in Sources */,
+				ACBA928E2182E45A00C656BF /* Order.swift in Sources */,
+				AC574F8B2183ACBC0082B143 /* OrganizationCell.swift in Sources */,
 				AC0F24742182E07E00637AD2 /* AppDelegate.swift in Sources */,
+				AC574F75218379A80082B143 /* EventCell.swift in Sources */,
+				AC574F7C2183818A0082B143 /* Event.swift in Sources */,
+				ACBA92862182E42C00C656BF /* HUD.swift in Sources */,
+				ACBA92842182E41000C656BF /* StripeClient.swift in Sources */,
+				AC574F8F2183BB750082B143 /* Extension+Stripe.swift in Sources */,
+				AC574F872183973B0082B143 /* OrderViewController.swift in Sources */,
+				AC574F6E218377770082B143 /* Data.swift in Sources */,
+				AC574F85218392600082B143 /* Colors.swift in Sources */,
+				ACBA92822182E3C100C656BF /* Constants.swift in Sources */,
+				ACBA92902182E45A00C656BF /* User.swift in Sources */,
+				AC574F8021838BA50082B143 /* Extension+String.swift in Sources */,
+				ACBA928F2182E45A00C656BF /* Restaurant.swift in Sources */,
+				AC574F6C2183765D0082B143 /* HomeViewController.swift in Sources */,
+				AC574F7E218387460082B143 /* AuthError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,16 +740,19 @@
 		};
 		AC0F24992182E07F00637AD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3DCFA03E6654C01B41DC8B3 /* Pods-nibble.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = nibble/nibble.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DB94ZEYT99;
 				INFOPLIST_FILE = nibble/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sbilling.nibble;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sbilling.projectNibble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -446,16 +761,19 @@
 		};
 		AC0F249A2182E07F00637AD2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F0E06B535660AA86139AB44 /* Pods-nibble.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = nibble/nibble.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DB94ZEYT99;
 				INFOPLIST_FILE = nibble/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sbilling.nibble;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sbilling.projectNibble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -464,6 +782,7 @@
 		};
 		AC0F249C2182E07F00637AD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7526DE40C0412EDD9CF60E2 /* Pods-nibbleTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -485,6 +804,7 @@
 		};
 		AC0F249D2182E07F00637AD2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC85626252D82966C85858DC /* Pods-nibbleTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -506,6 +826,7 @@
 		};
 		AC0F249F2182E07F00637AD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B38E1E9791C0FAE748D9FD4 /* Pods-nibbleUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -526,6 +847,7 @@
 		};
 		AC0F24A02182E07F00637AD2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 248ECC77EC3C6FF19F01D05F /* Pods-nibbleUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

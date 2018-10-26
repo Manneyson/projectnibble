@@ -7,7 +7,25 @@
 		<key>nibble.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>45</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>AC0F246F2182E07E00637AD2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AC0F24832182E07F00637AD2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AC0F248E2182E07F00637AD2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
