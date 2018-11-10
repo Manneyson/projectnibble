@@ -31,11 +31,10 @@ final class StripeClient {
         return url
     }()
     
-    func completeCharge(with token: STPToken, amount: Double, donation: Double, restaurantAmount: Double, org_stripe: String, rest_stripe: String, completion: @escaping (Result) -> Void) {
-        // 1
+    func completeCharge(with token: STPToken, amount: Int, org_stripe: String, rest_stripe: String, completion: @escaping (Result) -> Void) {
+        
         let url = baseURL.appendingPathComponent("/charge")
         
-        // 2
         let params: [String: Any] = [
             "token": token.tokenId,
             "amount": amount,
@@ -45,12 +44,10 @@ final class StripeClient {
             "userID": UIDevice.current.identifierForVendor!.uuidString,
             "org_stripe": org_stripe,
             "rest_stripe": rest_stripe,
-            "donation_amount": Int(donation),
-            "restaurant_amount": Int(restaurantAmount),
             "transfer": String.random(),
         ]
         print(params)
-        // 3
+
         Alamofire.request(url, method: .post, parameters: params)
             .validate(statusCode: 200..<300)
             .responseString { response in

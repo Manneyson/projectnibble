@@ -24,6 +24,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return tabBar
     }()
     
+    let profileButton: UIButton = {
+        let profileButton = UIButton()
+        profileButton.translatesAutoresizingMaskIntoConstraints = false
+        profileButton.setImage(UIImage(named: "profile"), for: .normal)
+        return profileButton
+    }()
+    
     let titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -37,32 +44,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }()
     
     let eventsTable: UITableView = {
-        let offeringsTable = UITableView()
-        offeringsTable.translatesAutoresizingMaskIntoConstraints = false
-        return offeringsTable
+        let eventsTable = UITableView()
+        eventsTable.translatesAutoresizingMaskIntoConstraints = false
+        return eventsTable
     }()
     
     let organizationsTable: UITableView = {
         let organizationsTable = UITableView()
         organizationsTable.translatesAutoresizingMaskIntoConstraints = false
+        organizationsTable.allowsSelection = false
         return organizationsTable
     }()
-    
-//    let searchButton: MDCFloatingButton = {
-//        let searchButton = MDCFloatingButton()
-//        searchButton.translatesAutoresizingMaskIntoConstraints = false
-//        searchButton.setImage(UIImage(named: "search"), for: .normal)
-//        searchButton.tintColor = .white
-//        let searchScheme = MDCButtonScheme()
-//        searchScheme.minimumHeight = 30
-//        let colors = MDCSemanticColorScheme()
-//        colors.primaryColor = Colors.primaryGreen
-//        colors.backgroundColor = Colors.primaryGreen
-//        colors.secondaryColor = Colors.primaryGreen
-//        searchScheme.colorScheme = colors
-//        MDCFloatingActionButtonThemer.applyScheme(searchScheme, to: searchButton)
-//        return searchButton
-//    }()
     
     //instance variables
     var selectedEvent: Event?
@@ -78,17 +70,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         eventsTable.delegate = self
         eventsTable.dataSource = self
         eventsTable.backgroundColor = .white
-        eventsTable.estimatedRowHeight = 400
-        eventsTable.separatorStyle = .none
+        eventsTable.estimatedRowHeight = 150
+        eventsTable.rowHeight = UITableViewAutomaticDimension
+        eventsTable.separatorStyle = .singleLine
         eventsTable.allowsSelection = true
         
         organizationsTable.register(OrganizationCell.self, forCellReuseIdentifier: "org")
         organizationsTable.delegate = self
         organizationsTable.dataSource = self
         organizationsTable.backgroundColor = .white
-        organizationsTable.estimatedRowHeight = 400
+        organizationsTable.estimatedRowHeight = 200
+        organizationsTable.rowHeight = UITableViewAutomaticDimension
         organizationsTable.separatorStyle = .none
-        organizationsTable.allowsSelection = true
+        organizationsTable.allowsSelection = false
         organizationsTable.isHidden = true
         
         tabBar.delegate = self
@@ -111,7 +105,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @objc func profilePressed(sender: UIButton?) {
-        print("profile!")
+        let options = UIAlertController(title: "Profile", message: "", preferredStyle: .actionSheet)
+        
+        options.addAction(UIAlertAction(title: "Logout", style: .destructive, handler: { (alert) in
+            do {
+                try Auth.auth().signOut()
+                self.dismiss(animated: true, completion: nil)
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
+        }))
+        
+        options.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert) in
+            options.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(options, animated: true)
     }
     
     @objc func searchPressed(sender: Any?) {
@@ -140,10 +149,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    // This function determines the height of a tableview cell. You may want to adjust it!
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250
-    }
+//    // This function determines the height of a tableview cell. You may want to adjust it!
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 130
+//    }
     
     // This function is called by the reload function. Each time reloadData() is called
     // this function will iterate through the number of tableview cells it knows are present.
@@ -155,6 +164,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = tableView.dequeueReusableCell(withIdentifier: "event") as! EventCell
     
             cell.title.text = Data.sharedInstance.events[indexPath.row].title
+            cell.date.text = Data.sharedInstance.events[indexPath.row].date
+            cell.venue.text = Data.sharedInstance.restaurants.first { $0.id == Data.sharedInstance.events[indexPath.row].restaurant }?.name
+            
+            let url = URL(string: Data.sharedInstance.restaurants.first
+                    { $0.id == Data.sharedInstance.events[indexPath.row].restaurant }?.icon ?? "nil")
+            cell.icon.sd_setImage(with: url, placeholderImage: UIImage(named: ""))
     
             return cell
         } else {
@@ -219,12 +234,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tabBar.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
         tabBar.sizeToFit()
         
+        profileButton.addTarget(self, action: #selector(profilePressed(sender:)), for: .touchUpInside)
+        
         
         view.addSubview(titleLabel)
         view.addSubview(tabBar)
+        view .addSubview(profileButton)
         view.addSubview(eventsTable)
         view.addSubview(organizationsTable)
-        //view.addSubview(searchButton)
         
         constraints.append(NSLayoutConstraint(item: titleLabel,
                                               attribute: .top,
@@ -247,6 +264,39 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                               attribute: .trailing,
                                               multiplier: 1,
                                               constant: 0))
+        
+        constraints.append(NSLayoutConstraint(item: profileButton,
+                                              attribute: .top,
+                                              relatedBy: .equal,
+                                              toItem: marginGuide,
+                                              attribute: .top,
+                                              multiplier: 1,
+                                              constant: 20))
+        constraints.append(NSLayoutConstraint(item: profileButton,
+                                              attribute: .bottom,
+                                              relatedBy: .equal,
+                                              toItem: titleLabel,
+                                              attribute: .bottom,
+                                              multiplier: 1,
+                                              constant: 0))
+        
+        constraints.append(NSLayoutConstraint(item: profileButton,
+                                              attribute: .leading,
+                                              relatedBy: .equal,
+                                              toItem: marginGuide,
+                                              attribute: .trailing,
+                                              multiplier: 1,
+                                              constant: -60))
+        constraints.append(NSLayoutConstraint(item: profileButton,
+                                              attribute: .trailing,
+                                              relatedBy: .equal,
+                                              toItem: marginGuide,
+                                              attribute: .trailing,
+                                              multiplier: 1,
+                                              constant: -10))
+        
+        
+        
         constraints.append(NSLayoutConstraint(item: tabBar,
                                               attribute: .top,
                                               relatedBy: .equal,
@@ -339,35 +389,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                               attribute: .bottom,
                                               multiplier: 1,
                                               constant: 0))
-        
-//        constraints.append(NSLayoutConstraint(item: searchButton,
-//                                              attribute: .leading,
-//                                              relatedBy: .equal,
-//                                              toItem: view,
-//                                              attribute: .trailing,
-//                                              multiplier: 1,
-//                                              constant: -75))
-//        constraints.append(NSLayoutConstraint(item: searchButton,
-//                                              attribute: .trailing,
-//                                              relatedBy: .equal,
-//                                              toItem: view,
-//                                              attribute: .trailing,
-//                                              multiplier: 1,
-//                                              constant: -20))
-//        constraints.append(NSLayoutConstraint(item: searchButton,
-//                                              attribute: .bottom,
-//                                              relatedBy: .equal,
-//                                              toItem: marginGuide,
-//                                              attribute: .bottom,
-//                                              multiplier: 1,
-//                                              constant: -20))
-//        constraints.append(NSLayoutConstraint(item: searchButton,
-//                                              attribute: .top,
-//                                              relatedBy: .equal,
-//                                              toItem: marginGuide,
-//                                              attribute: .bottom,
-//                                              multiplier: 1,
-//                                              constant: -75))
         
         
         NSLayoutConstraint.activate(constraints)

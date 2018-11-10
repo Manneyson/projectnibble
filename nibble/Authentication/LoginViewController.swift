@@ -12,15 +12,6 @@ import MaterialComponents.MaterialButtons
 
 class LoginViewController: UIViewController {
     
-    // Close button
-    let close: UIButton = {
-        let close = UIButton()
-        close.translatesAutoresizingMaskIntoConstraints = false
-        close.addTarget(self, action: #selector(closePressed(sender:)), for: .touchUpInside)
-        close.setBackgroundImage(UIImage(named: "close"), for: .normal)
-        return close
-    }()
-    
     // Page title
     let titleLabel: UILabel = {
         let titleLabel = UILabel()
@@ -148,47 +139,18 @@ class LoginViewController: UIViewController {
         
         var constraints = [NSLayoutConstraint]()
         
-        view.addSubview(close)
         view.addSubview(titleLabel)
         view.addSubview(emailField)
         view.addSubview(passwordField)
         view.addSubview(loginButton)
         view.addSubview(signupButton)
-        
-        constraints.append(NSLayoutConstraint(item: close,
-                                              attribute: .top,
-                                              relatedBy: .equal,
-                                              toItem: marginGuide,
-                                              attribute: .top,
-                                              multiplier: 1,
-                                              constant: 20))
-        constraints.append(NSLayoutConstraint(item: close,
-                                              attribute: .leading,
-                                              relatedBy: .equal,
-                                              toItem: view,
-                                              attribute: .leading,
-                                              multiplier: 1,
-                                              constant: 20))
-        constraints.append(NSLayoutConstraint(item: close,
-                                              attribute: .height,
-                                              relatedBy: .equal,
-                                              toItem: view,
-                                              attribute: .height,
-                                              multiplier: 0,
-                                              constant: 40))
-        constraints.append(NSLayoutConstraint(item: close,
-                                              attribute: .width,
-                                              relatedBy: .equal,
-                                              toItem: view,
-                                              attribute: .width,
-                                              multiplier: 0,
-                                              constant: 40))
+    
         
         constraints.append(NSLayoutConstraint(item: titleLabel,
                                               attribute: .top,
                                               relatedBy: .equal,
-                                              toItem: close,
-                                              attribute: .bottom,
+                                              toItem: marginGuide,
+                                              attribute: .top,
                                               multiplier: 1,
                                               constant: 30))
         constraints.append(NSLayoutConstraint(item: titleLabel,

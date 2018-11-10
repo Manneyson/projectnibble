@@ -19,6 +19,7 @@ target 'nibble' do
   pod 'Alamofire'
   pod 'CodableFirebase'
   pod 'SDWebImage', '~> 4.0'
+  pod 'SACountingLabel'
 
   target 'nibbleTests' do
     inherit! :search_paths

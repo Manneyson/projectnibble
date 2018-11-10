@@ -623,6 +623,7 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.6.1)
+  - SACountingLabel (0.1.1)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
@@ -640,6 +641,7 @@ DEPENDENCIES:
   - JGProgressHUD
   - MaterialComponents
   - MaterialComponents/Buttons
+  - SACountingLabel
   - SDWebImage (~> 4.0)
   - Stripe
 
@@ -677,6 +679,7 @@ SPEC REPOS:
     - MotionTransitioning
     - nanopb
     - Protobuf
+    - SACountingLabel
     - SDWebImage
     - Stripe
 
@@ -713,9 +716,10 @@ SPEC CHECKSUMS:
   MotionTransitioning: 23d25edc2f4606efb922403cbac6d81af37aa33a
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  SACountingLabel: 6b0c2a177b77e65ea63772e50f4d4285bb6d5a71
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   Stripe: 2c69e216061d54d9c538204bb4f58bd597ddfc5b
 
-PODFILE CHECKSUM: 422af7df47f126ff3d07e3e12f0584340e07e8ca
+PODFILE CHECKSUM: b6875a311536cb1c19fee0749ce53222d68391eb
 
 COCOAPODS: 1.5.3

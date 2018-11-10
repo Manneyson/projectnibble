@@ -38,6 +38,7 @@ class OrganizationCell: UITableViewCell {
         info.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 10).isActive = true
         info.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor, constant: 0).isActive = true
         info.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor, constant: -60).isActive = true
+        info.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor, constant: 0).isActive = true
         info.textColor = UIColor.black
         info.font = UIFont(name: "Avenir", size: 14)
         info.numberOfLines = 0

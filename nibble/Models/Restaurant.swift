@@ -9,12 +9,14 @@
 import Foundation
 
 struct Restaurant: Codable, Equatable {
+    let id: String
     let name: String
     let pledge: Double
     let stripe: String
     let icon: String
     
-    init(name: String, pledge: Double, icon: String, stripe: String) {
+    init(id: String, name: String, pledge: Double, icon: String, stripe: String) {
+        self.id = id
         self.name = name
         self.pledge = pledge
         self.stripe = stripe

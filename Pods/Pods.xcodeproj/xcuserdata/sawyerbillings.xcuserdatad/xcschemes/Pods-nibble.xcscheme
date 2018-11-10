@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0940"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8DEED2E58B6ABDF42127A09077B9E5EA"
+               BlueprintIdentifier = "92869A9504EFEF2118374672D3B64EB7"
                BuildableName = "Pods_nibble.framework"
                BlueprintName = "Pods-nibble"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8DEED2E58B6ABDF42127A09077B9E5EA"
+            BlueprintIdentifier = "92869A9504EFEF2118374672D3B64EB7"
             BuildableName = "Pods_nibble.framework"
             BlueprintName = "Pods-nibble"
             ReferencedContainer = "container:Pods.xcodeproj">

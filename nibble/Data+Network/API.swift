@@ -18,7 +18,7 @@ class API {
     private init() {}
     
     func loadEvents(eventArray: @escaping ([Event]) -> Void) {
-        
+        Data.sharedInstance.events = []
         db.collection("events").addSnapshotListener { documentSnapshot, error in
             guard let attempt = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -37,7 +37,7 @@ class API {
     }
     
     func loadRestaurants(eventArray: @escaping ([Restaurant]) -> Void) {
-        
+        Data.sharedInstance.restaurants = []
         db.collection("restaurants").addSnapshotListener { documentSnapshot, error in
             guard let attempt = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -56,7 +56,7 @@ class API {
     }
     
     func loadOrganizations(eventArray: @escaping ([Organization]) -> Void) {
-        
+        Data.sharedInstance.organizations = []
         db.collection("organizations").addSnapshotListener { documentSnapshot, error in
             guard let attempt = documentSnapshot else {
                 print("Error fetching document: \(error!)")

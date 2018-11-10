@@ -11,8 +11,14 @@ import Foundation
 struct Event: Codable, Equatable {
     
     let title: String
-        
-    init(title: String, restaurant: String) {
+    let restaurant: String
+    let organization: String
+    let date: String
+    
+    init(title: String, restaurant: String, organization: String, date: String) {
         self.title = title
+        self.restaurant = restaurant
+        self.organization = organization
+        self.date = date
     }
 }

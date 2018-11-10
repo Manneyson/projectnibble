@@ -16,6 +16,8 @@ class OrderViewController: UIViewController {
     var organization: Organization?
     var restaurant: Restaurant?
     var total = 0
+    var donationAmount = 0
+    var restaurantAmount = 0
     
     // Close button
     let close: UIButton = {
@@ -40,6 +42,34 @@ class OrderViewController: UIViewController {
         return priceLabel
     }()
     
+    let proceeds: UILabel = {
+        let proceeds = UILabel()
+        proceeds.translatesAutoresizingMaskIntoConstraints = false
+        proceeds.text = "Proceeds to benefit:"
+        proceeds.font = UIFont(name: "Avenir-Heavy", size: 16)
+        proceeds.textColor = .black
+        proceeds.backgroundColor = .white
+        proceeds.textAlignment = .center
+        proceeds.numberOfLines = 0
+        return proceeds
+    }()
+    
+    let orgImage: UIImageView = {
+        let orgImage = UIImageView()
+        orgImage.translatesAutoresizingMaskIntoConstraints = false
+        orgImage.contentMode = .scaleAspectFit
+        return orgImage
+    }()
+    
+    let orgSwitch: UIButton = {
+        let orgSwitch = UIButton()
+        orgSwitch.translatesAutoresizingMaskIntoConstraints = false
+        orgSwitch.setTitle("click to change", for: .normal)
+        orgSwitch.setTitleColor(.black, for: .normal)
+        orgSwitch.titleLabel?.font = UIFont(name: "Avenir", size: 14)
+        return orgSwitch
+    }()
+    
     // Checkout
     let checkout: MDCRaisedButton = {
         let checkout = MDCRaisedButton()
@@ -56,22 +86,18 @@ class OrderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        restaurant = Data.sharedInstance.restaurants.first { $0.id == event?.restaurant }
+        organization = Data.sharedInstance.organizations.first { $0.id == event?.organization }
+        
+        orgSwitch.addTarget(self, action: #selector(promptForOrgChange(sender:)), for: .touchUpInside)
+        
         layoutView()
-        
-        //restaurant assignment
-        restaurant = Data.sharedInstance.restaurants.filter {
-            $0.name == event?.title
-        }.first
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func getOrderTotal(price: String) -> Int {
-        return Int(price.replacingOccurrences(of: ".", with: ""))!
+        let newPrice = price.replacingOccurrences(of: "$", with: "")
+        return Int(newPrice.replacingOccurrences(of: ".", with: ""))!
     }
     
     @objc func checkoutPressed(sender: MDCRaisedButton) {
@@ -79,10 +105,7 @@ class OrderViewController: UIViewController {
             let merchantIdentifier = Constants.merchantID
             let paymentRequest = Stripe.paymentRequest(withMerchantIdentifier: merchantIdentifier, country: "US", currency: "USD")
             
-            // Configure the line items on the payment request
-            let cost = 100
-            let tip = 100
-            let price = NSDecimalNumber(value: cost + tip)
+            let price = NSDecimalNumber(value: getOrderTotal(price: priceLabel.text!) / 100)
             paymentRequest.paymentSummaryItems = [
                 PKPaymentSummaryItem(label: "Order Total", amount: price),
             ]
@@ -116,6 +139,21 @@ class OrderViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @objc func promptForOrgChange(sender: UIButton) {
+        let orgSwitch = UIAlertController(title: "Switch Organization", message: "Choose an organization to support!", preferredStyle: .actionSheet)
+        
+        for org in Data.sharedInstance.organizations {
+            orgSwitch.addAction(UIAlertAction(title: org.name, style: .default, handler: { (alert) in
+                
+                //Update the organization and the org image after new selection
+                self.organization = org
+                let url = URL(string: org.icon)
+                self.orgImage.sd_setImage(with: url, placeholderImage: UIImage(named: ""))
+            }))
+        }
+        
+        present(orgSwitch, animated: true)
+    }
     
     // This function gets reused throughout the app in different forms.
     // On each screen we build out elements and lay them out programatically based
@@ -129,8 +167,15 @@ class OrderViewController: UIViewController {
         
         var constraints = [NSLayoutConstraint]()
         
+        //var assignments if necessary
+        let url = URL(string: organization?.icon ?? "")
+        orgImage.sd_setImage(with: url, placeholderImage: UIImage(named: ""))
+        
         view.addSubview(close)
         view.addSubview(priceLabel)
+        view.addSubview(proceeds)
+        view.addSubview(orgImage)
+        view.addSubview(orgSwitch)
         view.addSubview(checkout)
         
         
@@ -171,7 +216,7 @@ class OrderViewController: UIViewController {
                                               toItem: marginGuide,
                                               attribute: .top,
                                               multiplier: 1,
-                                              constant: 150))
+                                              constant: 100))
         constraints.append(NSLayoutConstraint(item: priceLabel,
                                               attribute: .leading,
                                               relatedBy: .equal,
@@ -186,6 +231,74 @@ class OrderViewController: UIViewController {
                                               attribute: .trailing,
                                               multiplier: 1,
                                               constant: -30))
+        
+        constraints.append(NSLayoutConstraint(item: proceeds,
+                                              attribute: .top,
+                                              relatedBy: .equal,
+                                              toItem: priceLabel,
+                                              attribute: .bottom,
+                                              multiplier: 1,
+                                              constant: 20))
+        constraints.append(NSLayoutConstraint(item: proceeds,
+                                              attribute: .leading,
+                                              relatedBy: .equal,
+                                              toItem: view,
+                                              attribute: .leading,
+                                              multiplier: 1,
+                                              constant: 30))
+        constraints.append(NSLayoutConstraint(item: proceeds,
+                                              attribute: .trailing,
+                                              relatedBy: .equal,
+                                              toItem: marginGuide,
+                                              attribute: .trailing,
+                                              multiplier: 1,
+                                              constant: -30))
+        
+        constraints.append(NSLayoutConstraint(item: orgImage,
+                                              attribute: .top,
+                                              relatedBy: .equal,
+                                              toItem: proceeds,
+                                              attribute: .bottom,
+                                              multiplier: 1,
+                                              constant: 20))
+        constraints.append(NSLayoutConstraint(item: orgImage,
+                                              attribute: .centerX,
+                                              relatedBy: .equal,
+                                              toItem: view,
+                                              attribute: .centerX,
+                                              multiplier: 1,
+                                              constant: 0))
+        
+        //hacky way to specify width, lol. Multiply by 0 and add the constant. idiot!
+        constraints.append(NSLayoutConstraint(item: orgImage,
+                                              attribute: .width,
+                                              relatedBy: .equal,
+                                              toItem: view,
+                                              attribute: .width,
+                                              multiplier: 0,
+                                              constant: 50))
+        constraints.append(NSLayoutConstraint(item: orgImage,
+                                              attribute: .height,
+                                              relatedBy: .equal,
+                                              toItem: view,
+                                              attribute: .height,
+                                              multiplier: 0,
+                                              constant: 50))
+        
+        constraints.append(NSLayoutConstraint(item: orgSwitch,
+                                              attribute: .top,
+                                              relatedBy: .equal,
+                                              toItem: orgImage,
+                                              attribute: .bottom,
+                                              multiplier: 1,
+                                              constant: 10))
+        constraints.append(NSLayoutConstraint(item: orgSwitch,
+                                              attribute: .centerX,
+                                              relatedBy: .equal,
+                                              toItem: view,
+                                              attribute: .centerX,
+                                              multiplier: 1,
+                                              constant: 0))
         
         constraints.append(NSLayoutConstraint(item: checkout,
                                               attribute: .bottom,

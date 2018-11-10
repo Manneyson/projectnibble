@@ -16,6 +16,7 @@
 		AC0F247E2182E07F00637AD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0F247C2182E07F00637AD2 /* LaunchScreen.storyboard */; };
 		AC0F24892182E07F00637AD2 /* nibbleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F24882182E07F00637AD2 /* nibbleTests.swift */; };
 		AC0F24942182E07F00637AD2 /* nibbleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F24932182E07F00637AD2 /* nibbleUITests.swift */; };
+		AC350133219657540011A275 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC350132219657540011A275 /* GoogleService-Info.plist */; };
 		AC574F67218375D20082B143 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC574F66218375D20082B143 /* RegistrationViewController.swift */; };
 		AC574F6C2183765D0082B143 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC574F6B2183765D0082B143 /* HomeViewController.swift */; };
 		AC574F6E218377770082B143 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC574F6D218377770082B143 /* Data.swift */; };
@@ -28,7 +29,6 @@
 		AC574F872183973B0082B143 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC574F862183973B0082B143 /* OrderViewController.swift */; };
 		AC574F8B2183ACBC0082B143 /* OrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC574F8A2183ACBC0082B143 /* OrganizationCell.swift */; };
 		AC574F8F2183BB750082B143 /* Extension+Stripe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC574F8E2183BB750082B143 /* Extension+Stripe.swift */; };
-		AC574F912183BF910082B143 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC574F902183BF910082B143 /* GoogleService-Info.plist */; };
 		ACBA92802182E37C00C656BF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA927F2182E37C00C656BF /* LoginViewController.swift */; };
 		ACBA92822182E3C100C656BF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA92812182E3C100C656BF /* Constants.swift */; };
 		ACBA92842182E41000C656BF /* StripeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA92832182E41000C656BF /* StripeClient.swift */; };
@@ -76,6 +76,7 @@
 		AC0F248F2182E07F00637AD2 /* nibbleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nibbleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0F24932182E07F00637AD2 /* nibbleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nibbleUITests.swift; sourceTree = "<group>"; };
 		AC0F24952182E07F00637AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC350132219657540011A275 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC574F66218375D20082B143 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		AC574F6B2183765D0082B143 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = nibble/Views/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
 		AC574F6D218377770082B143 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -89,7 +90,6 @@
 		AC574F862183973B0082B143 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		AC574F8A2183ACBC0082B143 /* OrganizationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationCell.swift; sourceTree = "<group>"; };
 		AC574F8E2183BB750082B143 /* Extension+Stripe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Stripe.swift"; sourceTree = "<group>"; };
-		AC574F902183BF910082B143 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ACBA927F2182E37C00C656BF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ACBA92812182E3C100C656BF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ACBA92832182E41000C656BF /* StripeClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeClient.swift; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 				AC0F247A2182E07F00637AD2 /* Assets.xcassets */,
 				AC0F247C2182E07F00637AD2 /* LaunchScreen.storyboard */,
 				AC0F247F2182E07F00637AD2 /* Info.plist */,
-				AC574F902183BF910082B143 /* GoogleService-Info.plist */,
+				AC350132219657540011A275 /* GoogleService-Info.plist */,
 			);
 			path = nibble;
 			sourceTree = "<group>";
@@ -402,7 +402,7 @@
 				AC0F247E2182E07F00637AD2 /* LaunchScreen.storyboard in Resources */,
 				AC0F247B2182E07F00637AD2 /* Assets.xcassets in Resources */,
 				AC0F24792182E07E00637AD2 /* Main.storyboard in Resources */,
-				AC574F912183BF910082B143 /* GoogleService-Info.plist in Resources */,
+				AC350133219657540011A275 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +445,7 @@
 				"${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework",
 				"${BUILT_PRODUCTS_DIR}/MotionTransitioning/MotionTransitioning.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SACountingLabel/SACountingLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
@@ -472,6 +473,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionInterchange.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionTransitioning.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SACountingLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
@@ -747,12 +749,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DB94ZEYT99;
 				INFOPLIST_FILE = nibble/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sbilling.projectNibble;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sbilling.Nibble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -768,12 +770,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DB94ZEYT99;
 				INFOPLIST_FILE = nibble/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sbilling.projectNibble;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sbilling.Nibble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

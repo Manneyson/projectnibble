@@ -9,13 +9,15 @@
 import Foundation
 
 struct Organization: Codable, Equatable {
+    let id: String
     let name: String
     let info: String
     let icon: String
     let stripe: String
     let url: String
     
-    init(name: String, info: String, icon: String, stripe: String, url: String) {
+    init(id: String, name: String, info: String, icon: String, stripe: String, url: String) {
+        self.id = id
         self.name = name
         self.info = info
         self.icon = icon
